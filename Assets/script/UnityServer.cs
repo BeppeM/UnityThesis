@@ -86,7 +86,7 @@ public class UnityServer : MonoBehaviour
             // Set the response status code and content
             response.StatusCode = (int)HttpStatusCode.OK; // Set status code to 200 OK
             response.ContentType = "text/plain";
-            string responseString = "Received data: " + requestBody;
+            string responseString = "Ciaooaoaoaoao";
 
             if (requestBody == "\"move\"")
             {
