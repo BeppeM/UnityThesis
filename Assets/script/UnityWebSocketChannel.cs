@@ -23,7 +23,7 @@ public class UnityWebSocketChannel : MonoBehaviour
     private void OnOpen(object sender, System.EventArgs e)
     {
         Debug.Log("WebSocket connection opened.");
-        ws.Send("pippo");
+        ws.Send("Connection established");
     }
 
     private void OnMessage(object sender, MessageEventArgs e)
