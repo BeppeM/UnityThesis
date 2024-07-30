@@ -7,6 +7,7 @@ public class ReachDestination : MonoBehaviour
 {
 
     public GameObject destination;
+    public GameObject destWhite;
     NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -21,7 +22,10 @@ public class ReachDestination : MonoBehaviour
         
     }
 
-    public void reachDestination(){
-        agent.SetDestination(destination.transform.position);
+    public void reachDestination(string dest){
+        if(dest == "blue")
+            agent.SetDestination(destination.transform.position);
+        else
+            agent.SetDestination(destWhite.transform.position);
     }
 }

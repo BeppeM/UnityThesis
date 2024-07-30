@@ -20,6 +20,10 @@ public class WebSocketChannel
         ws.Connect();
     }
 
+    public void sendMessage(string message){
+        ws.Send(message);
+    }
+
 
     private void OnOpen(object sender, System.EventArgs e)
     {
