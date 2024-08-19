@@ -9,7 +9,7 @@ public class BoxObject : MonoBehaviour
     void Start()
     {
         // Initialize new web socket connection
-        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel("ws://localhost:8888", "OBJECT");
+        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel("ws://localhost:8888", "OBJECT", "");
         webSocketChannel = new WebSocketChannel(wSConnectionInfoModel, OnMessage);
     }
 

@@ -44,10 +44,7 @@ public class UnityMainThreadDispatcher : MonoBehaviour
 
     public void Enqueue(Action action)
     {
-        lock (_executionQueue)
-        {
-            _executionQueue.Enqueue(action);
-        }
+        _executionQueue.Enqueue(action);
     }
 
     public void Enqueue(IEnumerator action)

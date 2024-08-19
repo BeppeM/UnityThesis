@@ -27,8 +27,8 @@ public class WebSocketChannel
 
     private void OnOpen(object sender, System.EventArgs e)
     {
-        Debug.Log("WebSocket connection opened for connection type: " + connectionInfo.getConnectionType());
-        ws.Send("Connection established for URL: " + connectionInfo.getUrl());
+        Debug.Log("WebSocket connection opened for: " + connectionInfo.getName() + " of type: " 
+        + connectionInfo.getConnectionType());
     }
 
     private void OnClose(object sender, CloseEventArgs e)

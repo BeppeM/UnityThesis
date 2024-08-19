@@ -6,11 +6,13 @@ public class UnityWebSocketChannel : MonoBehaviour
 {
     public GameObject avatar;
     private WebSocketChannel webSocketChannel;
+    public String port;
 
     void Start()
     {
+        String url = "ws://localhost:" + port;
         // Initialize new web socket connection
-        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel("ws://localhost:8887", "AGENT");
+        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel(url, "AGENT", avatar.name);
         webSocketChannel = new WebSocketChannel(wSConnectionInfoModel, OnMessage);
     }
 
@@ -21,17 +23,29 @@ public class UnityWebSocketChannel : MonoBehaviour
         if (data == "reachDest")
         {
             Debug.Log("I'm in");
-            // Dispatch the move action to the main thread
-            UnityMainThreadDispatcher.Instance()
-            .Enqueue(() => avatar.GetComponent<ReachDestination>().reachDestination("blue"));
-        }
-        else if (data == "reachWhiteDest")
-        {
-            Debug.Log("I'm in");
-            // Dispatch the move action to the main thread
-            UnityMainThreadDispatcher.Instance()
-            .Enqueue(() => avatar.GetComponent<ReachDestination>().reachDestination("white"));
-        }
+            try
+            {
+                // // Dispatch the move action to the main thread
+                UnityMainThreadDispatcher.Instance()
+                .Enqueue(() => avatar.GetComponent<ReachDestination>().reachDestination("Door"));
 
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error: " + ex.Message);
+            }
+        } else if(data == "stop"){
+                        try
+            {
+                // // Dispatch the move action to the main thread
+                UnityMainThreadDispatcher.Instance()
+                .Enqueue(() => avatar.GetComponent<ReachDestination>().stopWalking());
+
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error: " + ex.Message);
+            }
+        }
     }
 }

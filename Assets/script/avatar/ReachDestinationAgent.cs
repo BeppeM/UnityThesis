@@ -17,15 +17,16 @@ public class ReachDestination : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void reachDestination(string dest){
+        agent.isStopped = false;
         if(dest == "blue")
             agent.SetDestination(destination.transform.position);
         else
             agent.SetDestination(destWhite.transform.position);
+    }
+
+    public void stopWalking(){
+        agent.isStopped = true;
     }
 }

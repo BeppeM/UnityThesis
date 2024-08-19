@@ -5,11 +5,13 @@ public class WSConnectionInfoModel {
 
     private String url;
     private String connectionType;
+    private String name;
 
 
-    public WSConnectionInfoModel(String url, String connectionType){
+    public WSConnectionInfoModel(String url, String connectionType, String name){
         this.url = url;
         this.connectionType = connectionType;
+        this.name = name;
     }
 
     public void setUrl(String url){
@@ -20,6 +22,10 @@ public class WSConnectionInfoModel {
         this.connectionType = connectionType;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
     public String getUrl(){
         return url;
     }
@@ -27,6 +33,10 @@ public class WSConnectionInfoModel {
     
     public String getConnectionType(){
         return connectionType;
+    }
+
+    public String getName(){
+        return name;
     }
 
 }
