@@ -16,6 +16,7 @@ public class OpenSuperMarket : MonoBehaviour
         // Initialize new web socket connection
         WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel("ws://localhost:8888", "OBJECT", envObj.name);
         webSocketChannel = new WebSocketChannel(wSConnectionInfoModel, OnMessage);
+        
         if (isSuperMarketOpen)
         {
             // Change door color to blue  
@@ -50,16 +51,5 @@ public class OpenSuperMarket : MonoBehaviour
         }
     }
 
-    private void OnMessage(object sender, MessageEventArgs e)
-    {
-        // string data = e.Data;
-        // Debug.Log("Received message: " + data);
-        // if (data == "reachDest")
-        // {
-        //     Debug.Log("I'm in");
-        //     // Dispatch the move action to the main thread
-        //     UnityMainThreadDispatcher.Instance()
-        //     .Enqueue(() => Debug.Log("Hola!"));
-        // }
-    }
+    private void OnMessage(object sender, MessageEventArgs e) { }
 }

@@ -6,11 +6,11 @@ public class UnityWebSocketChannel : MonoBehaviour
 {
     public GameObject avatar;
     private WebSocketChannel webSocketChannel;
-    public String port;
+    public string port;
 
     void Start()
     {
-        String url = "ws://localhost:" + port;
+        string url = "ws://localhost:" + port;
         // Initialize new web socket connection
         WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel(url, "AGENT", avatar.name);
         webSocketChannel = new WebSocketChannel(wSConnectionInfoModel, OnMessage);
@@ -20,32 +20,18 @@ public class UnityWebSocketChannel : MonoBehaviour
     {
         string data = e.Data;
         Debug.Log("Received message: " + data);
-        if (data == "reachDest")
+        if (data == "reachDest") // Let the agent reach the destination
         {
-            Debug.Log("I'm in");
-            try
-            {
-                // // Dispatch the move action to the main thread
-                UnityMainThreadDispatcher.Instance()
-                .Enqueue(() => avatar.GetComponent<ReachDestination>().reachDestination("Door"));
+            // Dispatch the move action to the main thread
+            UnityMainThreadDispatcher.Instance()
+            .Enqueue(() => avatar.GetComponent<ReachDestination>().reachDestination("Door"));
 
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError("Error: " + ex.Message);
-            }
-        } else if(data == "stop"){
-                        try
-            {
-                // // Dispatch the move action to the main thread
-                UnityMainThreadDispatcher.Instance()
-                .Enqueue(() => avatar.GetComponent<ReachDestination>().stopWalking());
-
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError("Error: " + ex.Message);
-            }
+        }
+        else if (data == "stop") // Stop the agent
+        {
+            // Dispatch the move action to the main thread
+            UnityMainThreadDispatcher.Instance()
+            .Enqueue(() => avatar.GetComponent<ReachDestination>().stopWalking());
         }
     }
 }

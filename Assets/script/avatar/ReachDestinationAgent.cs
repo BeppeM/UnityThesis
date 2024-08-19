@@ -7,7 +7,6 @@ public class ReachDestination : MonoBehaviour
 {
 
     public GameObject destination;
-    public GameObject destWhite;
     NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -18,15 +17,14 @@ public class ReachDestination : MonoBehaviour
 
     // Update is called once per frame
 
-    public void reachDestination(string dest){
+    public void reachDestination(string dest)
+    {
         agent.isStopped = false;
-        if(dest == "blue")
-            agent.SetDestination(destination.transform.position);
-        else
-            agent.SetDestination(destWhite.transform.position);
+        agent.SetDestination(destination.transform.position);
     }
 
-    public void stopWalking(){
+    public void stopWalking()
+    {
         agent.isStopped = true;
     }
 }
