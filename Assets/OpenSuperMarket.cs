@@ -5,7 +5,7 @@ using WebSocketSharp;
 public class OpenSuperMarket : MonoBehaviour
 {
 
-    public Boolean isSuperMarketOpen;
+    public bool isSuperMarketOpen;
     private WebSocketChannel webSocketChannel;
     public GameObject envObj;
     private int flag = -1;
