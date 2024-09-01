@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 1674683729}
     - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: m_Name
-      value: Pluto
+      value: pluto
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -643,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 1674683729}
     - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: m_Name
-      value: Alice
+      value: alice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1054,7 +1054,7 @@ PrefabInstance:
       objectReference: {fileID: 1674683729}
     - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: m_Name
-      value: Bob
+      value: bob
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

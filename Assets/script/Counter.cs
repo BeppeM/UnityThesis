@@ -28,8 +28,17 @@ public class Counter : MonoBehaviour
             // Print the name of the object that entered the trigger
             Debug.Log("Trigger detected with " + other.gameObject.name);
             // Send message to JaCaMo
-            webSocketChannel.sendMessage("increment");
+            sendMessageToJaCaMo("increment", other.gameObject.name);
         }
+    }
+
+    private void sendMessageToJaCaMo(string actionToPerform, string agentName)
+    {
+        WsMessage wsMessage = PrepareMessageUtil.prepareMessage(envObj.name, actionToPerform, agentName);
+        string jsonString = JsonUtility.ToJson(wsMessage);
+        Debug.Log(wsMessage.getActionToPerform());
+        Debug.Log(jsonString);
+        webSocketChannel.sendMessage(jsonString);
     }
 
     private void OnMessage(object sender, MessageEventArgs e) { }

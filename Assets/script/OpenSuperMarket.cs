@@ -37,8 +37,7 @@ public class OpenSuperMarket : MonoBehaviour
         {
             // Change door color to blue  
             GetComponent<Renderer>().material.color = Color.blue;
-            // TODO: Signal agent that the supermarket is open
-            webSocketChannel.sendMessage("supermarket_open");
+            sendMessageToJaCaMo("supermarket_open");
             flag = 0;
         }
         // supermarket is closed and message has not been sent yet to JACaMo
@@ -46,9 +45,18 @@ public class OpenSuperMarket : MonoBehaviour
         {
             // Stay closed
             GetComponent<Renderer>().material.color = Color.red;
-            webSocketChannel.sendMessage("supermarket_closed");
+            sendMessageToJaCaMo("supermarket_closed");
             flag = 1;
         }
+    }
+
+    private void sendMessageToJaCaMo(string actionToPerform)
+    {        
+        WsMessage wsMessage = PrepareMessageUtil.prepareMessage(envObj.name, actionToPerform, "all");
+        string jsonString = JsonUtility.ToJson(wsMessage);
+        Debug.Log(wsMessage.getActionToPerform());
+        Debug.Log(jsonString);
+        webSocketChannel.sendMessage(jsonString);
     }
 
     private void OnMessage(object sender, MessageEventArgs e) { }
