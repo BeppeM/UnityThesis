@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using WebSocketSharp;
 
 public class OpenSuperMarket : MonoBehaviour
@@ -8,15 +10,17 @@ public class OpenSuperMarket : MonoBehaviour
     public bool isSuperMarketOpen;
     private WebSocketChannel webSocketChannel;
     public GameObject envObj;
-    private int flag = -1;
+    public string port;
+    private int flag = -1;        
 
     // Start is called before the first frame update
     void Start()
     {
         // Initialize new web socket connection
-        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel("ws://localhost:8888", "OBJECT", envObj.name);
+        string url = "ws://localhost:" + port;
+        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel(url, "OBJECT", envObj.name);
         webSocketChannel = new WebSocketChannel(wSConnectionInfoModel, OnMessage);
-        
+
         if (isSuperMarketOpen)
         {
             // Change door color to blue  
@@ -50,8 +54,20 @@ public class OpenSuperMarket : MonoBehaviour
         }
     }
 
+    // When Player enters into supermarket
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            // Print the name of the object that entered the trigger
+            print("Trigger detected with " + other.gameObject.name);
+            // Corrected line - ensure the 'gameObject' property is accessed correctly
+            other.gameObject.GetComponent<Avatar>().CheckDestinationReached();
+        }
+    }
+
     private void sendMessageToJaCaMo(string actionToPerform)
-    {        
+    {
         WsMessage wsMessage = PrepareMessageUtil.prepareMessage(envObj.name, actionToPerform, "all");
         string jsonString = JsonUtility.ToJson(wsMessage);
         Debug.Log(wsMessage.getActionToPerform());

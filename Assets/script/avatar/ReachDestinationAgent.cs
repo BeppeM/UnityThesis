@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class ReachDestination : MonoBehaviour
 {
-
-    public GameObject destination;
     NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -20,7 +18,7 @@ public class ReachDestination : MonoBehaviour
     public void reachDestination(string dest)
     {
         agent.isStopped = false;
-        agent.SetDestination(destination.transform.position);
+        agent.SetDestination(GameObject.Find(dest).transform.position);
     }
 
     public void stopWalking()

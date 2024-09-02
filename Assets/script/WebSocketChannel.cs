@@ -24,7 +24,6 @@ public class WebSocketChannel
         ws.Send(message);
     }
 
-
     private void OnOpen(object sender, System.EventArgs e)
     {
         Debug.Log("WebSocket connection opened for: " + connectionInfo.getName() + " of type: " 

@@ -9,12 +9,14 @@ public class Counter : MonoBehaviour
 
     private WebSocketChannel webSocketChannel;
     public GameObject envObj;
+    public string port;
 
     // Start is called before the first frame update
     void Start()
     {
         // Initialize new web socket connection
-        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel("ws://localhost:8885", "OBJECT", envObj.name);
+        string url = "ws://localhost:" + port;
+        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel(url, "OBJECT", envObj.name);
         webSocketChannel = new WebSocketChannel(wSConnectionInfoModel, OnMessage);
     }
 
