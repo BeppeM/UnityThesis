@@ -15,7 +15,10 @@ public class WebSocketChannel
         ws.OnMessage += onMessage;
         ws.OnClose += OnClose;
         ws.OnError += OnError;
-        this.connectionInfo = connectionInfo;
+        this.connectionInfo = connectionInfo;        
+    }
+
+    public void connect(){
         // Connect to the WebSocket server
         ws.Connect();
     }

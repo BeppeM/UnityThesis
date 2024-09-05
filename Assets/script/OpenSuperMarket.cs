@@ -36,22 +36,22 @@ public class OpenSuperMarket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // supermarket is open and message has not been sent yet to JACaMo
-        if (isSuperMarketOpen && flag != 0)
-        {
-            // Change door color to blue  
-            GetComponent<Renderer>().material.color = Color.blue;
-            sendMessageToJaCaMo("supermarket_open");
-            flag = 0;
-        }
-        // supermarket is closed and message has not been sent yet to JACaMo
-        if (!isSuperMarketOpen && flag != 1)
-        {
-            // Stay closed
-            GetComponent<Renderer>().material.color = Color.red;
-            sendMessageToJaCaMo("supermarket_closed");
-            flag = 1;
-        }
+        // // supermarket is open and message has not been sent yet to JACaMo
+        // if (isSuperMarketOpen && flag != 0)
+        // {
+        //     // Change door color to blue  
+        //     GetComponent<Renderer>().material.color = Color.blue;
+        //     sendMessageToJaCaMo("supermarket_open");
+        //     flag = 0;
+        // }
+        // // supermarket is closed and message has not been sent yet to JACaMo
+        // if (!isSuperMarketOpen && flag != 1)
+        // {
+        //     // Stay closed
+        //     GetComponent<Renderer>().material.color = Color.red;
+        //     sendMessageToJaCaMo("supermarket_closed");
+        //     flag = 1;
+        // }
     }
 
     // When Player enters into supermarket

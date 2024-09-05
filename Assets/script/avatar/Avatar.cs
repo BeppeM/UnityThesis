@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using WebSocketSharp;
-using UnityEngine.AI;
 
 public class Avatar : MonoBehaviour
 {
