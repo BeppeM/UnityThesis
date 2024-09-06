@@ -69,6 +69,7 @@ public class RunJacamo : MonoBehaviour
             {
                 print("Error starting Jacamo application: " + ex.Message);
             }
+            
         });
     }
 
