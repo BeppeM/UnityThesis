@@ -273,6 +273,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25604e021af1b84fbc896026e244fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avatars:
+  - {fileID: 761387575}
+  - {fileID: 1333099690}
+  - {fileID: 308947255}
+  environmentArtifacts:
+  - {fileID: 1674683729}
+  - {fileID: 107487605}
 --- !u!1 &107487605
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +295,7 @@ GameObject:
   - component: {fileID: 107487611}
   - component: {fileID: 107487612}
   m_Layer: 0
-  m_Name: Counter
+  m_Name: SupermarketCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,8 +399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f681412ce48ce054b8b1ad4a6cd6f677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  envObj: {fileID: 107487605}
+  objInUse: {fileID: 107487605}
   port: 8885
+  envObj: {fileID: 107487605}
 --- !u!54 &107487612
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -421,6 +429,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!1 &308947255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 943838994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &513350253
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +696,10 @@ PrefabInstance:
       propertyPath: port
       value: 8889
       objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: objInUse
+      value: 
+      objectReference: {fileID: 1333099690}
     - target: {fileID: 6536521104886864216, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -700,6 +717,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+--- !u!1 &761387575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 1418349878117469982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &943838994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,6 +774,10 @@ PrefabInstance:
       propertyPath: port
       value: 8886
       objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: objInUse
+      value: 
+      objectReference: {fileID: 308947255}
     - target: {fileID: 6536521104886864216, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -769,6 +795,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+--- !u!1 &1333099690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 734403216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1539438386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,9 +1138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99caa5b91d5e87e458fccb3839196a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSuperMarketOpen: 0
-  envObj: {fileID: 1674683729}
+  objInUse: {fileID: 1674683729}
   port: 8888
+  isSuperMarketOpen: 0
 --- !u!54 &1674683735
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1277,6 +1308,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: objInUse
+      value: 
+      objectReference: {fileID: 761387575}
     - target: {fileID: 7472424640409763054, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: destination
       value: 

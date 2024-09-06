@@ -1,23 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using WebSocketSharp;
 
-public class Counter : MonoBehaviour
+public class CounterScript : MASAbstract
 {
-
-
-    private WebSocketChannel webSocketChannel;
-    public GameObject envObj;
-    public string port;
-
     // Start is called before the first frame update
     void Start()
     {
         // Initialize new web socket connection
-        string url = "ws://localhost:" + port;
-        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel(url, "OBJECT", envObj.name);
-        webSocketChannel = new WebSocketChannel(wSConnectionInfoModel, OnMessage);
+        initializeWebSocketConnection(OnMessage);
     }
 
     // Update is called once per frame
@@ -36,7 +26,7 @@ public class Counter : MonoBehaviour
 
     private void sendMessageToJaCaMo(string actionToPerform, string agentName)
     {
-        WsMessage wsMessage = PrepareMessageUtil.prepareMessage(envObj.name, actionToPerform, agentName);
+        WsMessage wsMessage = PrepareMessageUtil.prepareMessage(objInUse.name, actionToPerform, agentName);
         string jsonString = JsonUtility.ToJson(wsMessage);
         Debug.Log(wsMessage.getActionToPerform());
         Debug.Log(jsonString);

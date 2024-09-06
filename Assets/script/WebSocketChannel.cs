@@ -18,7 +18,7 @@ public class WebSocketChannel
         this.connectionInfo = connectionInfo;        
     }
 
-    public void connect(){
+    public void connect(){        
         // Connect to the WebSocket server
         ws.Connect();
     }

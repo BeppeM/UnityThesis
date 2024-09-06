@@ -2,24 +2,17 @@ using System;
 using UnityEngine;
 using WebSocketSharp;
 
-public class Avatar : MonoBehaviour
+public class AvatarScript : MASAbstract
 {
-    public GameObject avatar;
-    private WebSocketChannel webSocketChannel;
-    public string port;
-
     void Start()
     {
-        // Initialize new web socket connection
-        string url = "ws://localhost:" + port;
-        WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel(url, "AGENT", avatar.name);
-        webSocketChannel = new WebSocketChannel(wSConnectionInfoModel, OnMessage);
+        initializeWebSocketConnection(OnMessage);
     }
 
     // Check if agent has reached the destination
     public void CheckDestinationReached()
     {
-        avatar.GetComponent<ReachDestination>().stopWalking();
+        objInUse.GetComponent<ReachDestination>().stopWalking();
         // Set the next destination
         sendMessageToJaCaMo("entered_into_supermarket");
     }
@@ -44,8 +37,8 @@ public class Avatar : MonoBehaviour
             // Dispatch the move action to the main thread
             UnityMainThreadDispatcher.Instance()
             .Enqueue(() =>
-            {              
-                avatar.GetComponent<ReachDestination>().reachDestination("SupermarketDoor");
+            {
+                objInUse.GetComponent<ReachDestination>().reachDestination("SupermarketDoor");
             });
 
         }
@@ -53,15 +46,15 @@ public class Avatar : MonoBehaviour
         {
             // Dispatch the move action to the main thread
             UnityMainThreadDispatcher.Instance()
-            .Enqueue(() => avatar.GetComponent<ReachDestination>().stopWalking());
+            .Enqueue(() => objInUse.GetComponent<ReachDestination>().stopWalking());
         }
         else if (data == "reach_fruit_seller")
         {
             // Dispatch the move action to the main thread
             UnityMainThreadDispatcher.Instance()
             .Enqueue(() =>
-            {              
-                avatar.GetComponent<ReachDestination>().reachDestination("FruitSeller");
+            {
+                objInUse.GetComponent<ReachDestination>().reachDestination("FruitSeller");
             });
         }
     }
