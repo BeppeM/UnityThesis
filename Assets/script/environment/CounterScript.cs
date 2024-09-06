@@ -26,7 +26,7 @@ public class CounterScript : MASAbstract
 
     private void sendMessageToJaCaMo(string actionToPerform, string agentName)
     {
-        WsMessage wsMessage = PrepareMessageUtil.prepareMessage(objInUse.name, actionToPerform, agentName);
+        WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, actionToPerform, agentName);
         string jsonString = JsonUtility.ToJson(wsMessage);
         Debug.Log(wsMessage.getActionToPerform());
         Debug.Log(jsonString);

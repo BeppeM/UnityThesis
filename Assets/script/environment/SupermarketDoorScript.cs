@@ -31,10 +31,9 @@ public class SupermarketDoorScript : MASAbstract
     // Update is called once per frame
     void Update()
     {
-        if(!isConnected){
-            print("Not yet connected");
+        if(!isConnected){            
             return;
-        }
+        }        
 
         // supermarket is open and message has not been sent yet to JACaMo
         if (isSuperMarketOpen && flag != 0)
@@ -68,7 +67,7 @@ public class SupermarketDoorScript : MASAbstract
 
     private void sendMessageToJaCaMo(string actionToPerform)
     {
-        WsMessage wsMessage = PrepareMessageUtil.prepareMessage(objInUse.name, actionToPerform, "all");
+        WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, actionToPerform, "all");
         string jsonString = JsonUtility.ToJson(wsMessage);
         Debug.Log(wsMessage.getActionToPerform());
         Debug.Log(jsonString);

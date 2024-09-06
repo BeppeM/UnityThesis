@@ -19,7 +19,7 @@ public class AvatarScript : MASAbstract
 
     private void sendMessageToJaCaMo(string actionToPerform)
     {
-        WsMessage wsMessage = PrepareMessageUtil.prepareMessage(null, actionToPerform, "all");
+        WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, actionToPerform, "all");
         string jsonString = JsonUtility.ToJson(wsMessage);
         Debug.Log(wsMessage.getActionToPerform());
         Debug.Log(jsonString);

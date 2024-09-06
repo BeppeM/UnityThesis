@@ -11,7 +11,7 @@ public abstract class MASAbstract : MonoBehaviour
 
     protected void initializeWebSocketConnection(System.EventHandler<WebSocketSharp.MessageEventArgs> OnMessage)
     {
-        print("Initializing connection....");
+        print("Initializing connection for " + objInUse.name);
         // Initialize new web socket connection
         string url = "ws://localhost:" + port;
         WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel(url, "AGENT", objInUse.name);
