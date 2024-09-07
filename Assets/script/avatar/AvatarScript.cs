@@ -58,4 +58,15 @@ public class AvatarScript : MASAbstract
             });
         }
     }
+
+    // When Player enters into supermarket
+    void OnTriggerEnter(Collider other)
+    {
+        // Print the name of the object that entered the trigger
+        print("Trigger detected with " + other.gameObject.name);
+        if (other.gameObject.name.Contains("Door"))
+        {            
+            CheckDestinationReached();
+        }
+    }
 }

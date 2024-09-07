@@ -52,18 +52,6 @@ public class SupermarketDoorScript : MASAbstract
         }
     }
 
-    // When Player enters into supermarket
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // Print the name of the object that entered the trigger
-            print("Trigger detected with " + other.gameObject.name);
-            // Corrected line - ensure the 'gameObject' property is accessed correctly
-            other.gameObject.GetComponent<AvatarScript>().CheckDestinationReached();
-        }
-    }
-
     private void sendMessageToJaCaMo(string actionToPerform)
     {
         WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, actionToPerform, "all");
