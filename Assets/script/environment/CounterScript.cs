@@ -30,7 +30,7 @@ public class CounterScript : MASAbstract
         string jsonString = JsonUtility.ToJson(wsMessage);
         Debug.Log(wsMessage.getActionToPerform());
         Debug.Log(jsonString);
-        webSocketChannel.sendMessage(jsonString);
+        wsChannel.sendMessage(jsonString);
     }
 
     private void OnMessage(object sender, MessageEventArgs e) { }

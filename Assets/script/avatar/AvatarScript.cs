@@ -21,16 +21,16 @@ public class AvatarScript : MASAbstract
     {
         WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, actionToPerform, "all");
         string jsonString = JsonUtility.ToJson(wsMessage);
-        Debug.Log(wsMessage.getActionToPerform());
-        Debug.Log(jsonString);
-        webSocketChannel.sendMessage(jsonString);
+        print(wsMessage.getActionToPerform());
+        print(jsonString);
+        wsChannel.sendMessage(jsonString);
     }
 
     // Unity avatar receives message from jacamo agent
     private void OnMessage(object sender, MessageEventArgs e)
     {
         string data = e.Data;
-        Debug.Log("Received message: " + data);
+        print("Received message: " + data);
 
         if (data == "supermarket_door_opened") // Let the agent reach the destination
         {

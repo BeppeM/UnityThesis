@@ -30,11 +30,10 @@ public class SupermarketDoorScript : MASAbstract
 
     // Update is called once per frame
     void Update()
-    {
-        if(!isConnected){            
+    {   
+        if(!wsChannel.IsWebSocketConnected){
             return;
-        }        
-
+        }
         // supermarket is open and message has not been sent yet to JACaMo
         if (isSuperMarketOpen && flag != 0)
         {
@@ -71,7 +70,7 @@ public class SupermarketDoorScript : MASAbstract
         string jsonString = JsonUtility.ToJson(wsMessage);
         Debug.Log(wsMessage.getActionToPerform());
         Debug.Log(jsonString);
-        webSocketChannel.sendMessage(jsonString);
+        wsChannel.sendMessage(jsonString);
     }
 
     private void OnMessage(object sender, MessageEventArgs e) { }

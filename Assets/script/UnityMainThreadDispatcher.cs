@@ -6,6 +6,7 @@ using UnityEngine;
 public class UnityMainThreadDispatcher : MonoBehaviour
 {
     private static readonly Queue<Action> _executionQueue = new Queue<Action>();
+    private static UnityMainThreadDispatcher _instance;
 
     public static UnityMainThreadDispatcher Instance()
     {
@@ -15,8 +16,6 @@ public class UnityMainThreadDispatcher : MonoBehaviour
         }
         return _instance;
     }
-
-    private static UnityMainThreadDispatcher _instance;
 
     void Awake()
     {
@@ -33,6 +32,11 @@ public class UnityMainThreadDispatcher : MonoBehaviour
 
     void Update()
     {
+        if (_executionQueue == null)
+        {            
+            return;
+        }
+        
         lock (_executionQueue)
         {
             while (_executionQueue.Count > 0)
