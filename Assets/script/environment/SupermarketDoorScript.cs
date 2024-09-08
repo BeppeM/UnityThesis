@@ -9,6 +9,7 @@ public class SupermarketDoorScript : MASAbstract
 
     public bool isSuperMarketOpen;
     private int flag = -1;
+    private WsMessage wsMessage;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,8 @@ public class SupermarketDoorScript : MASAbstract
         {
             // Change door color to blue  
             GetComponent<Renderer>().material.color = Color.blue;
-            sendMessageToJaCaMo("supermarket_open");
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "supermarket_open", "all");
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
             flag = 0;
         }
         // supermarket is closed and message has not been sent yet to JACaMo
@@ -47,18 +49,10 @@ public class SupermarketDoorScript : MASAbstract
         {
             // Stay closed
             GetComponent<Renderer>().material.color = Color.red;
-            sendMessageToJaCaMo("supermarket_closed");
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "supermarket_closed", "all");
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);            
             flag = 1;
         }
-    }
-
-    private void sendMessageToJaCaMo(string actionToPerform)
-    {
-        WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, actionToPerform, "all");
-        string jsonString = JsonUtility.ToJson(wsMessage);
-        Debug.Log(wsMessage.getActionToPerform());
-        Debug.Log(jsonString);
-        wsChannel.sendMessage(jsonString);
     }
 
     private void OnMessage(object sender, MessageEventArgs e) { }

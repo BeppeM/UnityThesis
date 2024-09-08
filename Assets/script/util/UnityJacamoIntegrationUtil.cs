@@ -24,9 +24,8 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     }
 
     //Utility used to configure .jcm file by adding agents 
-    public static void configureJcmFile(GameObject[] avatars)
+    public static void ConfigureJcmFile(GameObject[] avatars)
     {
-
         if (File.Exists(jcmFilePath))
         {
             File.Delete(jcmFilePath);
@@ -55,8 +54,10 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         // FOOT
         File.AppendAllText(jcmFilePath, fileLines[1] + Environment.NewLine);
         File.AppendAllText(jcmFilePath, fileLines[2]);
+
     }
 
+    // Open JaCaMo application
     public static async Task RunJaCaMoApp()
     {
         Process jacamoProcess;
@@ -77,14 +78,14 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             try
             {
                 // Start the process
-                jacamoProcess.Start();                
+                jacamoProcess.Start();
                 string output = "";
                 // Read the output to determine if Jacamo has successfully started
                 while (!jacamoProcess.HasExited) // Keep reading while the process is running
                 {
                     output = jacamoProcess.StandardOutput.ReadLine();
                     if (!string.IsNullOrEmpty(output))
-                    {                        
+                    {
                         // Check for the signal from the .bat file
                         if (output.Contains("JACAMO_LAUNCH_SUCCESSFUL"))
                         {
@@ -102,6 +103,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         });
     }
 
+    // Starts web socket connections for avatars and environment objects 
     public static async Task StartWebSocketConnections(GameObject[] avatars, GameObject[] environmentArtifacts)
     {
         List<Task> tasks = new List<Task>();
@@ -136,5 +138,14 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         }
 
         await Task.WhenAll(tasks);
+    }
+
+    // Method to send message to jacamo artifacts
+    public static void sendMessageToJaCaMo(WsMessage wsMessage, WebSocketChannel wsChannel)
+    {        
+        string jsonString = JsonUtility.ToJson(wsMessage);
+        print(wsMessage.getActionToPerform());
+        print(jsonString);
+        wsChannel.sendMessage(jsonString);
     }
 }

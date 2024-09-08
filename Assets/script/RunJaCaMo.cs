@@ -8,7 +8,7 @@ public class RunJacamo : MonoBehaviour
     async void Start()
     {
         // Define agents into the multi agent system
-        UnityJacamoIntegrationUtil.configureJcmFile(avatars);
+        UnityJacamoIntegrationUtil.ConfigureJcmFile(avatars);
 
         print(".jcm file configuration done successfully.");
 
@@ -19,8 +19,6 @@ public class RunJacamo : MonoBehaviour
 
         // Start to connect each avatar
         await UnityJacamoIntegrationUtil.StartWebSocketConnections(avatars, environmentArtifacts);
-
-        // await checkConnections();
 
         print("ALL AVATARS AND ENVIRONMENT OBJECTS HAVE BEEN CONNECTED TO JACAMO!!!");
     }

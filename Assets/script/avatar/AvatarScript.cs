@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using WebSocketSharp;
+using UnityEngine.AI;
+using Unity.VisualScripting;
+
 
 public class AvatarScript : MASAbstract
 {
@@ -14,16 +17,8 @@ public class AvatarScript : MASAbstract
     {
         objInUse.GetComponent<ReachDestination>().stopWalking();
         // Set the next destination
-        sendMessageToJaCaMo("entered_into_supermarket");
-    }
-
-    private void sendMessageToJaCaMo(string actionToPerform)
-    {
-        WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, actionToPerform, "all");
-        string jsonString = JsonUtility.ToJson(wsMessage);
-        print(wsMessage.getActionToPerform());
-        print(jsonString);
-        wsChannel.sendMessage(jsonString);
+        WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "entered_into_supermarket", "all");
+        UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);        
     }
 
     // Unity avatar receives message from jacamo agent
@@ -61,13 +56,13 @@ public class AvatarScript : MASAbstract
 
     // When Player enters into supermarket
     void OnTriggerEnter(Collider other)
-    {        
+    {
         if (other.gameObject.name.Contains("Door"))
-        {            
+        {
             CheckDestinationReached();
         }
         if (other.gameObject.name.Contains("FruitSeller"))
-        {            
+        {
             print("Reached Fruit seller. Buy some fruits");
             // signal agents to buy some fruits
         }

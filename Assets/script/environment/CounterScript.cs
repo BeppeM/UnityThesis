@@ -20,17 +20,9 @@ public class CounterScript : MASAbstract
             // Print the name of the object that entered the trigger
             Debug.Log("Trigger detected with " + other.gameObject.name);
             // Send message to JaCaMo
-            sendMessageToJaCaMo("increment", other.gameObject.name);
+            WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "increment", other.gameObject.name);
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
-    }
-
-    private void sendMessageToJaCaMo(string actionToPerform, string agentName)
-    {
-        WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, actionToPerform, agentName);
-        string jsonString = JsonUtility.ToJson(wsMessage);
-        Debug.Log(wsMessage.getActionToPerform());
-        Debug.Log(jsonString);
-        wsChannel.sendMessage(jsonString);
     }
 
     private void OnMessage(object sender, MessageEventArgs e) { }
