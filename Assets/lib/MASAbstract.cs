@@ -9,6 +9,7 @@ public abstract class MASAbstract : MonoBehaviour
     public string port;
     protected WebSocketChannel wsChannel;
     protected bool isConnected = false;
+    protected WsMessage wsMessage;
 
     protected void initializeWebSocketConnection(System.EventHandler<WebSocketSharp.MessageEventArgs> OnMessage)
     {

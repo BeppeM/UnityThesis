@@ -9,7 +9,6 @@ public class SupermarketDoorScript : MASAbstract
 
     public bool isSuperMarketOpen;
     private int flag = -1;
-    private WsMessage wsMessage;
 
     // Start is called before the first frame update
     void Start()

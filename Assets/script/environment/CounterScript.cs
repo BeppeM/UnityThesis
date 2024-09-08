@@ -20,7 +20,7 @@ public class CounterScript : MASAbstract
             // Print the name of the object that entered the trigger
             Debug.Log("Trigger detected with " + other.gameObject.name);
             // Send message to JaCaMo
-            WsMessage wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "increment", other.gameObject.name);
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "increment", other.gameObject.name);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
     }
