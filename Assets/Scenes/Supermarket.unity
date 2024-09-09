@@ -340,8 +340,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 600101883}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[0]
@@ -430,8 +438,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 697709811}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[0]
@@ -520,8 +536,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1333099690}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[0]
@@ -610,8 +634,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 308947255}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[0]
@@ -757,8 +789,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1402611621}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[0]
@@ -847,8 +887,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1474644446}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[0]
@@ -1253,8 +1301,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1864209146}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[0]
@@ -1339,8 +1395,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 761387575}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[0]

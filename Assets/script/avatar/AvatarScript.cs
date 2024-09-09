@@ -3,11 +3,13 @@ using UnityEngine;
 using WebSocketSharp;
 using UnityEngine.AI;
 using Unity.VisualScripting;
+using System.Collections.Generic;
 
 
 public class AvatarScript : MASAbstract
 {
 
+    public List<TaskToPerformEnum> tasksToPerform;
     public GameObject[] focusedArtifacts;
     void Start()
     {
@@ -18,6 +20,11 @@ public class AvatarScript : MASAbstract
     {
         get { return focusedArtifacts; }
         set { focusedArtifacts = value; }
+    }
+
+    public List<TaskToPerformEnum> TasksToPerform
+    {
+        get { return tasksToPerform; }        
     }
 
     // Check if agent has reached the destination

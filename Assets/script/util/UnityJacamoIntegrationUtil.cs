@@ -11,7 +11,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     private static string jcmFilePath = "C:/Users/g.mirra/Desktop/supermarket/supermarket.jcm";
     private static string[] fileLines = {
         "mas supermarket {",
-        @"    workspace w {",
+        "\tworkspace w {\n",
     "}"
     };
 
@@ -34,7 +34,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         // Configure artifacts
         foreach (GameObject envArtifact in envArtifacts)
         {
-            string artifact = $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{envArtifact.GetComponent<MASAbstract>().Type}Artifact";
+            string artifact = "\t\t" + $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{envArtifact.GetComponent<MASAbstract>().Type}Artifact";
             artifact += "\n";
             fileLines[1] += artifact;
         }
@@ -45,22 +45,26 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         foreach (GameObject avatar in avatars)
         {
             string artifactName = avatar.name + "Artifact";
+            AvatarScript avatarScript = avatar.GetComponent<AvatarScript>();
 
             // Create the new agent definition
             string newAgent = $@"
-            agent {avatar.name}: agent.asl {{
-            goals: initializeAgent(""{artifactName}"", {avatar.GetComponent<AvatarScript>().port})
-            join: w";
-
+    agent {avatar.name}: agent.asl {{
+        goals: initializeAgent(""{artifactName}"", {avatarScript.port})
+        join: w";
             // Define focus on artifacts
-            string artifactsFocused = "focus:  ";
-            foreach (GameObject art in avatar.GetComponent<AvatarScript>().FocusedArtifacts)
+            string artifactsFocused = "\t\t" + $@"focus:";            
+            foreach (GameObject art in avatarScript.FocusedArtifacts)
             {
-                artifactsFocused += $@"w.{art.name.ToLowerInvariant()}";
-                artifactsFocused += "\n\t";
-            }
+                artifactsFocused += $@" w.{art.name.ToLowerInvariant()}";
+                artifactsFocused += "\n\t\t";
+            }            
+            // Configure new plan
+            string belief = $@"beliefs: tasksToPerform(";
 
-            newAgent += "\n" + artifactsFocused + "}";
+            belief += string.Join(", ", avatarScript.TasksToPerform) + ")";             
+
+            newAgent += "\n" + artifactsFocused + belief + "\n\t}";
 
             // Append into the file
             File.AppendAllText(jcmFilePath, newAgent + Environment.NewLine);
