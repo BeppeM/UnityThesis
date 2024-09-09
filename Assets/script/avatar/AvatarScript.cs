@@ -17,7 +17,7 @@ public class AvatarScript : MASAbstract
     {
         objInUse.GetComponent<ReachDestination>().stopWalking();
         // Set the next destination
-        wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "entered_into_supermarket", "all");
+        wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "entered_into_supermarket", objInUse.name);
         UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);        
     }
 
