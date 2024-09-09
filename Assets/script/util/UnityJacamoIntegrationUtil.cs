@@ -32,8 +32,9 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         File.AppendAllText(jcmFilePath, fileLines[0]);
 
         // Configure artifacts
-        foreach(GameObject envArtifact in envArtifacts){
-            string artifact = $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{envArtifact.name}Artifact";
+        foreach (GameObject envArtifact in envArtifacts)
+        {
+            string artifact = $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{envArtifact.GetComponent<MASAbstract>().Type}Artifact";
             artifact += "\n";
             fileLines[1] += artifact;
         }
@@ -53,7 +54,8 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
 
             // Define focus on artifacts
             string artifactsFocused = "focus:  ";
-            foreach(GameObject art in avatar.GetComponent<AvatarScript>().FocusedArtifacts){
+            foreach (GameObject art in avatar.GetComponent<AvatarScript>().FocusedArtifacts)
+            {
                 artifactsFocused += $@"w.{art.name.ToLowerInvariant()}";
                 artifactsFocused += "\n\t";
             }

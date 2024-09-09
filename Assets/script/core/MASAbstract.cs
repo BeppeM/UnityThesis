@@ -10,6 +10,14 @@ public abstract class MASAbstract : MonoBehaviour
     protected WebSocketChannel wsChannel;
     protected bool isConnected = false;
     protected WsMessage wsMessage;
+    public AgentArtifactTypeEnum type;
+
+    public string Type{
+        get
+        {
+            return type.ToString();
+        }
+    }
 
     protected void initializeWebSocketConnection(System.EventHandler<WebSocketSharp.MessageEventArgs> OnMessage)
     {
