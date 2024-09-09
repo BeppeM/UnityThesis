@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class RunJacamo : MonoBehaviour
 {
-    public GameObject[] avatars;
-    public GameObject[] environmentArtifacts;
+    private GameObject[] avatars;
+    private  GameObject[] environmentArtifacts;
 
     async void Start()
     {
+        avatars = GameObject.FindGameObjectsWithTag("Player");
+        environmentArtifacts = GameObject.FindGameObjectsWithTag("Artifact");
         // Define agents into the multi agent system
-        UnityJacamoIntegrationUtil.ConfigureJcmFile(avatars);
+        UnityJacamoIntegrationUtil.ConfigureJcmFile(avatars, environmentArtifacts);
 
         print(".jcm file configuration done successfully.");
 

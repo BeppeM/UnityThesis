@@ -7,9 +7,17 @@ using Unity.VisualScripting;
 
 public class AvatarScript : MASAbstract
 {
+
+    public GameObject[] focusedArtifacts;
     void Start()
     {
         initializeWebSocketConnection(OnMessage);
+    }
+
+    public GameObject[] FocusedArtifacts
+    {
+        get { return focusedArtifacts; }
+        set { focusedArtifacts = value; }
     }
 
     // Check if agent has reached the destination
@@ -18,7 +26,7 @@ public class AvatarScript : MASAbstract
         objInUse.GetComponent<ReachDestination>().stopWalking();
         // Set the next destination
         wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "entered_into_supermarket", objInUse.name);
-        UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);        
+        UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
     }
 
     // Unity avatar receives message from jacamo agent
@@ -33,7 +41,7 @@ public class AvatarScript : MASAbstract
             UnityMainThreadDispatcher.Instance()
             .Enqueue(() =>
             {
-                objInUse.GetComponent<ReachDestination>().reachDestination("SupermarketDoor");
+                objInUse.GetComponent<ReachDestination>().reachDestination("Door");
             });
 
         }
@@ -65,6 +73,7 @@ public class AvatarScript : MASAbstract
         {
             print("Reached Fruit seller. Buy some fruits");
             // signal agents to buy some fruits
+            // agent.isStopped = true;
         }
     }
 }

@@ -15,19 +15,6 @@ public class ReachDestination : MonoBehaviour
         // Start by moving to a random point on the NavMesh surface
         // MoveToRandomPoint();
     }
-
-    void MoveToRandomPoint()
-    {
-        Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
-        randomDirection += transform.position;
-
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDirection, out hit, walkRadius, 1))
-        {
-            Vector3 finalPosition = hit.position;
-            agent.SetDestination(finalPosition);
-        }
-    }
     // Update is called once per frame
 
     public void reachDestination(string dest)

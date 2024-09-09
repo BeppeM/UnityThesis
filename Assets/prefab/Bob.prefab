@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91758a826c9cb554689dc0ecdff565d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatar: {fileID: 8341316766975537883}
+  objInUse: {fileID: 8341316766975537883}
   port: 8887
 --- !u!195 &2637877676156523771
 NavMeshAgent:
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad831ae22ed79d49b6f218869abdf44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 0}
+  walkRadius: 10
 --- !u!54 &6224602863154459816
 Rigidbody:
   m_ObjectHideFlags: 0

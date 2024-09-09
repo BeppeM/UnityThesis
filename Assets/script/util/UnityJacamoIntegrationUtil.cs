@@ -11,10 +11,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     private static string jcmFilePath = "C:/Users/g.mirra/Desktop/supermarket/supermarket.jcm";
     private static string[] fileLines = {
         "mas supermarket {",
-        @"    workspace w {
-      artifact smDoor: artifact.SupermarketDoorArtifact()
-      artifact smCounter: artifact.SupermarketCounterArtifact 
-    }",
+        @"    workspace w {",
     "}"
     };
 
@@ -24,17 +21,26 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     }
 
     //Utility used to configure .jcm file by adding agents 
-    public static void ConfigureJcmFile(GameObject[] avatars)
+    public static void ConfigureJcmFile(GameObject[] avatars, GameObject[] envArtifacts)
     {
         if (File.Exists(jcmFilePath))
         {
             File.Delete(jcmFilePath);
         }
 
-        // HEADERS
+        // Append HEADERS
         File.AppendAllText(jcmFilePath, fileLines[0]);
 
-        // Write all agents
+        // Configure artifacts
+        foreach(GameObject envArtifact in envArtifacts){
+            string artifact = $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{envArtifact.name}Artifact";
+            artifact += "\n";
+            fileLines[1] += artifact;
+        }
+
+        fileLines[1] += "}\n";
+
+        // Configure all agents
         foreach (GameObject avatar in avatars)
         {
             string artifactName = avatar.name + "Artifact";
@@ -43,11 +49,18 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             string newAgent = $@"
             agent {avatar.name}: agent.asl {{
             goals: initializeAgent(""{artifactName}"", {avatar.GetComponent<AvatarScript>().port})
-            join: w
-            focus: w.smDoor 
-                   w.smCounter
-            }}";
+            join: w";
 
+            // Define focus on artifacts
+            string artifactsFocused = "focus:  ";
+            foreach(GameObject art in avatar.GetComponent<AvatarScript>().FocusedArtifacts){
+                artifactsFocused += $@"w.{art.name.ToLowerInvariant()}";
+                artifactsFocused += "\n\t";
+            }
+
+            newAgent += "\n" + artifactsFocused + "}";
+
+            // Append into the file
             File.AppendAllText(jcmFilePath, newAgent + Environment.NewLine);
         }
 
@@ -142,7 +155,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
 
     // Method to send message to jacamo artifacts
     public static void sendMessageToJaCaMo(WsMessage wsMessage, WebSocketChannel wsChannel)
-    {        
+    {
         string jsonString = JsonUtility.ToJson(wsMessage);
         print(wsMessage.getActionToPerform());
         print(jsonString);
