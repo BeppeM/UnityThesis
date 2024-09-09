@@ -24,7 +24,7 @@ public class AvatarScript : MASAbstract
 
     public List<TaskToPerformEnum> TasksToPerform
     {
-        get { return tasksToPerform; }        
+        get { return tasksToPerform; }
     }
 
     // Check if agent has reached the destination
@@ -58,13 +58,30 @@ public class AvatarScript : MASAbstract
             UnityMainThreadDispatcher.Instance()
             .Enqueue(() => objInUse.GetComponent<ReachDestination>().stopWalking());
         }
-        else if (data == "reach_fruit_seller")
+        else if (data.Contains("buy") || data.Contains("exit"))
         {
+
+            TaskToPerformEnum task = (TaskToPerformEnum)Enum.Parse(typeof(TaskToPerformEnum), data);
+            string destination = "";
+            switch (task)
+            {
+                case TaskToPerformEnum.buy_clothes:
+                    destination = "DressShop";
+                    break;
+                case TaskToPerformEnum.exit:
+                    destination = "ExitDoor";
+                    break;
+                case TaskToPerformEnum.buy_fruit:
+                    destination = "FruitSeller";
+                    break;
+                default:
+                    throw new Exception("Task cannot be performed");
+            }
             // Dispatch the move action to the main thread
             UnityMainThreadDispatcher.Instance()
             .Enqueue(() =>
             {
-                objInUse.GetComponent<ReachDestination>().reachDestination("FruitSeller");
+                objInUse.GetComponent<ReachDestination>().reachDestination(destination);
             });
         }
     }
@@ -80,7 +97,15 @@ public class AvatarScript : MASAbstract
         {
             print("Reached Fruit seller. Buy some fruits");
             // signal agents to buy some fruits
-            // agent.isStopped = true;
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "next_task", objInUse.name);
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
+        }
+        if (other.gameObject.name.Contains("DressShop"))
+        {
+            print("Reached Fruit seller. Buy some fruits");
+            // signal agents to buy some fruits
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "next_task", objInUse.name);
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
     }
 }

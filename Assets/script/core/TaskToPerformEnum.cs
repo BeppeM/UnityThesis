@@ -1,5 +1,6 @@
 public enum TaskToPerformEnum
 {
-    BUY_FRUIT,
-    BUY_SHOP    
+    buy_fruit,
+    buy_clothes,
+    exit    
 }

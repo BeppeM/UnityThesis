@@ -48,9 +48,10 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             AvatarScript avatarScript = avatar.GetComponent<AvatarScript>();
 
             // Create the new agent definition
+            string belief = string.Join(", ", avatarScript.TasksToPerform);
             string newAgent = $@"
     agent {avatar.name}: agent.asl {{
-        goals: initializeAgent(""{artifactName}"", {avatarScript.port})
+        goals: initializeAgent(""{artifactName}"", {avatarScript.port}, [{belief}])
         join: w";
             // Define focus on artifacts
             string artifactsFocused = "\t\t" + $@"focus:";            
@@ -58,13 +59,8 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             {
                 artifactsFocused += $@" w.{art.name.ToLowerInvariant()}";
                 artifactsFocused += "\n\t\t";
-            }            
-            // Configure new plan
-            string belief = $@"beliefs: tasksToPerform(";
-
-            belief += string.Join(", ", avatarScript.TasksToPerform) + ")";             
-
-            newAgent += "\n" + artifactsFocused + belief + "\n\t}";
+            }                                    
+            newAgent += "\n" + artifactsFocused + "\n\t}";
 
             // Append into the file
             File.AppendAllText(jcmFilePath, newAgent + Environment.NewLine);
