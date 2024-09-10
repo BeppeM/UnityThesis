@@ -48,10 +48,10 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             AvatarScript avatarScript = avatar.GetComponent<AvatarScript>();
 
             // Create the new agent definition
-            string belief = string.Join(", ", avatarScript.TasksToPerform);
+            string goals = string.Join(", ", avatarScript.TasksToPerform);
             string newAgent = $@"
     agent {avatar.name}: agent.asl {{
-        goals: initializeAgent(""{artifactName}"", {avatarScript.port}, [{belief}])
+        goals: initializeAgent({artifactName}, {avatarScript.port}), {goals}
         join: w";
             // Define focus on artifacts
             string artifactsFocused = "\t\t" + $@"focus:";            
