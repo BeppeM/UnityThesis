@@ -15,9 +15,9 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     "}"
     };
 
-    public static WsMessage prepareMessage(string environmentArtifactName, string actionToPerform, string agentInvolved)
+    public static WsMessage prepareMessage(string environmentArtifactName, string actionToPerform, string agentInvolved, string param)
     {
-        return new WsMessage(environmentArtifactName, actionToPerform, agentInvolved);
+        return new WsMessage(environmentArtifactName, actionToPerform, agentInvolved, param);
     }
 
     //Utility used to configure .jcm file by adding agents 
@@ -44,7 +44,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         // Configure all agents
         foreach (GameObject avatar in avatars)
         {
-            string artifactName = avatar.name + "Artifact";
+            string artifactName = avatar.name + "Agent";
             AvatarScript avatarScript = avatar.GetComponent<AvatarScript>();
 
             // Create the new agent definition
