@@ -7,6 +7,7 @@ using WebSocketSharp;
 public class SupermarketDoorScript : MASAbstract
 {
 
+    // Flag changed by the user
     public bool isSuperMarketOpen;
     private int flag = -1;
 
@@ -23,7 +24,7 @@ public class SupermarketDoorScript : MASAbstract
         }
         else
         {
-            // Stay closed
+            // Stay closed - color red
             GetComponent<Renderer>().material.color = Color.red;
         }
     }
