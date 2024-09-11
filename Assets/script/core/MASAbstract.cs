@@ -9,7 +9,7 @@ public abstract class MASAbstract : MonoBehaviour
     public string port;
     protected WebSocketChannel wsChannel;
     protected bool isConnected = false;
-    protected WsMessage wsMessage;
+    protected MessageToSend wsMessage;
     public AgentArtifactTypeEnum type;
 
     public string Type{

@@ -2,18 +2,20 @@
 using System;
 
 [Serializable]
-public class WsMessage
+public class MessageToSend
 {
 
-    public String environmentArtifactName;
-    public String actionToPerform;
-    public String agentInvolved;
+    public string environmentArtifactName;
+    public string actionToPerform;
+    public string agentInvolved;
+    public string param;
 
 
-    public WsMessage(String environmentArtifactName, String actionToPerform, String agentInvolved){
+    public MessageToSend(string environmentArtifactName, string actionToPerform, string agentInvolved, string param){
         this.environmentArtifactName = environmentArtifactName;
         this.actionToPerform = actionToPerform;
         this.agentInvolved = agentInvolved;
+        this.param = param;
     }
 
     public void setEnvironmentArtifactName(string environmentArtifactName)

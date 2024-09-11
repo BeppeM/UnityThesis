@@ -15,9 +15,9 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     "}"
     };
 
-    public static WsMessage prepareMessage(string environmentArtifactName, string actionToPerform, string agentInvolved, string param)
+    public static MessageToSend prepareMessage(string environmentArtifactName, string actionToPerform, string agentInvolved, string param)
     {
-        return new WsMessage(environmentArtifactName, actionToPerform, agentInvolved, param);
+        return new MessageToSend(environmentArtifactName, actionToPerform, agentInvolved, param);
     }
 
     //Utility used to configure .jcm file by adding agents 
@@ -156,7 +156,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     }
 
     // Method to send message to jacamo artifacts
-    public static void sendMessageToJaCaMo(WsMessage wsMessage, WebSocketChannel wsChannel)
+    public static void sendMessageToJaCaMo(MessageToSend wsMessage, WebSocketChannel wsChannel)
     {
         string jsonString = JsonUtility.ToJson(wsMessage);
         print(wsMessage.getActionToPerform());

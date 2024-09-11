@@ -39,7 +39,7 @@ public class SupermarketDoorScript : MASAbstract
         {
             // Change door color to blue  
             GetComponent<Renderer>().material.color = Color.blue;
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "supermarket_open", "all");
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "supermarket_open", "all", null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
             flag = 0;
         }
@@ -48,7 +48,7 @@ public class SupermarketDoorScript : MASAbstract
         {
             // Stay closed
             GetComponent<Renderer>().material.color = Color.red;
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "supermarket_closed", "all");
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "supermarket_closed", "all", null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);            
             flag = 1;
         }

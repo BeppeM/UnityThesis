@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using WebSocketSharp;
 using System.Collections.Generic;
-
+using System.Linq;
+using Newtonsoft.Json;
 
 public class AvatarScript : MASAbstract
 {
@@ -29,8 +30,11 @@ public class AvatarScript : MASAbstract
     public void CheckDestinationReached()
     {
         objInUse.GetComponent<ReachDestination>().stopWalking();
+        // Assuming TaskToPerformEnum is your enum and you have a List<TaskToPerformEnum> called TasksToPerform
+        string tasksString = "[" + string.Join(", ", tasksToPerform.Select(task => task.ToString())) + "]";
+
         // Set the next destination
-        wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "entered_into_supermarket", objInUse.name);
+        wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, tasksString);
         UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
     }
 
@@ -39,8 +43,10 @@ public class AvatarScript : MASAbstract
     {
         string data = e.Data;
         print("Received message: " + data);
-
-        if (data == "supermarket_door_opened") // Let the agent reach the destination
+        AgentMessage message = JsonConvert.DeserializeObject<AgentMessage>(data);;
+        string payload = message.Payload;
+        print("Payload: " + payload);
+        if (payload == "supermarket_door_opened") // Let the agent reach the destination
         {
             // Dispatch the move action to the main thread
             UnityMainThreadDispatcher.Instance()
@@ -50,16 +56,16 @@ public class AvatarScript : MASAbstract
             });
 
         }
-        else if (data == "supermarket_door_closed") // Stop the agent
+        else if (payload == "supermarket_door_closed") // Stop the agent
         {
             // Dispatch the move action to the main thread
             UnityMainThreadDispatcher.Instance()
             .Enqueue(() => objInUse.GetComponent<ReachDestination>().stopWalking());
         }
-        else if (data.Contains("buy") || data.Contains("exit"))
+        else if (payload.Contains("buy") || payload.Contains("exit"))
         {
 
-            TaskToPerformEnum task = (TaskToPerformEnum)Enum.Parse(typeof(TaskToPerformEnum), data);
+            TaskToPerformEnum task = (TaskToPerformEnum)Enum.Parse(typeof(TaskToPerformEnum), payload);
             string destination = "";
             switch (task)
             {
@@ -93,16 +99,16 @@ public class AvatarScript : MASAbstract
         }
         if (other.gameObject.name.Contains("FruitSeller"))
         {
-            print("Reached Fruit seller. Buy some fruits");
+            print(objInUse.name + " - Reached Fruit seller. Buy some fruits");
             // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "next_task", objInUse.name);
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "next_task", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
         if (other.gameObject.name.Contains("DressShop"))
         {
             print("Reached Fruit seller. Buy some fruits");
             // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "next_task", objInUse.name);
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "next_task", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
     }
