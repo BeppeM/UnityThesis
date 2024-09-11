@@ -6,7 +6,7 @@ using System.Text;
 [System.Serializable]
 public class InitialShopperAgentBeliefs
 {
-    public List<string> shoppingList;
+    public List<ShopItemEnum> shoppingList;
     public float budget;
 
     public float Budget
@@ -21,7 +21,7 @@ public class InitialShopperAgentBeliefs
         }
     }
 
-    public List<string> ShoppingList
+    public List<ShopItemEnum> ShoppingList
     {
         get
         {
@@ -34,7 +34,7 @@ public class InitialShopperAgentBeliefs
     }
 
     // Constructor to initialize the properties
-    public InitialShopperAgentBeliefs(List<string> shoppingList, float budget)
+    public InitialShopperAgentBeliefs(List<ShopItemEnum> shoppingList, float budget)
     {
         ShoppingList = shoppingList;
         Budget = budget;
@@ -43,7 +43,7 @@ public class InitialShopperAgentBeliefs
     // Default constructor
     public InitialShopperAgentBeliefs()
     {
-        ShoppingList = new List<string>();
+        ShoppingList = new List<ShopItemEnum>();
         Budget = 0.0f;
     }
 
