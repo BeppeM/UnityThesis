@@ -1731,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FruitSeller
       objectReference: {fileID: 0}
+    - target: {fileID: 6233707015498882020, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
+      propertyPath: m_TagString
+      value: Artifact
+      objectReference: {fileID: 0}
     - target: {fileID: 6443494392353242755, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.2
@@ -1770,6 +1774,10 @@ PrefabInstance:
     - target: {fileID: 6443494392353242755, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918764575338043425, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
+      propertyPath: type
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

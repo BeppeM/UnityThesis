@@ -128,6 +128,9 @@ MonoBehaviour:
   type: 0
   tasksToPerform: 
   focusedArtifacts: []
+  initialShopperAgentBeliefs:
+    shoppingList: 00000000050000000b000000
+    budget: 0
 --- !u!195 &2637877676156523771
 NavMeshAgent:
   m_ObjectHideFlags: 0
