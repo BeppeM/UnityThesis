@@ -7,7 +7,7 @@ public class RunJacamo : MonoBehaviour
 
     async void Start()
     {
-        avatars = GameObject.FindGameObjectsWithTag("Player");
+        avatars = GameObject.FindGameObjectsWithTag("JacamoAgent");
         environmentArtifacts = GameObject.FindGameObjectsWithTag("Artifact");
         // Define agents into the multi agent system
         UnityJacamoIntegrationUtil.ConfigureJcmFile(avatars, environmentArtifacts);

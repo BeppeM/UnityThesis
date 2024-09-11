@@ -15,12 +15,12 @@ public class CounterScript : MASAbstract
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("JacamoAgent"))
         {
             // Print the name of the object that entered the trigger
             Debug.Log("Trigger detected with " + other.gameObject.name);
             // Send message to JaCaMo
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "increment", other.gameObject.name);
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "increment", other.gameObject.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
     }

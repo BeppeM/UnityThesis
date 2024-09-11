@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6224602863154459816}
   m_Layer: 0
   m_Name: Bob
-  m_TagString: Player
+  m_TagString: JacamoAgent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objInUse: {fileID: 8341316766975537883}
   port: 8887
+  type: 0
+  tasksToPerform: 
+  focusedArtifacts: []
 --- !u!195 &2637877676156523771
 NavMeshAgent:
   m_ObjectHideFlags: 0
