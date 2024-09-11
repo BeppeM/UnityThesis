@@ -10,6 +10,8 @@ public class AvatarScript : MASAbstract
 
     public List<TaskToPerformEnum> tasksToPerform;
     public GameObject[] focusedArtifacts;
+    public InitialShopperAgentBeliefs initialShopperAgentBeliefs;
+
     void Start()
     {
         initializeWebSocketConnection(OnMessage);
