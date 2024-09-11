@@ -12,10 +12,19 @@ public abstract class MASAbstract : MonoBehaviour
     protected MessageToSend wsMessage;
     public AgentArtifactTypeEnum type;
 
-    public string Type{
+    public string Type
+    {
         get
         {
             return type.ToString();
+        }
+    }
+
+    public string Port
+    {
+        get
+        {
+            return port;
         }
     }
 
@@ -50,7 +59,8 @@ public abstract class MASAbstract : MonoBehaviour
         }));
     }
 
-    public bool testConnection(){
+    public bool testConnection()
+    {
         return wsChannel.IsWebSocketConnected;
     }
 }
