@@ -29,8 +29,7 @@ public class AvatarScript : MASAbstract
     // Check if agent has reached the destination
     public void CheckDestinationReached()
     {
-        objInUse.GetComponent<ReachDestination>().stopWalking();
-        // Assuming TaskToPerformEnum is your enum and you have a List<TaskToPerformEnum> called TasksToPerform
+        objInUse.GetComponent<ReachDestination>().stopWalking();        
         string tasksString = "[" + string.Join(", ", tasksToPerform.Select(task => task.ToString())) + "]";
 
         // Set the next destination
