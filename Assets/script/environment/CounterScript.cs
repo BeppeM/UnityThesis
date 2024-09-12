@@ -6,6 +6,7 @@ public class CounterScript : MASAbstract
     // Start is called before the first frame update
     void Start()
     {
+        type = AgentArtifactTypeEnum.Counter;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
     }

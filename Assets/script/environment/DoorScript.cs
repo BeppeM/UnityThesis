@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using WebSocketSharp;
 
-public class SupermarketDoorScript : MASAbstract
+public class DoorScript : MASAbstract
 {
 
     // Flag changed by the user
@@ -14,6 +14,7 @@ public class SupermarketDoorScript : MASAbstract
     // Start is called before the first frame update
     void Start()
     {
+        type = AgentArtifactTypeEnum.Door;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
 

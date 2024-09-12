@@ -10,6 +10,7 @@ public class FruitSellerScript : MASAbstract
     // Start is called before the first frame update
     void Start()
     {
+        type = AgentArtifactTypeEnum.FruitSeller;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
     }

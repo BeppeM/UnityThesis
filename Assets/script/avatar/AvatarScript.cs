@@ -14,6 +14,7 @@ public class AvatarScript : MASAbstract
 
     void Start()
     {
+        type = AgentArtifactTypeEnum.Agent;
         initializeWebSocketConnection(OnMessage);
     }
 
