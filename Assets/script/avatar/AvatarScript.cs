@@ -45,7 +45,7 @@ public class AvatarScript : MASAbstract
     {
         string data = e.Data;
         print("Received message: " + data);
-        AgentMessage message = JsonConvert.DeserializeObject<AgentMessage>(data);;
+        AgentMessage message = JsonConvert.DeserializeObject<AgentMessage>(data);
         string payload = message.Payload;
         print("Payload: " + payload);
         if (payload == "supermarket_door_opened") // Let the agent reach the destination

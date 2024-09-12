@@ -10,7 +10,7 @@ public abstract class MASAbstract : MonoBehaviour
     public string port;
     protected WebSocketChannel wsChannel;
     protected MessageToSend wsMessage;
-    protected AgentArtifactTypeEnum type;    
+    protected AgentArtifactTypeEnum type;
 
     public string Type
     {
@@ -67,6 +67,12 @@ public abstract class MASAbstract : MonoBehaviour
     public string convertObjectIntoJson<T>(T objToConvert)
     {
         // Convert any object to JSON
-        return JsonConvert.SerializeObject(objToConvert, Formatting.Indented);
+        return JsonConvert.SerializeObject(objToConvert);
+    }
+
+    public string EscapeJson(string json)
+    {
+        // Escape double quotes and backslashes
+        return json.Replace("\\", "\\\\").Replace("\"", "\\\"");
     }
 }

@@ -34,8 +34,13 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         // Configure artifacts
         foreach (GameObject envArtifact in envArtifacts)
         {
-            MASAbstract script = envArtifact.GetComponent<MASAbstract>();
-            string artifact = "\t\t" + $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{script.Type}Artifact({script.Port})";
+            AbstractArtifact script = envArtifact.GetComponent<AbstractArtifact>();
+            string artifact = "\t\t" + $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{script.Type}Artifact({script.Port}";
+            if(script.ArtifactProperties != null){
+                artifact += $@", ""{script.ArtifactProperties}"")";
+            }else{
+                artifact += ")";
+            }
             artifact += "\n";
             fileLines[1] += artifact;
         }

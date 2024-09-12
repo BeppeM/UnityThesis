@@ -23,6 +23,9 @@ public class FruitSellerScript : AbstractArtifact
     void Start()
     {
         type = AgentArtifactTypeEnum.FruitSeller;
+        if(fruitSellerProperties != null){
+            artifactProperties = EscapeJson(convertObjectIntoJson(fruitSellerProperties));
+        }        
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
     }
