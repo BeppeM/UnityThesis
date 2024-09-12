@@ -2,15 +2,15 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public abstract class MASAbstract : MonoBehaviour
 {
     public GameObject objInUse;
     public string port;
     protected WebSocketChannel wsChannel;
-    protected bool isConnected = false;
     protected MessageToSend wsMessage;
-    protected AgentArtifactTypeEnum type;
+    protected AgentArtifactTypeEnum type;    
 
     public string Type
     {
@@ -62,5 +62,11 @@ public abstract class MASAbstract : MonoBehaviour
     public bool testConnection()
     {
         return wsChannel.IsWebSocketConnected;
+    }
+
+    public string convertObjectIntoJson<T>(T objToConvert)
+    {
+        // Convert any object to JSON
+        return JsonConvert.SerializeObject(objToConvert, Formatting.Indented);
     }
 }

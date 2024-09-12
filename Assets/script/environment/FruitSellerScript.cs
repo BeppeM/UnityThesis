@@ -1,11 +1,23 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using WebSocketSharp;
 
-public class FruitSellerScript : MASAbstract
+public class FruitSellerScript : AbstractArtifact
 {
+
+    public List<FruitInfo> fruitSellerProperties;
+
+    // Fruits that the fruit seller has 
+    public List<FruitInfo> FruitSellerProperties
+    {
+        get
+        {
+            return fruitSellerProperties;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +29,7 @@ public class FruitSellerScript : MASAbstract
 
     // Update is called once per frame
     void Update()
-    {   
+    {
     }
 
     private void OnMessage(object sender, MessageEventArgs e) { }

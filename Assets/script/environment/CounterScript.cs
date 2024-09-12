@@ -1,7 +1,7 @@
 using UnityEngine;
 using WebSocketSharp;
 
-public class CounterScript : MASAbstract
+public class CounterScript : AbstractArtifact
 {
     // Start is called before the first frame update
     void Start()

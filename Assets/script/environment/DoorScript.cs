@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using WebSocketSharp;
 
-public class DoorScript : MASAbstract
+public class DoorScript : AbstractArtifact
 {
 
     // Flag changed by the user
