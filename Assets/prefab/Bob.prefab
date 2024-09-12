@@ -125,7 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objInUse: {fileID: 8341316766975537883}
   port: 8887
-  type: 0
   tasksToPerform: 
   focusedArtifacts: []
   initialShopperAgentBeliefs:
