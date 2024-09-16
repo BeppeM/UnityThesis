@@ -107,7 +107,7 @@ public class AvatarScript : MASAbstract
         {
             print(objInUse.name + " - Reached Fruit seller. Buy some fruits");
             // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "buy_fruit", objInUse.name, null);
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "fruit_seller_reached", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
         if (other.gameObject.name.Contains("DressShop"))
