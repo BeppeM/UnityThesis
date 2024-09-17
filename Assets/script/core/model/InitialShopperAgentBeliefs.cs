@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
+using System.Linq;
 
 [System.Serializable]
 public class InitialShopperAgentBeliefs
 {
-    public List<ShopItemEnum> shoppingList;
+    public List<TaskModel> taskModels;
     public float budget;
 
     public float Budget
@@ -21,29 +22,24 @@ public class InitialShopperAgentBeliefs
         }
     }
 
-    public List<ShopItemEnum> ShoppingList
+
+    public List<TaskModel> TaskModels
     {
-        get
-        {
-            return shoppingList;
-        }
-        set
-        {
-            shoppingList = value;
-        }
+        get { return taskModels; }
+        set { taskModels = value; }
     }
 
     // Constructor to initialize the properties
-    public InitialShopperAgentBeliefs(List<ShopItemEnum> shoppingList, float budget)
+    public InitialShopperAgentBeliefs(List<TaskModel> taskModels, float budget)
     {
-        ShoppingList = shoppingList;
+        TaskModels = taskModels;
         Budget = budget;
     }
 
     // Default constructor
     public InitialShopperAgentBeliefs()
     {
-        ShoppingList = new List<ShopItemEnum>();
+        TaskModels = new List<TaskModel>();
         Budget = 0.0f;
     }
 
@@ -51,21 +47,14 @@ public class InitialShopperAgentBeliefs
     public string GetBeliefsString()
     {
         StringBuilder beliefs = new StringBuilder();
-
         // Add the budget belief
         beliefs.Append($"budget({Budget}), ");
-
-        // Add the shopping list belief
-        beliefs.Append("shoppingList([");
-        for (int i = 0; i < ShoppingList.Count; i++)
+        // Retrive all tasks to perform
+        if (TaskModels != null && TaskModels.Count != 0)
         {
-            beliefs.Append(ShoppingList[i]);
-            if (i < ShoppingList.Count - 1)
-            {
-                beliefs.Append(", ");
-            }
+            string temp = string.Join(", ", TaskModels.Select(task => task.ToLiteralBelief()));
+            beliefs.Append($"my_goals([{temp}])");
         }
-        beliefs.Append("])");
 
         return beliefs.ToString();
     }
