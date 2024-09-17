@@ -7,8 +7,6 @@ using Newtonsoft.Json;
 
 public class AvatarScript : MASAbstract
 {
-
-    public List<TaskToPerformEnum> tasksToPerform;
     public GameObject[] focusedArtifacts;
     public InitialShopperAgentBeliefs initialShopperAgentBeliefs;
 
@@ -24,22 +22,6 @@ public class AvatarScript : MASAbstract
         set { focusedArtifacts = value; }
     }
 
-    public List<TaskToPerformEnum> TasksToPerform
-    {
-        get { return tasksToPerform; }
-    }
-
-    // Check if agent has reached the destination
-    public void CheckDestinationReached()
-    {
-        objInUse.GetComponent<ReachDestination>().stopWalking();
-        string tasksString = "[" + string.Join(", ", tasksToPerform.Select(task => task.ToString())) + "]";
-
-        // Set the next destination
-        wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, tasksString);
-        UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-    }
-
     // Unity avatar receives message from jacamo agent
     private void OnMessage(object sender, MessageEventArgs e)
     {
@@ -49,7 +31,9 @@ public class AvatarScript : MASAbstract
         try
         {
             message = JsonConvert.DeserializeObject<AgentMessage>(data);
-        }catch(Exception){
+        }
+        catch (Exception)
+        {
             print("Message could not be converted.");
             return;
         }
@@ -101,7 +85,8 @@ public class AvatarScript : MASAbstract
     {
         if (other.gameObject.name.Contains("Door"))
         {
-            CheckDestinationReached();
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);            
         }
         if (other.gameObject.name.Contains("FruitSeller"))
         {
