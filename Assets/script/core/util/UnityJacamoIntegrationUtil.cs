@@ -45,7 +45,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             fileLines[1] += artifact;
         }
 
-        fileLines[1] += "}\n";
+        fileLines[1] += "\t}\n";
 
         // Configure all agents
         foreach (GameObject avatar in avatars)
