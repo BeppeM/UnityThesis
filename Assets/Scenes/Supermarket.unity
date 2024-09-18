@@ -1991,6 +1991,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DressShop
       objectReference: {fileID: 0}
+    - target: {fileID: 6084002672904650941, guid: d74b146aa7370564b80ce7ed03ee02bd, type: 3}
+      propertyPath: m_TagString
+      value: Artifact
+      objectReference: {fileID: 0}
     - target: {fileID: 7028419068646670742, guid: d74b146aa7370564b80ce7ed03ee02bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.16
