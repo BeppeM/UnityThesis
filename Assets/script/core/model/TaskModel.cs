@@ -55,6 +55,10 @@ public class TaskModel
     // Format object into taskToPerform([item1, item2, ....])
     public string ToLiteralBelief()
     {
-        return $"{taskToPerform}([{string.Join(", ", ShoppingList.Select(item => item.ToString().ToLowerInvariant()))}])";
+        string payload = $"{taskToPerform}";
+        if(shoppingList != null && shoppingList.Count != 0){
+            payload += $"([{string.Join(", ", ShoppingList.Select(item => item.ToString().ToLowerInvariant()))}])";
+        }
+        return payload;
     }
 }

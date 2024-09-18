@@ -387,11 +387,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].taskToPerform
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[1]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6536521104886864216, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
@@ -1730,11 +1742,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].taskToPerform
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].taskToPerform
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[3].taskToPerform
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
@@ -1743,6 +1763,14 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[3].shoppingList.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[0]
@@ -1755,6 +1783,26 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[2]
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.data[0]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.data[1]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.data[2]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[3].shoppingList.Array.data[0]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[3].shoppingList.Array.data[1]
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7472424640409763054, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: destination
