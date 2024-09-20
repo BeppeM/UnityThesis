@@ -1137,7 +1137,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1513745211
@@ -1673,7 +1673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].taskToPerform
@@ -1987,6 +1987,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 358215644585754401, guid: d74b146aa7370564b80ce7ed03ee02bd, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6084002672904650941, guid: d74b146aa7370564b80ce7ed03ee02bd, type: 3}
       propertyPath: m_Name
       value: DressShop
