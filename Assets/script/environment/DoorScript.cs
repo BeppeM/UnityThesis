@@ -17,7 +17,9 @@ public class DoorScript : AbstractArtifact
         type = AgentArtifactTypeEnum.Door;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
-
+        // Initialize property
+        artifactProperties = isSuperMarketOpen.ToString();
+        
         if (isSuperMarketOpen)
         {
             // Change door color to blue  
@@ -41,7 +43,7 @@ public class DoorScript : AbstractArtifact
         {
             // Change door color to blue  
             GetComponent<Renderer>().material.color = Color.blue;
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "supermarket_open", "all", null);
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "true", "all", null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
             flag = 0;
         }
@@ -50,7 +52,7 @@ public class DoorScript : AbstractArtifact
         {
             // Stay closed
             GetComponent<Renderer>().material.color = Color.red;
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "supermarket_closed", "all", null);
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "false", "all", null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);            
             flag = 1;
         }
