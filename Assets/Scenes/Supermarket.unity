@@ -937,14 +937,30 @@ PrefabInstance:
       objectReference: {fileID: 107487605}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].taskToPerform
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].taskToPerform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
@@ -954,6 +970,30 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.data[2]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[1]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[2]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.data[2]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6536521104886864216, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1705,15 +1745,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[0]
-      value: 18
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[1]
-      value: 17
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].shoppingList.Array.data[2]
-      value: 14
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[2].shoppingList.Array.data[0]
@@ -1956,7 +1996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7918764575338043425, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: fruitSellerProperties.Array.data[0].quantity
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7918764575338043425, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: fruitSellerProperties.Array.data[1].quantity
@@ -2058,6 +2098,10 @@ PrefabInstance:
     - target: {fileID: 7872065937153365466, guid: d74b146aa7370564b80ce7ed03ee02bd, type: 3}
       propertyPath: dressShopProperties.Array.data[1].quantity
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872065937153365466, guid: d74b146aa7370564b80ce7ed03ee02bd, type: 3}
+      propertyPath: dressShopProperties.Array.data[0].dressName
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7872065937153365466, guid: d74b146aa7370564b80ce7ed03ee02bd, type: 3}
       propertyPath: dressShopProperties.Array.data[1].clothesEnum

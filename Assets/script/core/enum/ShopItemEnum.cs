@@ -13,14 +13,13 @@ public enum ShopItemEnum
     Watermelon,
 
     // Clothes
-    TShirt,
-    Jeans,
+    Shirt,
+    Pants,
     Jacket,
-    Sweater,
-    Shorts,
+    Shoes,
+    Hat,
     Dress,
     Skirt,
-    Hat,
-    Shoes,
-    Scarf
+    Shorts,
+    Sweater
 }
