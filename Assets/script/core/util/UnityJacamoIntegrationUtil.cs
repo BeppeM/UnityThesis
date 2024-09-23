@@ -52,11 +52,11 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         foreach (GameObject avatar in avatars)
         {
             string artifactName = avatar.name + "Agent";
-            AvatarScript avatarScript = avatar.GetComponent<AvatarScript>();
-
+            AbstractAvatar avatarScript = avatar.GetComponent<AbstractAvatar>();
+            
             // Create the new agent definition
             string newAgent = $@"
-    agent {avatar.name}: agent.asl {{
+    agent {avatar.name}: {avatarScript.AgentFile} {{
         beliefs: {avatarScript.initialShopperAgentBeliefs.GetBeliefsString()}
         goals: initializeAgent({artifactName}, {avatarScript.port})
         join: w";
@@ -134,7 +134,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         // Start avatar web socket connections
         foreach (GameObject avatar in avatars)
         {
-            AvatarScript avatarScript = avatar.GetComponent<AvatarScript>();
+            AbstractAvatar avatarScript = avatar.GetComponent<AbstractAvatar>();
 
             if (avatarScript == null)
             {
