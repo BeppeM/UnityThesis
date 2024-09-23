@@ -1857,6 +1857,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 91671843910399287, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
+      propertyPath: isSuperMarketOpen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2648248567704055068, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1992,7 +1996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7918764575338043425, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: fruitSellerProperties.Array.data[2].price
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7918764575338043425, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: fruitSellerProperties.Array.data[0].quantity
@@ -2000,11 +2004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7918764575338043425, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: fruitSellerProperties.Array.data[1].quantity
-      value: 50
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7918764575338043425, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: fruitSellerProperties.Array.data[2].quantity
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7918764575338043425, guid: 9fb3f7af1bfce0e468300eee28352e3a, type: 3}
       propertyPath: fruitSellerProperties.Array.data[1].fruitName
