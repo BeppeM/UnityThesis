@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 
-public class AvatarScript : AbstractAvatar
-{
+public class Operator : AbstractAvatar
+{    
 
     void Start()
     {
-        agentFile = "agent.asl";
+        agentFile = "operator.asl";
         initializeWebSocketConnection(OnMessage);
     }
 
@@ -70,33 +70,5 @@ public class AvatarScript : AbstractAvatar
             print("Exception occoured OnMessage " + ex);
         }
     }
-
-    // When Player enters into supermarket
-    void OnTriggerEnter(Collider other)
-    {
-        print(objInUse.name + " - Reached " + other.gameObject.name);
-        if (other.gameObject.name.Contains("Door"))
-        {
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-        }
-        if (other.gameObject.name.Contains("FruitShop"))
-        {
-            // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "fruit_seller_reached", objInUse.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-        }
-        if (other.gameObject.name.Contains("DressShop"))
-        {
-            // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "dress_shop_reached", objInUse.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-        }
-        if (other.gameObject.name.Contains("ExitDoor"))
-        {
-            // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "exit", objInUse.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-        }
-    }
+    
 }
