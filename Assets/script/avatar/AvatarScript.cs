@@ -12,7 +12,6 @@ public class AvatarScript : MASAbstract
 
     void Start()
     {
-        type = AgentArtifactTypeEnum.Agent;
         initializeWebSocketConnection(OnMessage);
     }
 
@@ -51,7 +50,7 @@ public class AvatarScript : MASAbstract
                     destination = "ExitDoor";
                     break;
                 case CompleteTaskToPerformEnum.reach_fruit_seller:
-                    destination = "FruitSeller";
+                    destination = "FruitShop";
                     break;
                 case CompleteTaskToPerformEnum.enter_into_supermarket:
                     destination = "Door";
@@ -88,7 +87,7 @@ public class AvatarScript : MASAbstract
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
-        if (other.gameObject.name.Contains("FruitSeller"))
+        if (other.gameObject.name.Contains("FruitShop"))
         {
             // signal agents to buy some fruits
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "fruit_seller_reached", objInUse.name, null);

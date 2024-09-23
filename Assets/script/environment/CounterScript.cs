@@ -6,7 +6,7 @@ public class CounterScript : AbstractArtifact
     // Start is called before the first frame update
     void Start()
     {
-        type = AgentArtifactTypeEnum.Counter;
+        Type = AgentArtifactTypeEnum.Counter;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
     }

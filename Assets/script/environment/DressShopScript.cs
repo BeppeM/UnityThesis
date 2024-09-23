@@ -19,7 +19,7 @@ public class DressShopScript : AbstractArtifact
     // Start is called before the first frame update
     void Start()
     {
-        type = AgentArtifactTypeEnum.DressShop;
+        Type = AgentArtifactTypeEnum.DressShop;
         if(dressShopProperties != null){
             artifactProperties = EscapeJson(convertObjectIntoJson(dressShopProperties));
         }        

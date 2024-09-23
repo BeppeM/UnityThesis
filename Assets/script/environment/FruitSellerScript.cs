@@ -19,7 +19,7 @@ public class FruitSellerScript : AbstractArtifact
     // Start is called before the first frame update
     void Start()
     {
-        type = AgentArtifactTypeEnum.FruitSeller;
+        Type = AgentArtifactTypeEnum.FruitSeller;
         if(fruitSellerProperties != null){
             artifactProperties = EscapeJson(convertObjectIntoJson(fruitSellerProperties));
         }        

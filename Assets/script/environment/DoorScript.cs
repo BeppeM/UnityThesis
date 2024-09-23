@@ -14,7 +14,7 @@ public class DoorScript : AbstractArtifact
     // Start is called before the first frame update
     void Start()
     {
-        type = AgentArtifactTypeEnum.Door;
+        Type = AgentArtifactTypeEnum.Door;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
         // Initialize property

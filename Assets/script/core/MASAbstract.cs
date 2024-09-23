@@ -10,15 +10,6 @@ public abstract class MASAbstract : MonoBehaviour
     public string port;
     protected WebSocketChannel wsChannel;
     protected MessageToSend wsMessage;
-    protected AgentArtifactTypeEnum type;
-
-    public string Type
-    {
-        get
-        {
-            return type.ToString();
-        }
-    }
 
     public string Port
     {
