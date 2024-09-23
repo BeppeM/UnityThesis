@@ -57,17 +57,17 @@ public class AvatarScript : MASAbstract
             }
             else
             {
-                TaskToPerformEnum task = (TaskToPerformEnum)Enum.Parse(typeof(TaskToPerformEnum), payload);
+                CompleteTaskToPerformEnum task = (CompleteTaskToPerformEnum)Enum.Parse(typeof(CompleteTaskToPerformEnum), payload);
                 string destination = "";
                 switch (task)
                 {
-                    case TaskToPerformEnum.reach_dress_shop:
+                    case CompleteTaskToPerformEnum.reach_dress_shop:
                         destination = "DressShop";
                         break;
-                    case TaskToPerformEnum.reach_exit:
+                    case CompleteTaskToPerformEnum.reach_exit:
                         destination = "ExitDoor";
                         break;
-                    case TaskToPerformEnum.reach_fruit_seller:
+                    case CompleteTaskToPerformEnum.reach_fruit_seller:
                         destination = "FruitSeller";
                         break;
                     default:
