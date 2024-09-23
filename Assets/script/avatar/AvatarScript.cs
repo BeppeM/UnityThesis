@@ -40,46 +40,38 @@ public class AvatarScript : MASAbstract
         try
         {
             string payload = message.Payload;
-            if (payload == "supermarket_door_opened") // Let the agent reach the destination
+            CompleteTaskToPerformEnum task = (CompleteTaskToPerformEnum)Enum.Parse(typeof(CompleteTaskToPerformEnum), payload);
+            string destination = "";
+            switch (task)
             {
-                // Dispatch the move action to the main thread
-                UnityMainThreadDispatcher.Instance()
-                .Enqueue(() =>
-                {
-                    objInUse.GetComponent<ReachDestination>().reachDestination("Door");
-                });
+                case CompleteTaskToPerformEnum.reach_dress_shop:
+                    destination = "DressShop";
+                    break;
+                case CompleteTaskToPerformEnum.reach_exit:
+                    destination = "ExitDoor";
+                    break;
+                case CompleteTaskToPerformEnum.reach_fruit_seller:
+                    destination = "FruitSeller";
+                    break;
+                case CompleteTaskToPerformEnum.enter_into_supermarket:
+                    destination = "Door";
+                    break;
+                case CompleteTaskToPerformEnum.stop_walking:
+                    UnityMainThreadDispatcher.Instance()
+                    .Enqueue(() =>
+                    {
+                        objInUse.GetComponent<ReachDestination>().stopWalking();
+                    });
+                    return;
+                default:
+                    throw new Exception("Task cannot be performed");
             }
-            else if (payload == "supermarket_door_closed") // Stop the agent
+            // Dispatch the move action to the main thread
+            UnityMainThreadDispatcher.Instance()
+            .Enqueue(() =>
             {
-                // Dispatch the move action to the main thread
-                UnityMainThreadDispatcher.Instance()
-                .Enqueue(() => objInUse.GetComponent<ReachDestination>().stopWalking());
-            }
-            else
-            {
-                CompleteTaskToPerformEnum task = (CompleteTaskToPerformEnum)Enum.Parse(typeof(CompleteTaskToPerformEnum), payload);
-                string destination = "";
-                switch (task)
-                {
-                    case CompleteTaskToPerformEnum.reach_dress_shop:
-                        destination = "DressShop";
-                        break;
-                    case CompleteTaskToPerformEnum.reach_exit:
-                        destination = "ExitDoor";
-                        break;
-                    case CompleteTaskToPerformEnum.reach_fruit_seller:
-                        destination = "FruitSeller";
-                        break;
-                    default:
-                        throw new Exception("Task cannot be performed");
-                }
-                // Dispatch the move action to the main thread
-                UnityMainThreadDispatcher.Instance()
-                .Enqueue(() =>
-                {
-                    objInUse.GetComponent<ReachDestination>().reachDestination(destination);
-                });
-            }
+                objInUse.GetComponent<ReachDestination>().reachDestination(destination);
+            });
         }
         catch (Exception ex)
         {
@@ -97,19 +89,19 @@ public class AvatarScript : MASAbstract
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
         if (other.gameObject.name.Contains("FruitSeller"))
-        {            
+        {
             // signal agents to buy some fruits
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "fruit_seller_reached", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
         if (other.gameObject.name.Contains("DressShop"))
-        {            
+        {
             // signal agents to buy some fruits
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "dress_shop_reached", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
         if (other.gameObject.name.Contains("ExitDoor"))
-        {        
+        {
             // signal agents to buy some fruits
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "exit", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
