@@ -1321,7 +1321,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
       propertyPath: m_Name
-      value: Inventory
+      value: inventory
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
       propertyPath: m_LocalScale.x
@@ -1501,12 +1501,12 @@ GameObject:
   - component: {fileID: 1186047237}
   - component: {fileID: 1186047236}
   - component: {fileID: 1186047235}
+  - component: {fileID: 1186047242}
   - component: {fileID: 1186047240}
   - component: {fileID: 1186047241}
-  - component: {fileID: 1186047242}
   - component: {fileID: 1186047243}
   m_Layer: 0
-  m_Name: operator
+  m_Name: piero
   m_TagString: JacamoAgent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1988,7 +1988,7 @@ GameObject:
   - component: {fileID: 1513745211}
   - component: {fileID: 1513745210}
   m_Layer: 0
-  m_Name: ExitDoor
+  m_Name: exitDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2365,8 +2365,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852614353}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2512677, y: 0.6436268, z: -0.23676714, w: -0.6830449}
-  m_LocalPosition: {x: 19.329683, y: 12.707151, z: 5.100972}
+  m_LocalRotation: {x: 0.33751845, y: -0.6166582, z: 0.33050436, w: 0.62974674}
+  m_LocalPosition: {x: 21.21216, y: 20.479488, z: 7.2468376}
   m_LocalScale: {x: 0.98586, y: 0.98586, z: 0.98586}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2685,7 +2685,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 651205339833056780, guid: 42658d04bb0bc744c826f9e8de9f46ca, type: 3}
       propertyPath: m_Name
-      value: Counter
+      value: counter
       objectReference: {fileID: 0}
     - target: {fileID: 1041735659354206462, guid: 42658d04bb0bc744c826f9e8de9f46ca, type: 3}
       propertyPath: m_Size.z
@@ -2750,7 +2750,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 841067868435225427, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: m_Name
-      value: DressShop
+      value: dressShop
       objectReference: {fileID: 0}
     - target: {fileID: 3293917305237557998, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2858,7 +2858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6659805759562050965, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: m_Name
-      value: FruitShop
+      value: fruitShop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2883,7 +2883,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 51646647417059769, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: door
       objectReference: {fileID: 0}
     - target: {fileID: 8134154154708358730, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2937,6 +2937,7 @@ SceneRoots:
   - {fileID: 1852614356}
   - {fileID: 1608763657}
   - {fileID: 60542526}
+  - {fileID: 1186047238}
   - {fileID: 1418349878117469982}
   - {fileID: 734403216}
   - {fileID: 943838994}
@@ -2947,11 +2948,10 @@ SceneRoots:
   - {fileID: 600101882}
   - {fileID: 3485442950774512212}
   - {fileID: 1513745213}
-  - {fileID: 837809033}
   - {fileID: 7991356002858007302}
   - {fileID: 1006663140}
   - {fileID: 4091516564553610346}
   - {fileID: 5408467713383171698}
-  - {fileID: 1186047238}
   - {fileID: 669256428}
   - {fileID: 952236846}
+  - {fileID: 837809033}
