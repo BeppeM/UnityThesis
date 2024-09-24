@@ -37,16 +37,16 @@ public class AvatarScript : AbstractAvatar
             switch (task)
             {
                 case CompleteTaskToPerformEnum.reach_dress_shop:
-                    destination = "DressShop";
+                    destination = "dressShop";
                     break;
                 case CompleteTaskToPerformEnum.reach_exit:
-                    destination = "ExitDoor";
+                    destination = "exitDoor";
                     break;
                 case CompleteTaskToPerformEnum.reach_fruit_seller:
-                    destination = "FruitShop";
+                    destination = "fruitShop";
                     break;
                 case CompleteTaskToPerformEnum.enter_into_supermarket:
-                    destination = "Door";
+                    destination = "door";
                     break;
                 case CompleteTaskToPerformEnum.stop_walking:
                     UnityMainThreadDispatcher.Instance()
@@ -73,26 +73,25 @@ public class AvatarScript : AbstractAvatar
 
     // When Player enters into supermarket
     void OnTriggerEnter(Collider other)
-    {
-        print(objInUse.name + " - Reached " + other.gameObject.name);
-        if (other.gameObject.name.Contains("Door"))
+    {        
+        if (other.gameObject.name.Contains("door"))
         {
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
-        if (other.gameObject.name.Contains("FruitShop"))
+        if (other.gameObject.name.Contains("fruitShop"))
         {
             // signal agents to buy some fruits
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "fruit_seller_reached", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
-        if (other.gameObject.name.Contains("DressShop"))
+        if (other.gameObject.name.Contains("dressShop"))
         {
             // signal agents to buy some fruits
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "dress_shop_reached", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
-        if (other.gameObject.name.Contains("ExitDoor"))
+        if (other.gameObject.name.Contains("exitDoor"))
         {
             // signal agents to buy some fruits
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "exit", objInUse.name, null);

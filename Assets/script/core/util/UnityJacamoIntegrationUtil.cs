@@ -36,7 +36,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         {
             AbstractArtifact script = envArtifact.GetComponent<AbstractArtifact>();
             print("Analize " + envArtifact.name + " of type: " + script.Type);
-            string artifact = "\t\t" + $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{script.Type.ToString()}Artifact({script.Port}";
+            string artifact = "\t\t" + $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{script.Type.ToString()}Artifact({envArtifact.name}, {script.Port}";
             if(script.ArtifactProperties != null){
                 artifact += $@", ""{script.ArtifactProperties}"")";
             }else{
