@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 public class AvatarScript : AbstractAvatar
 {
 
-    void Start()
+    private void Awake()
     {
         agentFile = "agent.asl";
         initializeWebSocketConnection(OnMessage);

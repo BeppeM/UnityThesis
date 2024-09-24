@@ -11,8 +11,7 @@ public class DoorScript : AbstractArtifact
     public bool isSuperMarketOpen;
     private int flag = -1;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Type = AgentArtifactTypeEnum.Door;
         // Initialize new web socket connection

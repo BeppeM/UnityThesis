@@ -3,8 +3,7 @@ using WebSocketSharp;
 
 public class CounterScript : AbstractArtifact
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Type = AgentArtifactTypeEnum.Counter;
         // Initialize new web socket connection

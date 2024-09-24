@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 
-public class Operator : AbstractAvatar
+public class OperatorScript : AbstractAvatar
 {    
 
-    void Start()
+    void Awake()
     {
         agentFile = "operator.asl";
         initializeWebSocketConnection(OnMessage);

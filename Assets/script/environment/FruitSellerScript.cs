@@ -16,13 +16,13 @@ public class FruitSellerScript : AbstractArtifact
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         Type = AgentArtifactTypeEnum.FruitSeller;
-        if(fruitSellerProperties != null){
+        if (fruitSellerProperties != null)
+        {
             artifactProperties = EscapeJson(convertObjectIntoJson(fruitSellerProperties));
-        }        
+        }
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
     }

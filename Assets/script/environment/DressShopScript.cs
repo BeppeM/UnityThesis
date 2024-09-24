@@ -15,9 +15,8 @@ public class DressShopScript : AbstractArtifact
             return dressShopProperties;
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
+    
+    void Awake()
     {
         Type = AgentArtifactTypeEnum.DressShop;
         if(dressShopProperties != null){
