@@ -31,33 +31,7 @@ public class OperatorScript : AbstractAvatar
         }
         try
         {
-            string payload = message.Payload;
-            CompleteTaskToPerformEnum task = (CompleteTaskToPerformEnum)Enum.Parse(typeof(CompleteTaskToPerformEnum), payload);
-            string destination = "";
-            switch (task)
-            {
-                case CompleteTaskToPerformEnum.reach_dress_shop:
-                    destination = "DressShop";
-                    break;
-                case CompleteTaskToPerformEnum.reach_exit:
-                    destination = "ExitDoor";
-                    break;
-                case CompleteTaskToPerformEnum.reach_fruit_seller:
-                    destination = "FruitShop";
-                    break;
-                case CompleteTaskToPerformEnum.enter_into_supermarket:
-                    destination = "Door";
-                    break;
-                case CompleteTaskToPerformEnum.stop_walking:
-                    UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() =>
-                    {
-                        objInUse.GetComponent<ReachDestination>().stopWalking();
-                    });
-                    return;
-                default:
-                    throw new Exception("Task cannot be performed");
-            }
+            string destination = message.Payload;            
             // Dispatch the move action to the main thread
             UnityMainThreadDispatcher.Instance()
             .Enqueue(() =>
