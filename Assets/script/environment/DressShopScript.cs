@@ -18,7 +18,7 @@ public class DressShopScript : AbstractArtifact
     
     void Awake()
     {
-        Type = AgentArtifactTypeEnum.dressshop;
+        Type = ArtifactTypeEnum.DressShop;
         if(dressShopProperties != null){
             artifactProperties = EscapeJson(convertObjectIntoJson(dressShopProperties));
         }        

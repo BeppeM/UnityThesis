@@ -18,7 +18,7 @@ public class FruitSellerScript : AbstractArtifact
 
     private void Awake()
     {
-        Type = AgentArtifactTypeEnum.fruitshop;
+        Type = ArtifactTypeEnum.FruitShop;
         if (fruitSellerProperties != null)
         {
             artifactProperties = EscapeJson(convertObjectIntoJson(fruitSellerProperties));
