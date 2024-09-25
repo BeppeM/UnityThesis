@@ -2,14 +2,14 @@ public abstract class AbstractArtifact : MASAbstract
 {
 
     protected string artifactProperties;
-    protected AgentArtifactTypeEnum type;
+    protected ArtifactTypeEnum type;
 
     public string ArtifactProperties
     {
         get { return artifactProperties; }
     }
 
-    public AgentArtifactTypeEnum Type
+    public ArtifactTypeEnum Type
     {
         get
         {
