@@ -52,18 +52,18 @@ public class TaskModel
     }
 
     // Format object into taskToPerform(artifactTypeToReach, [item1, item2, ....])
-    // e.g. reach_fruit_seller(fruitshop,[mango, pineapple])
+    // e.g. reach_fruit_seller("FruitShop",[mango, pineapple])
     public string ToLiteralBelief()
     {
         string payload = $"{taskToPerform}";
 
         // Retrieve dictionary to map each task to each artifact type
-        Dictionary<TaskToPerformEnum, AgentArtifactTypeEnum>  taskToArtifactType= 
+        Dictionary<TaskToPerformEnum, ArtifactTypeEnum>  taskToArtifactType= 
             UnityJacamoIntegrationUtil.ArtifactTypeFromTaskToPerform;
 
         // Retrieve artifact type
-        AgentArtifactTypeEnum artifactType = taskToArtifactType[taskToPerform];
-        payload += $"({artifactType}";
+        ArtifactTypeEnum artifactType = taskToArtifactType[taskToPerform];
+        payload += $"(\"{artifactType}\"";
 
         if(shoppingList != null && shoppingList.Count != 0){
             payload += $",[{string.Join(", ", ShoppingList.Select(item => item.ToString().ToLowerInvariant()))}]";
