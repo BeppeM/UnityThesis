@@ -5,7 +5,7 @@ public class CounterScript : AbstractArtifact
 {
     void Awake()
     {
-        Type = AgentArtifactTypeEnum.Counter;
+        Type = AgentArtifactTypeEnum.counter;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
     }

@@ -13,7 +13,7 @@ public class DoorScript : AbstractArtifact
 
     void Awake()
     {
-        Type = AgentArtifactTypeEnum.Door;
+        Type = AgentArtifactTypeEnum.door;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
         // Initialize property

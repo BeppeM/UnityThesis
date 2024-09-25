@@ -45,20 +45,30 @@ public class TaskModel
         TaskToPerform = taskToPerform;
         shoppingList = shoppingList ?? new List<string>();        
     }
-
-    // Optional: Override ToString() method for easier debugging and logging
+    
     public override string ToString()
     {
         return $"TaskToPerform: {taskToPerform}, ShoppingList: {string.Join(", ", shoppingList)}";
     }
 
-    // Format object into taskToPerform([item1, item2, ....])
+    // Format object into taskToPerform(artifactTypeToReach, [item1, item2, ....])
+    // e.g. reach_fruit_seller(fruitshop,[mango, pineapple])
     public string ToLiteralBelief()
     {
         string payload = $"{taskToPerform}";
+
+        // Retrieve dictionary to map each task to each artifact type
+        Dictionary<TaskToPerformEnum, AgentArtifactTypeEnum>  taskToArtifactType= 
+            UnityJacamoIntegrationUtil.ArtifactTypeFromTaskToPerform;
+
+        // Retrieve artifact type
+        AgentArtifactTypeEnum artifactType = taskToArtifactType[taskToPerform];
+        payload += $"({artifactType}";
+
         if(shoppingList != null && shoppingList.Count != 0){
-            payload += $"([{string.Join(", ", ShoppingList.Select(item => item.ToString().ToLowerInvariant()))}])";
+            payload += $",[{string.Join(", ", ShoppingList.Select(item => item.ToString().ToLowerInvariant()))}]";
         }
+        payload += ")";
         return payload;
     }
 }

@@ -15,6 +15,17 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     "}"
     };
 
+    private static Dictionary<TaskToPerformEnum, AgentArtifactTypeEnum> artifactTypeFromTaskToPerform = new Dictionary<TaskToPerformEnum, AgentArtifactTypeEnum>()
+        {
+            { TaskToPerformEnum.reach_fruit_seller, AgentArtifactTypeEnum.fruitshop },
+            { TaskToPerformEnum.reach_dress_shop, AgentArtifactTypeEnum.dressshop }
+        };
+
+    public static Dictionary<TaskToPerformEnum, AgentArtifactTypeEnum> ArtifactTypeFromTaskToPerform
+    {
+        get { return artifactTypeFromTaskToPerform; }
+    }
+
     public static MessageToSend prepareMessage(string environmentArtifactName, string actionToPerform, string agentInvolved, string param)
     {
         return new MessageToSend(environmentArtifactName, actionToPerform, agentInvolved, param);
