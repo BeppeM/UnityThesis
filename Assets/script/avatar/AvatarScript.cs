@@ -32,37 +32,36 @@ public class AvatarScript : AbstractAvatar
         try
         {
             string payload = message.Payload;
-            CompleteTaskToPerformEnum task = (CompleteTaskToPerformEnum)Enum.Parse(typeof(CompleteTaskToPerformEnum), payload);
-            string destination = "";
-            switch (task)
+            if (payload == "stop_walking")
             {
-                case CompleteTaskToPerformEnum.reach_dress_shop:
-                    destination = "dressShop";
-                    break;
-                case CompleteTaskToPerformEnum.reach_exit:
-                    destination = "exitDoor";
-                    break;
-                case CompleteTaskToPerformEnum.reach_fruit_seller:
-                    destination = "fruitShop";
-                    break;
-                case CompleteTaskToPerformEnum.enter_into_supermarket:
-                    destination = "door";
-                    break;
-                case CompleteTaskToPerformEnum.stop_walking:
-                    UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() =>
-                    {
-                        objInUse.GetComponent<ReachDestination>().stopWalking();
-                    });
-                    return;
-                default:
-                    throw new Exception("Task cannot be performed");
+                UnityMainThreadDispatcher.Instance()
+                .Enqueue(() =>
+                {
+                    objInUse.GetComponent<ReachDestination>().stopWalking();
+                });
+                return;
             }
-            // Dispatch the move action to the main thread
-            UnityMainThreadDispatcher.Instance()
-            .Enqueue(() =>
+            if (payload == "reach_exit")
             {
-                objInUse.GetComponent<ReachDestination>().reachDestination(destination);
+                UnityMainThreadDispatcher.Instance()
+                .Enqueue(() =>
+                {
+                    objInUse.GetComponent<ReachDestination>().reachDestination("exitDoor");
+                });
+                return;
+            }
+            UnityMainThreadDispatcher.Instance().Enqueue(() =>
+            {
+                // Retrieve all artifacts in the game
+                GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
+                // Find the first artifact with the given type
+                GameObject filteredArtifact = artifacts
+                    .FirstOrDefault(artifact => artifact
+                    .GetComponent<AbstractArtifact>().Type.ToString() == payload);
+                if (filteredArtifact != null)
+                {
+                    objInUse.GetComponent<ReachDestination>().reachDestination(filteredArtifact.name);
+                }
             });
         }
         catch (Exception ex)
@@ -73,7 +72,7 @@ public class AvatarScript : AbstractAvatar
 
     // When Player enters into supermarket
     void OnTriggerEnter(Collider other)
-    {        
+    {
         if (other.gameObject.name.Contains("door"))
         {
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
