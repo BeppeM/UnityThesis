@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
+
 class UnityJacamoIntegrationUtil : MonoBehaviour
 {
 
@@ -15,13 +16,14 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     "}"
     };
 
-    private static Dictionary<TaskToPerformEnum, AgentArtifactTypeEnum> artifactTypeFromTaskToPerform = new Dictionary<TaskToPerformEnum, AgentArtifactTypeEnum>()
+    private static Dictionary<TaskToPerformEnum, ArtifactTypeEnum> artifactTypeFromTaskToPerform = new Dictionary<TaskToPerformEnum, ArtifactTypeEnum>()
         {
-            { TaskToPerformEnum.reach_fruit_seller, AgentArtifactTypeEnum.fruitshop },
-            { TaskToPerformEnum.reach_dress_shop, AgentArtifactTypeEnum.dressshop }
+            { TaskToPerformEnum.reach_fruit_seller, ArtifactTypeEnum.FruitShop },
+            { TaskToPerformEnum.reach_dress_shop, ArtifactTypeEnum.DressShop }
         };
 
-    public static Dictionary<TaskToPerformEnum, AgentArtifactTypeEnum> ArtifactTypeFromTaskToPerform
+    // Dictionary to map each action to perform for the shopper agent in each agent type to reach to achieve the goal
+    public static Dictionary<TaskToPerformEnum, ArtifactTypeEnum> ArtifactTypeFromTaskToPerform
     {
         get { return artifactTypeFromTaskToPerform; }
     }
@@ -47,10 +49,10 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         {
             AbstractArtifact script = envArtifact.GetComponent<AbstractArtifact>();
             print("Analize " + envArtifact.name + " of type: " + script.Type);
-            string artifact = "\t\t" + $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{script.Type.ToString()}Artifact({envArtifact.name}, {script.Port}";
+            string artifact = "\t\t" + $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{script.Type.ToString()}Artifact({"\"" + envArtifact.name + "\""}, {script.Port}";
             if(script.ArtifactProperties != null){
                 artifact += $@", ""{script.ArtifactProperties}"")";
-            }else{
+            }else{                
                 artifact += ")";
             }
             artifact += "\n";
