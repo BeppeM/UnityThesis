@@ -1,7 +1,7 @@
 public enum AgentArtifactTypeEnum
 {    
-    Door,
-    Counter,
-    FruitSeller,
-    DressShop,
+    door,
+    counter,
+    fruitshop,
+    dressshop,
 }
