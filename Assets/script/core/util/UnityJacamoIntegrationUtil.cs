@@ -16,18 +16,6 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     "}"
     };
 
-    private static Dictionary<TaskToPerformEnum, ArtifactTypeEnum> artifactTypeFromTaskToPerform = new Dictionary<TaskToPerformEnum, ArtifactTypeEnum>()
-        {
-            { TaskToPerformEnum.reach_fruit_seller, ArtifactTypeEnum.FruitShop },
-            { TaskToPerformEnum.reach_dress_shop, ArtifactTypeEnum.DressShop }
-        };
-
-    // Dictionary to map each action to perform for the shopper agent in each agent type to reach to achieve the goal
-    public static Dictionary<TaskToPerformEnum, ArtifactTypeEnum> ArtifactTypeFromTaskToPerform
-    {
-        get { return artifactTypeFromTaskToPerform; }
-    }
-
     public static MessageToSend prepareMessage(string environmentArtifactName, string actionToPerform, string agentInvolved, string param)
     {
         return new MessageToSend(environmentArtifactName, actionToPerform, agentInvolved, param);
