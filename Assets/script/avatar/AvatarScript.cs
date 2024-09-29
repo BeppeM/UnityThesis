@@ -41,7 +41,7 @@ public class AvatarScript : AbstractAvatar
                 });
                 return;
             }
-            if (payload == "reach_exit")
+            if (payload == "exitDoor")
             {
                 UnityMainThreadDispatcher.Instance()
                 .Enqueue(() =>
