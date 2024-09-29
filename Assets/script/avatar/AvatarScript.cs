@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 
 public class AvatarScript : AbstractAvatar
 {
-
     private void Awake()
     {
         agentFile = "shopper.asl";
@@ -20,6 +19,7 @@ public class AvatarScript : AbstractAvatar
         string data = e.Data;
         print("Received message: " + data);
         AgentMessage message = null;
+        //TODO: REMOVE ME!!
         try
         {
             message = JsonConvert.DeserializeObject<AgentMessage>(data);
@@ -50,6 +50,7 @@ public class AvatarScript : AbstractAvatar
                 });
                 return;
             }
+            // Avatar receives the type of artifact to reach
             UnityMainThreadDispatcher.Instance().Enqueue(() =>
             {
                 // Retrieve all artifacts in the game
@@ -73,12 +74,15 @@ public class AvatarScript : AbstractAvatar
     // When Player enters into supermarket
     void OnTriggerEnter(Collider other)
     {
+        // do_shopping
         if (other.gameObject.name.Contains("door"))
         {
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
             return;
         }
+
+        // reached_destination(shopName)
         if (!other.gameObject.name.Contains("counter") && other.gameObject.tag == "Artifact")
         {
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null,"reached_destination",
@@ -86,24 +90,6 @@ public class AvatarScript : AbstractAvatar
 
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
             return;
-        }
-        if (other.gameObject.name.Contains("fruitShop"))
-        {
-            // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "fruit_seller_reached", objInUse.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-        }
-        if (other.gameObject.name.Contains("dressShop"))
-        {
-            // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "dress_shop_reached", objInUse.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-        }
-        if (other.gameObject.name.Contains("exitDoor"))
-        {
-            // signal agents to buy some fruits
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "exit", objInUse.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
         }
     }
 }
