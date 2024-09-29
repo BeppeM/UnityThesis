@@ -10,7 +10,7 @@ public class AvatarScript : AbstractAvatar
 
     private void Awake()
     {
-        agentFile = "agent.asl";
+        agentFile = "shopper.asl";
         initializeWebSocketConnection(OnMessage);
     }
 
@@ -77,6 +77,15 @@ public class AvatarScript : AbstractAvatar
         {
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
+            return;
+        }
+        if (!other.gameObject.name.Contains("counter") && other.gameObject.tag == "Artifact")
+        {
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null,"reached_destination",
+                objInUse.name, other.name.ToLowerInvariant());
+
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
+            return;
         }
         if (other.gameObject.name.Contains("fruitShop"))
         {

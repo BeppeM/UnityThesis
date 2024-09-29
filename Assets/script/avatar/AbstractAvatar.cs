@@ -13,6 +13,11 @@ public abstract class AbstractAvatar : MASAbstract
         set { focusedArtifacts = value; }
     }
 
+    public InitialShopperAgentBeliefs InitialShopperAgentBeliefs
+    {
+        get { return initialShopperAgentBeliefs; }
+    }
+
     public string AgentFile{
         get{return agentFile;}
     }
