@@ -1,10 +1,13 @@
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class FruitInfo
 {
-    public FruitEnum fruitName;
+    [JsonConverter(typeof(StringEnumConverter))]
+    public FruitEnum itemName;
     public int price;
     public int quantity;
 }
