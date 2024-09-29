@@ -7,7 +7,7 @@ using System.Linq;
 [System.Serializable]
 public class InitialShopperAgentBeliefs
 {
-    public List<TaskModel> taskModels;
+    public List<ItemToBuy> itemsToBuy;
     public float budget;
 
     public float Budget
@@ -23,39 +23,38 @@ public class InitialShopperAgentBeliefs
     }
 
 
-    public List<TaskModel> TaskModels
+    public List<ItemToBuy> ItemsToBuy
     {
-        get { return taskModels; }
-        set { taskModels = value; }
+        get { return itemsToBuy; }
+        set { itemsToBuy = value; }
     }
 
     // Constructor to initialize the properties
-    public InitialShopperAgentBeliefs(List<TaskModel> taskModels, float budget)
+    public InitialShopperAgentBeliefs(List<ItemToBuy> itemsToBuy, float budget)
     {
-        TaskModels = taskModels;
+        ItemsToBuy = itemsToBuy;
         Budget = budget;
     }
 
     // Default constructor
     public InitialShopperAgentBeliefs()
     {
-        TaskModels = new List<TaskModel>();
+        ItemsToBuy = new List<ItemToBuy>();
         Budget = 0.0f;
     }
 
     // Method to generate beliefs as string to fill .jcm file
-    public string GetBeliefsString()
+    public string GetBeliefsAsLiterals()
     {
         StringBuilder beliefs = new StringBuilder();
         // Add the budget belief
-        beliefs.Append($"budget({Budget}), ");
-        // Retrive all tasks to perform
-        if (TaskModels != null && TaskModels.Count != 0)
-        {
-            string temp = string.Join(", ", TaskModels.Select(task => task.ToLiteralBelief()));
-            beliefs.Append($"my_goals([{temp}])");
-        }
+        beliefs.Append($"budget({Budget})");
 
+        if (itemsToBuy != null && itemsToBuy.Count != 0)
+        {            
+            string temp = "[" + string.Join(", ", itemsToBuy.Select(item => item.GetItemAsLiteral())) + "]";
+            beliefs.Append($", shoppingList({temp})");
+        }
         return beliefs.ToString();
     }
 }

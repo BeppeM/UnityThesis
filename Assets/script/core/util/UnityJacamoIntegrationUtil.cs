@@ -70,7 +70,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             // Create the new agent definition
             string newAgent = $@"
     agent {avatar.name}: {avatarScript.AgentFile} {{
-        beliefs: {avatarScript.initialShopperAgentBeliefs.GetBeliefsString()}
+        beliefs: {avatarScript.InitialShopperAgentBeliefs.GetBeliefsAsLiterals()}
         goals: initializeAgent({artifactName}, {avatarScript.port})
         join: w";
             // Define focus on artifacts
