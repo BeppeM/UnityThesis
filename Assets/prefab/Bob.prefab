@@ -125,11 +125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objInUse: {fileID: 8341316766975537883}
   port: 8887
-  tasksToPerform: 
-  focusedArtifacts: []
   initialShopperAgentBeliefs:
-    shoppingList: 00000000050000000b000000
+    itemsToBuy: []
     budget: 0
+  focusedArtifacts: []
+  goals: 000000000100000000000000
 --- !u!195 &2637877676156523771
 NavMeshAgent:
   m_ObjectHideFlags: 0
