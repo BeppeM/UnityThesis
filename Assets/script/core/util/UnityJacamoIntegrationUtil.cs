@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 
 
 class UnityJacamoIntegrationUtil : MonoBehaviour
@@ -59,7 +60,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             string newAgent = $@"
     agent {avatar.name}: {avatarScript.AgentFile} {{
         beliefs: {avatarScript.InitialShopperAgentBeliefs.GetBeliefsAsLiterals()}
-        goals: initializeAgent({artifactName}, {avatarScript.port})
+        goals: initializeAgent({artifactName}, {avatarScript.port}, initGoals([{string.Join(", ", avatarScript.Goals.Select(goal => goal.ToString().ToLower()))}]))
         join: w";
             // Define focus on artifacts
             string artifactsFocused = "\t\t" + $@"focus:";            
