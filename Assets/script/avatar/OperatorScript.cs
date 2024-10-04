@@ -44,5 +44,25 @@ public class OperatorScript : AbstractAvatar
             print("Exception occoured OnMessage " + ex);
         }
     }
-    
+
+    void OnTriggerEnter(Collider other)
+    {
+        // reached_destination(destName)
+        if (!other.gameObject.name.Contains("counter") && !other.gameObject.name.Contains("door") && other.gameObject.tag == "Artifact")
+        {
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination",
+                objInUse.name, other.name.ToLowerInvariant());
+
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
+        }
+
+        if (other.gameObject.name.Contains("exitDoor"))
+        {
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination",
+                objInUse.name, other.name.ToLowerInvariant());
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
+            return;
+        }
+    }
+
 }
