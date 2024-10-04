@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public abstract class AbstractAvatar : MASAbstract
 {
@@ -6,6 +8,7 @@ public abstract class AbstractAvatar : MASAbstract
     public InitialShopperAgentBeliefs initialShopperAgentBeliefs;
     public GameObject[] focusedArtifacts;
     protected string agentFile;
+    public List<GoalEnum> goals;
 
     public GameObject[] FocusedArtifacts
     {
@@ -18,8 +21,14 @@ public abstract class AbstractAvatar : MASAbstract
         get { return initialShopperAgentBeliefs; }
     }
 
-    public string AgentFile{
-        get{return agentFile;}
+    public string AgentFile
+    {
+        get { return agentFile; }
     }
 
+    public List<GoalEnum> Goals
+    {
+        get { return goals; }
+
+    }
 }
