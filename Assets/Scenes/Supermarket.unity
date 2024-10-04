@@ -480,6 +480,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
   m_PrefabInstance: {fileID: 943838994}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &328312139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+  m_PrefabInstance: {fileID: 1982419483}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &328312144
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328312139}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 71baf848e76aefd4e9d729d470d2081a, type: 3}
 --- !u!1 &406968839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,7 +1647,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2062089566}
   m_SourcePrefab: {fileID: 100100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
 --- !u!1 &1186047234
 GameObject:
@@ -2763,8 +2793,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 328312144}
   m_SourcePrefab: {fileID: 100100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+--- !u!1 &2062089562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+  m_PrefabInstance: {fileID: 1087833604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2062089566
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062089562}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 152095147e5492c41a9718b9b09863a4, type: 3}
 --- !u!1001 &1418349878117469982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3144,6 +3204,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitSellerProperties.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitSellerProperties.Array.data[3].price
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: fruitSellerProperties.Array.data[0].quantity
       value: 1
       objectReference: {fileID: 0}
@@ -3152,8 +3220,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitSellerProperties.Array.data[1].quantity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: fruitSellerProperties.Array.data[2].itemName
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitSellerProperties.Array.data[2].quantity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitSellerProperties.Array.data[3].itemName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitSellerProperties.Array.data[3].quantity
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6659805759562050965, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: m_Name
@@ -3183,6 +3267,10 @@ PrefabInstance:
     - target: {fileID: 51646647417059769, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: m_Name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548524489298777350, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
+      propertyPath: isSuperMarketOpen
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8134154154708358730, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: m_LocalPosition.x
