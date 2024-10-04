@@ -50,6 +50,15 @@ public class AvatarScript : AbstractAvatar
                 });
                 return;
             }
+            if (payload == "bar")
+            {
+                UnityMainThreadDispatcher.Instance()
+                .Enqueue(() =>
+                {
+                    objInUse.GetComponent<ReachDestination>().reachDestination("bar");
+                });
+                return;
+            }
             // Avatar receives the type of artifact to reach
             UnityMainThreadDispatcher.Instance().Enqueue(() =>
             {
@@ -74,20 +83,26 @@ public class AvatarScript : AbstractAvatar
     // When Player enters into supermarket
     void OnTriggerEnter(Collider other)
     {
+        // reached_destination(destName)
+        if (!other.gameObject.name.Contains("counter") && other.gameObject.tag == "Artifact")
+        {
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination",
+                objInUse.name, other.name.ToLowerInvariant());
+
+            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);            
+        }
         // do_shopping
         if (other.gameObject.name.Contains("door"))
         {
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
             return;
-        }
+        }        
 
-        // reached_destination(shopName)
-        if (!other.gameObject.name.Contains("counter") && other.gameObject.tag == "Artifact")
+        if (other.gameObject.name.Contains("bar") || other.gameObject.name.Contains("exitDoor"))
         {
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null,"reached_destination",
+            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination", 
                 objInUse.name, other.name.ToLowerInvariant());
-
             UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
             return;
         }
