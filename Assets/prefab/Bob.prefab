@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2637877676156523771}
   - component: {fileID: 7472424640409763054}
   - component: {fileID: 6224602863154459816}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bob
   m_TagString: JacamoAgent
   m_Icon: {fileID: 0}
