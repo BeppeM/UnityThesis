@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 
 public class OperatorScript : AbstractAvatar
 {    
-
     void Awake()
     {
         agentFile = "operator.asl";

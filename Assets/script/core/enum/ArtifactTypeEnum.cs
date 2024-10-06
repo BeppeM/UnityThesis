@@ -4,4 +4,7 @@ public enum ArtifactTypeEnum
     Counter,
     FruitShop,
     DressShop,
+    Bar,
+    SkyScraper,
+    Inventory
 }
