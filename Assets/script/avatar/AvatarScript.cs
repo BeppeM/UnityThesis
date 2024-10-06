@@ -50,15 +50,6 @@ public class AvatarScript : AbstractAvatar
                 });
                 return;
             }
-            if (payload == "bar")
-            {
-                UnityMainThreadDispatcher.Instance()
-                .Enqueue(() =>
-                {
-                    objInUse.GetComponent<ReachDestination>().reachDestination("bar");
-                });
-                return;
-            }
             // Avatar receives the type of artifact to reach
             UnityMainThreadDispatcher.Instance().Enqueue(() =>
             {
@@ -99,7 +90,7 @@ public class AvatarScript : AbstractAvatar
             return;
         }        
 
-        if (other.gameObject.name.Contains("bar") || other.gameObject.name.Contains("exitDoor"))
+        if (other.gameObject.name.Contains("exitDoor"))
         {
             wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination", 
                 objInUse.name, other.name.ToLowerInvariant());
