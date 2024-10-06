@@ -8,6 +8,6 @@ public class FruitInfo
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public FruitEnum itemName;
-    public int price;
+    public double price;
     public int quantity;
 }
