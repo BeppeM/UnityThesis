@@ -6,5 +6,6 @@ public enum ArtifactTypeEnum
     DressShop,
     Bar,
     SkyScraper,
-    Inventory
+    Inventory,
+    EnvLeader
 }
