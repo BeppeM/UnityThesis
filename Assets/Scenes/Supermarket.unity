@@ -5279,7 +5279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2548524489298777350, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: isSuperMarketOpen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8134154154708358730, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: m_LocalPosition.x
