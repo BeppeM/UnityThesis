@@ -5,10 +5,10 @@ using UnityEngine;
 using WebSocketSharp;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UnityEditor.Experimental;
 
 public class EnvironmentLeader : AbstractArtifact
 {
-
     void Awake()
     {
         Type = ArtifactTypeEnum.EnvLeader;
@@ -35,14 +35,14 @@ public class EnvironmentLeader : AbstractArtifact
             string actionType = message.ActionType;
             switch (actionType)
             {
-                case "all_artifact_by_type": // Retrieve all artifacts by the type
-                    retrieveArtifactsByType(message.ResourceType);
+                case "all_artifact_by_type": // Retrieve all artifacts by the type                    
+                    retrieveArtifactsByType(message.ResourceType, message.AgentName);
                     break;
                 case "all_artifact":
-                    retrieveAllArtifacts();
+                    retrieveAllArtifacts(message.AgentName);
                     break;
                 case "nearest":
-                    //TODO
+                    retrieveNearestShopsOfType(message.ResourceType, message.AgentName);
                     break;
 
             }
@@ -53,43 +53,89 @@ public class EnvironmentLeader : AbstractArtifact
         }
     }
 
-    private void retrieveAllArtifacts()
+    private async void retrieveAllArtifacts(string agentName)
     {
+        // Create a TaskCompletionSource to await the result
+        TaskCompletionSource<string[]> tcs = new TaskCompletionSource<string[]>();
         // Retrieve all artifacts in the game
         UnityMainThreadDispatcher.Instance()
         .Enqueue(() =>
         {
             GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
-            string artifactNames = "[" + string.Join(", ", artifacts.Select(artifact => artifact.name)) + "]";
-        });
+            string[] artifactNames = artifacts                
+                .Select(artifact => artifact.name) // Select the name of each GameObject
+                .ToArray();
 
+            tcs.SetResult(artifactNames);
+        });
+        string[] artifactNames = await tcs.Task;
+        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName,
+            "signal_agent", "artifact_names", artifactNames));
     }
 
-    private async void retrieveArtifactsByType(string resourceType)
-    {        
+    private async void retrieveArtifactsByType(string resourceType, string agentName)
+    {
         // Create a TaskCompletionSource to await the result
-        TaskCompletionSource<string> tcs = new TaskCompletionSource<string>();
-
+        TaskCompletionSource<string[]> tcs = new TaskCompletionSource<string[]>();
         UnityMainThreadDispatcher.Instance()
         .Enqueue(() =>
         {
             // Retrieve all artifacts in the game
             GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
-            // Find the first artifact with the given type
-            List<GameObject> filteredArtifacts = artifacts
-                .Where(artifact => artifact
-                .GetComponent<AbstractArtifact>().Type.ToString() == resourceType)
-                .ToList();
-
-            string artifactNames = "[" + string.Join(", ", filteredArtifacts.Select(artifact => artifact.name)) + "]";
-            tcs.SetResult(artifactNames);
+            // Retrieve all artifacts name that have the type specified
+            string[] filteredArtifactNames = artifacts
+                .Where(artifact => artifact.GetComponent<AbstractArtifact>().Type.ToString() == resourceType)
+                .Select(artifact => artifact.name) // Select the name of each GameObject
+                .ToArray();
+            tcs.SetResult(filteredArtifactNames);
         });
+        string[] artifactNames = await tcs.Task;         
+        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName, 
+            "signal_agent", "artifact_names", artifactNames));
+    }
 
-        string artifactNames = await tcs.Task;
-        EnvLeaderMsgRequest msgRequest = new EnvLeaderMsgRequest();
-        msgRequest.Action = "retrieve_artifact_info";
-        msgRequest.ActionType = "all_artifact_by_type";
+    private async void retrieveNearestShopsOfType(string resourceType, string agentName)
+    {
+        TaskCompletionSource<string[]> tcs = new TaskCompletionSource<string[]>();
+        UnityMainThreadDispatcher.Instance()
+        .Enqueue(() =>
+        {
+            GameObject avatar = GameObject.Find(agentName);
+            if (avatar == null)
+            {
+                print("No avatar found");
+                return;
+            }
+            // Find all objects with the 'Shop' tag
+            GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
+            GameObject[] filteredArtifacts = artifacts.Where(artifact => artifact
+            .GetComponent<AbstractArtifact>().Type.ToString() == resourceType).ToArray();
 
-        wsChannel.sendMessage(artifactNames);
+            if (filteredArtifacts.Length == 0)
+            {
+                Debug.Log("No shops found in the scene.");
+                return;
+            }
+
+            // Create a list to store the shops and their distances
+            List<KeyValuePair<GameObject, float>> artifactsWithDistances = new List<KeyValuePair<GameObject, float>>();
+
+            // Calculate the distance from the avatar to each shop and store it
+            foreach (GameObject shop in filteredArtifacts)
+            {
+                float distance = Vector3.Distance(avatar.transform.position, shop.transform.position);
+                artifactsWithDistances.Add(new KeyValuePair<GameObject, float>(shop, distance));
+            }
+
+            // Sort the list by distance (ascending)
+            artifactsWithDistances = artifactsWithDistances.OrderBy(pair => pair.Value).ToList();
+
+            // Extract the sorted GameObjects into a list
+            List<GameObject> sortedShops = artifactsWithDistances.Select(pair => pair.Key).ToList();
+            tcs.SetResult(sortedShops.Select(artifact => artifact.name).ToArray());
+        });        
+        string[] artifactNames = await tcs.Task;
+        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName,
+            "signal_agent", "artifact_names", artifactNames));        
     }
 }

@@ -3,6 +3,8 @@ using WebSocketSharp;
 
 public class CounterScript : AbstractArtifact
 {
+
+    private int counter = 0;
     void Awake()
     {
         Type = ArtifactTypeEnum.Counter;
@@ -17,11 +19,12 @@ public class CounterScript : AbstractArtifact
     {
         if (other.gameObject.CompareTag("JacamoAgent"))
         {
+            counter++;
             // Print the name of the object that entered the trigger
             Debug.Log("Trigger detected with " + other.gameObject.name);
             // Send message to JaCaMo
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "increment", other.gameObject.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil
+                .createAndConvertJacamoMessageIntoJsonString(other.name, "signal_agent", "assign_number", null));
         }
     }
 

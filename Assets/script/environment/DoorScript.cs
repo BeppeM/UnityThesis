@@ -42,8 +42,8 @@ public class DoorScript : AbstractArtifact
         {
             // Change door color to blue  
             GetComponent<Renderer>().material.color = Color.blue;
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "true", "all", null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil
+                .createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_shoppers", "", true));            
             flag = 0;
         }
         // supermarket is closed and message has not been sent yet to JACaMo
@@ -51,8 +51,8 @@ public class DoorScript : AbstractArtifact
         {
             // Stay closed
             GetComponent<Renderer>().material.color = Color.red;
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(objInUse.name, "false", "all", null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);            
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil
+                .createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_shoppers", "", false));                    
             flag = 1;
         }
     }
