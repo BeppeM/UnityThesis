@@ -4,6 +4,7 @@ using WebSocketSharp;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 
 public class OperatorScript : AbstractAvatar
 {    
@@ -47,20 +48,10 @@ public class OperatorScript : AbstractAvatar
     void OnTriggerEnter(Collider other)
     {
         // reached_destination(destName)
-        if (!other.gameObject.name.Contains("counter") && !other.gameObject.name.Contains("door") && other.gameObject.tag == "Artifact")
+        if (other.gameObject.tag == "Artifact")
         {
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination",
-                objInUse.name, other.name.ToLowerInvariant());
-
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-        }
-
-        if (other.gameObject.name.Contains("exitDoor"))
-        {
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination",
-                objInUse.name, other.name.ToLowerInvariant());
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-            return;
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_agent",
+                "reached_destination", other.name.FirstCharacterToLower()));            
         }
     }
 

@@ -4,6 +4,7 @@ using WebSocketSharp;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 
 public class AvatarScript : AbstractAvatar
 {
@@ -52,17 +53,8 @@ public class AvatarScript : AbstractAvatar
             }
             // Avatar receives the type of artifact to reach
             UnityMainThreadDispatcher.Instance().Enqueue(() =>
-            {
-                // Retrieve all artifacts in the game
-                GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
-                // Find the first artifact with the given type
-                GameObject filteredArtifact = artifacts
-                    .FirstOrDefault(artifact => artifact
-                    .GetComponent<AbstractArtifact>().Type.ToString() == payload);
-                if (filteredArtifact != null)
-                {
-                    objInUse.GetComponent<ReachDestination>().reachDestination(filteredArtifact.name);
-                }
+            {                
+                objInUse.GetComponent<ReachDestination>().reachDestination(payload);
             });
         }
         catch (Exception ex)
@@ -76,25 +68,14 @@ public class AvatarScript : AbstractAvatar
     {
         // reached_destination(destName)
         if (!other.gameObject.name.Contains("counter") && other.gameObject.tag == "Artifact")
-        {
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination",
-                objInUse.name, other.name.ToLowerInvariant());
-
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);            
+        {                     
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_agent", 
+                "reached_destination", other.name.FirstCharacterToLower()));          
         }
-        // do_shopping
-        if (other.gameObject.name.Contains("door"))
-        {
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "do_shopping", objInUse.name, null);
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
-            return;
-        }        
-
         if (other.gameObject.name.Contains("exitDoor"))
         {
-            wsMessage = UnityJacamoIntegrationUtil.prepareMessage(null, "reached_destination", 
-                objInUse.name, other.name.ToLowerInvariant());
-            UnityJacamoIntegrationUtil.sendMessageToJaCaMo(wsMessage, wsChannel);
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(objInUse.name,
+                "signal_agent", "reached_destination", other.name.ToLowerInvariant()));            
             return;
         }
     }
