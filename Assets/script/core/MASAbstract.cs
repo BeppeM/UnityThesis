@@ -9,7 +9,6 @@ public abstract class MASAbstract : MonoBehaviour
     public GameObject objInUse;
     public string port;
     protected WebSocketChannel wsChannel;
-    protected MessageToSend wsMessage;
 
     public string Port
     {

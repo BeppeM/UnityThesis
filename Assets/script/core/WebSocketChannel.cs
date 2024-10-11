@@ -2,6 +2,7 @@ using System;
 using WebSocketSharp;
 using UnityEngine;
 using System.Threading.Tasks;
+using Unity.VisualScripting.FullSerializer;
 
 public class WebSocketChannel
 {
@@ -42,6 +43,7 @@ public class WebSocketChannel
 
     public void sendMessage(string message)
     {
+        Debug.Log("Sending message " + message);
         ws.Send(message);
     }
 

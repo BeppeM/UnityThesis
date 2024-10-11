@@ -5,6 +5,8 @@ using UnityEngine;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+using Unity.VisualScripting;
 
 
 class UnityJacamoIntegrationUtil : MonoBehaviour
@@ -16,11 +18,6 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         "\tworkspace w {\n",
     "}"
     };
-
-    public static MessageToSend prepareMessage(string environmentArtifactName, string actionToPerform, string agentInvolved, string param)
-    {
-        return new MessageToSend(environmentArtifactName, actionToPerform, agentInvolved, param);
-    }
 
     //Utility used to configure .jcm file by adding agents 
     public static void ConfigureJcmFile(GameObject[] avatars, GameObject[] envArtifacts)
@@ -38,7 +35,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         {
             AbstractArtifact script = envArtifact.GetComponent<AbstractArtifact>();
             print("Analize " + envArtifact.name + " of type: " + script.Type);
-            string artifact = "\t\t" + $@"artifact {envArtifact.name.ToLowerInvariant()}: artifact.{script.Type.ToString()}Artifact({"\"" + envArtifact.name + "\""}, {script.Port}";
+            string artifact = "\t\t" + $@"artifact {envArtifact.name.FirstCharacterToLower()}: artifact.{script.Type.ToString()}Artifact({"\"" + envArtifact.name + "\""}, {script.Port}";
             if(script.ArtifactProperties != null){
                 artifact += $@", ""{script.ArtifactProperties}"")";
             }else{                
@@ -66,7 +63,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             string artifactsFocused = "\t\t" + $@"focus:";            
             foreach (GameObject art in avatarScript.FocusedArtifacts)
             {
-                artifactsFocused += $@" w.{art.name.ToLowerInvariant()}";
+                artifactsFocused += $@" w.{art.name.FirstCharacterToLower()}";
                 artifactsFocused += "\n\t\t";
             }                                    
             newAgent += "\n" + artifactsFocused + "\n\t}";
@@ -164,12 +161,9 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         await Task.WhenAll(tasks);
     }
 
-    // Method to send message to jacamo artifacts
-    public static void sendMessageToJaCaMo(MessageToSend wsMessage, WebSocketChannel wsChannel)
+    public static string createAndConvertJacamoMessageIntoJsonString(string jacamoEntityName, string actionType, string actionToPerform, object param)
     {
-        string jsonString = JsonUtility.ToJson(wsMessage);
-        print(wsMessage.getActionToPerform());
-        print(jsonString);
-        wsChannel.sendMessage(jsonString);
+        JacamoMessage jacamoMessage = new JacamoMessage(jacamoEntityName, actionType, actionToPerform, param);
+        return JsonConvert.SerializeObject(jacamoMessage);
     }
 }
