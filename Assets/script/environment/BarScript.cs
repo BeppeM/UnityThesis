@@ -18,11 +18,11 @@ public class BarScript : AbstractArtifact
     private void Awake()
     {
         Type = ArtifactTypeEnum.Bar;
-        //if (barProperties != null)
-        //{
-        //    artifactProperties = EscapeJson(convertObjectIntoJson(barProperties));
-        //}
-        // Initialize new web socket connection
+        if (barProperties != null)
+        {
+            artifactProperties = EscapeJson(convertObjectIntoJson(barProperties));
+        }
+        //Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
     }
 

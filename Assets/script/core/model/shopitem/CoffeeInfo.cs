@@ -8,6 +8,7 @@ using UnityEngine;
 public class CoffeeInfo
 {
     [JsonConverter(typeof(StringEnumConverter))]
-    public CoffeeEnum coffeeEnum;
+    public CoffeeEnum itemName;
     public double price;
+    public int quantity;
 }
