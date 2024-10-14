@@ -941,10 +941,12 @@ MonoBehaviour:
   objInUse: {fileID: 328312139}
   port: 3434
   barProperties:
-  - coffeeEnum: 0
+  - itemName: 0
     price: 1.2
-  - coffeeEnum: 1
+    quantity: 50
+  - itemName: 1
     price: 2.3
+    quantity: 50
 --- !u!1001 &366828243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3730,10 +3732,12 @@ MonoBehaviour:
   objInUse: {fileID: 1583905284}
   port: 3450
   barProperties:
-  - coffeeEnum: 0
+  - itemName: 0
     price: 1.2
-  - coffeeEnum: 1
+    quantity: 50
+  - itemName: 1
     price: 2.3
+    quantity: 50
 --- !u!64 &1583905286
 MeshCollider:
   m_ObjectHideFlags: 0
