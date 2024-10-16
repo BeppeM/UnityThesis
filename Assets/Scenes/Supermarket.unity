@@ -3539,6 +3539,7 @@ GameObject:
   - component: {fileID: 1513745212}
   - component: {fileID: 1513745211}
   - component: {fileID: 1513745210}
+  - component: {fileID: 1513745214}
   m_Layer: 0
   m_Name: exitDoor
   m_TagString: Untagged
@@ -3628,11 +3629,32 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.2, y: -3.6, z: 3.7}
-  m_LocalScale: {x: 0.23632, y: 0.23632, z: 0.23632}
+  m_LocalScale: {x: 0.23632, y: 0.48000407, z: 0.23632}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1513745214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513745209}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.278221, y: 5.6436944, z: 9.999997}
+  m_Center: {x: 0.13911651, y: -0.3794161, z: 0}
 --- !u!1001 &1583905283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4298,8 +4320,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1864209146}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[3]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: tasksToPerform.Array.size
@@ -5146,7 +5176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3517926839880903633, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: dressShopProperties.Array.data[0].quantity
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3517926839880903633, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: dressShopProperties.Array.data[1].itemName
@@ -5154,7 +5184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3517926839880903633, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: dressShopProperties.Array.data[1].quantity
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5222,7 +5252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: fruitSellerProperties.Array.data[0].quantity
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3684385206588369377, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: fruitSellerProperties.Array.data[1].itemName
