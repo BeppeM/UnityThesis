@@ -131,8 +131,8 @@ public class EnvironmentLeader : AbstractArtifact
             artifactsWithDistances = artifactsWithDistances.OrderBy(pair => pair.Value).ToList();
 
             // Extract the sorted GameObjects into a list
-            List<GameObject> sortedShops = artifactsWithDistances.Select(pair => pair.Key).ToList();
-            tcs.SetResult(sortedShops.Select(artifact => artifact.name).ToArray());
+            List<GameObject> sortedArtifacts = artifactsWithDistances.Select(pair => pair.Key).ToList();
+            tcs.SetResult(sortedArtifacts.Select(artifact => artifact.name).ToArray());
         });        
         string[] artifactNames = await tcs.Task;
         wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName,
