@@ -7,11 +7,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEditor.Experimental;
 
-public class EnvironmentLeader : AbstractArtifact
+public class EnvManager : AbstractArtifact
 {
     void Awake()
     {
-        Type = ArtifactTypeEnum.EnvLeader;
+        Type = ArtifactTypeEnum.EnvManager;
         // Initialize new web socket connection
         initializeWebSocketConnection(OnMessage);
     }

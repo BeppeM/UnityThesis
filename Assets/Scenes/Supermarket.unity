@@ -4228,7 +4228,7 @@ GameObject:
   - component: {fileID: 1863242357}
   - component: {fileID: 1863242356}
   m_Layer: 0
-  m_Name: envLeader
+  m_Name: envManager
   m_TagString: Artifact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -7,5 +7,5 @@ public enum ArtifactTypeEnum
     Bar,
     SkyScraper,
     Inventory,
-    EnvLeader
+    EnvManager
 }
