@@ -1,12 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ExitDoorScript
+public class ExitDoorScript : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
+        print("CIAOAOAOAOAOAOA");
         if (other.gameObject.CompareTag("JacamoAgent"))
-        {                        
-            other.GetComponent<ReachDestination>().stopWalking();
+        {
+            Destroy(other);
         }
     }
 

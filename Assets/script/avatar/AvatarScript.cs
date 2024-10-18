@@ -88,9 +88,7 @@ public class AvatarScript : AbstractAvatar
         }
         if (other.gameObject.name.Contains("exitDoor"))
         {
-            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(objInUse.name,
-                "signal_agent", "reached_destination", other.name.ToLowerInvariant()));            
-            return;
+            Destroy(this);
         }
     }
 }
