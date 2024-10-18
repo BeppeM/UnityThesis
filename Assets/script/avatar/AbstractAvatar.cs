@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -9,6 +10,7 @@ public abstract class AbstractAvatar : MASAbstract
     public GameObject[] focusedArtifacts;
     protected string agentFile;
     public List<GoalEnum> goals;
+    protected TextMeshPro nameTextMeshPro;
 
     public GameObject[] FocusedArtifacts
     {

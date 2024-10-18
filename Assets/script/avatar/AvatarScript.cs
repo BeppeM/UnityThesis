@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
+using TMPro;
 
 public class AvatarScript : AbstractAvatar
 {
@@ -12,6 +13,19 @@ public class AvatarScript : AbstractAvatar
     {
         agentFile = "shopper.asl";
         initializeWebSocketConnection(OnMessage);
+        // Find the TextMeshPro component in the children of the avatar
+        nameTextMeshPro = GetComponentInChildren<TextMeshPro>();
+
+        // Check if we found the TextMeshPro component
+        if (nameTextMeshPro != null)
+        {
+            // Set the text of the TextMeshPro to the avatar's name
+            nameTextMeshPro.text = name;
+        }
+        else
+        {
+            Debug.LogWarning("TextMeshPro component not found in the avatar's children.");
+        }
     }
 
     // Unity avatar receives message from jacamo agent
