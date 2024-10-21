@@ -12,10 +12,12 @@ public class ReachDestination : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        // Start by moving to a random point on the NavMesh surface
-        // MoveToRandomPoint();
     }
+
     // Update is called once per frame
+    private void Update()
+    {
+    }
 
     public void reachDestination(string dest)
     {

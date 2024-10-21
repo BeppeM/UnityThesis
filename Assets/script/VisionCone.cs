@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,10 +56,22 @@ public class FlashlightCone : MonoBehaviour
         {
             GameObject obj= colliders[i].gameObject;
             if (IsInSight(obj))
-            {
-                obj.GetComponent<Renderer>().material.color = Color.blue;
+            {                
+                CheckLayer(obj);
                 Objects.Add(obj);
             }
+        }
+    }
+
+    private void CheckLayer(GameObject obj)
+    {
+        if (obj.layer == LayerMask.NameToLayer("shops"))
+        {
+            print("Agent " + this.gameObject.name + " found: " +  obj.name);
+        } 
+        else
+        {
+            obj.GetComponent<Renderer>().material.color = Color.blue;
         }
     }
 
