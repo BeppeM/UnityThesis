@@ -2,26 +2,39 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [ExecuteInEditMode]
-public class FlashlightCone : MonoBehaviour
+public class VisionCone : MonoBehaviour
 {
-
+    // Avatar game object
+    private GameObject avatar;
+    private NavMeshAgent agent;
     public float distance = 10;
     public float angle = 30;
     public float height = 1.0f;
     public Color meshColor = Color.red;
-    // instead of updating the sensor at each frame, use scanFrequency to control how frequently the sensor scans the environment
-    public int scanFrequency = 30;
     // layers that the sensors is interested in
     public LayerMask layers;
     // Layers that occlude the object
     public LayerMask occlusionLayers;
+    bool reachedArtifact = false;
+    public bool ReachedArtifact
+    {
+        get { return reachedArtifact; } 
+        set { reachedArtifact = value; }
+    }
     // List of game objects that are inside the sensor's bound
-    public List<GameObject> Objects = new List<GameObject>();
-    // Buffer to store the colliders information
-    Collider[] colliders = new Collider[50];
+    public List<GameObject> foundArtifacts = new List<GameObject>();
+    public List<GameObject> FoundArtifacts
+    {
+        get { return foundArtifacts; }
+    }
+    // Buffer to store the colliders information that the sensor scans
+    Collider[] colliders = new Collider[50];   
     int count;
+    // instead of updating the sensor at each frame, use scanFrequency to control how frequently the sensor scans the environment
+    public int scanFrequency = 30;
     float scanInterval;
     float scanTimer;
 
@@ -29,6 +42,9 @@ public class FlashlightCone : MonoBehaviour
 
     void Start()
     {
+        // Retrieve the parent object -> the avatar which sensor belongs
+        avatar = transform.parent.gameObject;
+        agent = avatar.GetComponent<NavMeshAgent>();
         scanInterval = 1.0f / scanFrequency;
     }
 
@@ -50,29 +66,35 @@ public class FlashlightCone : MonoBehaviour
         // Specify also the layers the cone can collide
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, 
             layers, QueryTriggerInteraction.Collide);
-
-        Objects.Clear();
+        
         for (int i = 0; i < count; i++)
         {
             GameObject obj= colliders[i].gameObject;
             if (IsInSight(obj))
             {                
-                CheckLayer(obj);
-                Objects.Add(obj);
+                CheckLayer(obj);                
             }
         }
     }
 
     private void CheckLayer(GameObject obj)
     {
-        if (obj.layer == LayerMask.NameToLayer("shops"))
+        // Discovered a shop
+        if(obj.layer == LayerMask.NameToLayer("shops"))
         {
-            print("Agent " + this.gameObject.name + " found: " +  obj.name);
+            reachedArtifact = true;
+            // Stop the agent
+            agent.isStopped = true;
         } 
-        else
+        if (obj.layer == LayerMask.NameToLayer("shops") && !foundArtifacts.Contains(obj))
+        {
+            foundArtifacts.Add(obj);
+            print("Agent " + avatar.name + " found new shop: " + obj.name);
+        }
+        else if (obj.layer == LayerMask.NameToLayer("pippo"))
         {
             obj.GetComponent<Renderer>().material.color = Color.blue;
-        }
+        }        
     }
 
     // Check if the object is inside the angle radius of the vision cone
@@ -129,7 +151,7 @@ public class FlashlightCone : MonoBehaviour
         }
 
         Gizmos.color = Color.green;
-        foreach (var obj in Objects)
+        foreach (var obj in foundArtifacts)
         {
             Gizmos.DrawSphere(obj.transform.position, 0.2f);
         }

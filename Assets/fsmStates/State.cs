@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,7 +5,7 @@ public class State
 {
     public enum STATE
     {
-        IDLE, WALK
+        IDLE, WALK, CHECK_ARTIFACT
     };
 
     public enum EVENT
@@ -17,20 +15,31 @@ public class State
 
     public STATE name;
     protected EVENT stage;
+    // The avatar
     protected GameObject npc;
-    protected State nextState;
+    // The avatar's sensor to see the environment
+    protected GameObject visionSensor;
     protected NavMeshAgent agent;
+    protected State nextState;
 
     public State(GameObject _npc, NavMeshAgent _agent)
     {
         npc = _npc;
         agent = _agent;
         stage = EVENT.ENTER;
+        // Retrieve the avatar's eyes
+        visionSensor = npc.transform.Find("visionCone").gameObject;
     }
 
-    public virtual void Enter() { stage = EVENT.UPDATE; }
+    public virtual void Enter() {        
+        Debug.Log("Agent " + npc.name + " entered in " + name.ToString());
+        stage = EVENT.UPDATE; 
+    }
     public virtual void Update() { stage = EVENT.UPDATE; }
-    public virtual void Exit() { stage = EVENT.EXIT; }
+    public virtual void Exit() {
+        Debug.Log("Agent " + npc.name + " leaving the state " + name.ToString());
+        stage = EVENT.EXIT; 
+    }
 
     public State Process()
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class walk : MonoBehaviour
+public class AutonomousWalking : MonoBehaviour
 {
 
     private NavMeshAgent agent;
@@ -18,9 +18,14 @@ public class walk : MonoBehaviour
         min = walkAround.min.position;
         max = walkAround.max.position;
     }
-    
+
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    public void Walk()
     {
         if (!agent.hasPath || agent.velocity.magnitude < 0.1f)
         {
@@ -29,7 +34,7 @@ public class walk : MonoBehaviour
                 Random.Range(min.x, max.x),
                 Random.Range(min.y, max.y),
                 Random.Range(min.z, max.z)
-                );            
+                );
 
             // Check if the random position is on the NavMesh
             NavMeshHit hit;
