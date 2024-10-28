@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2627689808671818025}
   - component: {fileID: 6788629538893144590}
   - component: {fileID: 1041735659354206462}
+  - component: {fileID: 8237016822313526477}
   - component: {fileID: 8901001914644006968}
   - component: {fileID: 6510084344272490829}
   m_Layer: 0
@@ -107,7 +108,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 6.7907023}
   m_Center: {x: 0, y: 0, z: 2.8953505}
---- !u!114 &8901001914644006968
+--- !u!114 &8237016822313526477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,12 +117,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 651205339833056780}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fe7363efe077c4e932f81eccceac48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8901001914644006968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651205339833056780}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f681412ce48ce054b8b1ad4a6cd6f677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objInUse: {fileID: 651205339833056780}
   port: 8885
-  type: 2
+  barProperties: []
+  fruitShopProperties: []
+  dressShopProperties: []
+  doorProperties: 0
 --- !u!54 &6510084344272490829
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,19 +1,14 @@
 using UnityEngine;
 using WebSocketSharp;
 
-public class CounterScript : AbstractArtifact
+public class CounterScript : Artifact
 {
-
     private int counter = 0;
-    void Awake()
-    {
-        Type = ArtifactTypeEnum.Counter;
-        // Initialize new web socket connection
-        initializeWebSocketConnection(OnMessage);
-    }
 
-    // Update is called once per frame
-    void Update() { }
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -27,6 +22,4 @@ public class CounterScript : AbstractArtifact
                 .createAndConvertJacamoMessageIntoJsonString(other.name, "signal_agent", "assign_number", null));
         }
     }
-
-    private void OnMessage(object sender, MessageEventArgs e) { }
 }

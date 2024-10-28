@@ -7,23 +7,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEditor.Experimental;
 
-public class EnvManager : AbstractArtifact
+public class EnvManager : Artifact
 {
-    void Awake()
-    {
-        Type = ArtifactTypeEnum.EnvManager;
-        // Initialize new web socket connection
-        initializeWebSocketConnection(OnMessage);
-    }
 
-    private void OnMessage(object sender, MessageEventArgs e)
+    protected override void OnMessage(object sender, MessageEventArgs e)
     {
         string data = e.Data;
         print("Received message: " + data);
-        EnvLeaderMsg message = null;
+        EnvLeaderMsgRequest message = null;
         try
         {
-            message = JsonConvert.DeserializeObject<EnvLeaderMsg>(data);
+            message = JsonConvert.DeserializeObject<EnvLeaderMsgRequest>(data);
         }
         catch (Exception)
         {
@@ -62,7 +56,7 @@ public class EnvManager : AbstractArtifact
         .Enqueue(() =>
         {
             GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
-            string[] artifactNames = artifacts                
+            string[] artifactNames = artifacts
                 .Select(artifact => artifact.name) // Select the name of each GameObject
                 .ToArray();
 
@@ -84,13 +78,13 @@ public class EnvManager : AbstractArtifact
             GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
             // Retrieve all artifacts name that have the type specified
             string[] filteredArtifactNames = artifacts
-                .Where(artifact => artifact.GetComponent<AbstractArtifact>().Type.ToString() == resourceType)
+                .Where(artifact => artifact.GetComponent<Artifact>().ArtifactType.ToString() == resourceType)
                 .Select(artifact => artifact.name) // Select the name of each GameObject
                 .ToArray();
             tcs.SetResult(filteredArtifactNames);
         });
-        string[] artifactNames = await tcs.Task;         
-        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName, 
+        string[] artifactNames = await tcs.Task;
+        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName,
             "signal_agent", "artifact_names", artifactNames));
     }
 
@@ -109,11 +103,11 @@ public class EnvManager : AbstractArtifact
             // Find all objects with the 'Shop' tag
             GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
             GameObject[] filteredArtifacts = artifacts.Where(artifact => artifact
-            .GetComponent<AbstractArtifact>().Type.ToString() == resourceType).ToArray();
+            .GetComponent<Artifact>().ArtifactType.ToString() == resourceType).ToArray();
 
             if (filteredArtifacts.Length == 0)
             {
-                Debug.Log("No shops found in the scene.");
+                Debug.Log("No artifacts found in the scene.");
                 return;
             }
 
@@ -133,9 +127,9 @@ public class EnvManager : AbstractArtifact
             // Extract the sorted GameObjects into a list
             List<GameObject> sortedArtifacts = artifactsWithDistances.Select(pair => pair.Key).ToList();
             tcs.SetResult(sortedArtifacts.Select(artifact => artifact.name).ToArray());
-        });        
+        });
         string[] artifactNames = await tcs.Task;
         wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName,
-            "signal_agent", "artifact_names", artifactNames));        
+            "signal_agent", "artifact_names", artifactNames));
     }
 }

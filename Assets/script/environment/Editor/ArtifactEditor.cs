@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
-using System;
 
 
-[CustomEditor(typeof(Artifact))]
+[CustomEditor(typeof(Artifact), true)]
 public class ArtifactEditor : Editor
 {
 
@@ -44,11 +43,11 @@ public class ArtifactEditor : Editor
 
     private void ShowAndHide(string propertyName)
     {
-        propertyNames = artifactScript.PropertyNames;
-        Debug.Log("Showing " +  propertyName);
+        propertyNames = artifactScript.PropertyNames;        
         property = root.Q<PropertyField>(propertyName);
         if (property != null)
         {
+            Debug.Log("Showing " + propertyName);
             property.style.display = DisplayStyle.Flex;
         }
         // Hide others        

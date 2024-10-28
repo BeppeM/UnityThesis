@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -15,15 +16,11 @@ public class Artifact : MonoBehaviour
     {
         get { return port; }
     }
-    private GameObject objInUse;
+    protected GameObject objInUse;
+    // List of all property names
     private List<string> propertyNames = new List<string>();
     protected WebSocketChannel wsChannel;
-    // Properties in JSON format
-    private string artifactProperties;
-    public string ArtifactProperties
-    {
-        get { return artifactProperties; }
-    }
+    
     private ArtifactTypeEnum artifactType;
     public ArtifactTypeEnum ArtifactType
     {
@@ -34,11 +31,13 @@ public class Artifact : MonoBehaviour
     public List<CoffeeInfo> barProperties;
     public List<FruitInfo> fruitShopProperties;
     public List<ClothesInfo> dressShopProperties;
-    public bool isSupermarketDoorOpen;
-
-    public GameObject ObjInUse
+    public bool doorProperties;
+    // Properties in JSON format to configure .jcm file
+    private string artifactProperties;
+    public string ArtifactProperties
     {
-        get { return objInUse; }
+        get { return artifactProperties; }
+        set { artifactProperties = value; }
     }
 
     public List<string> PropertyNames
@@ -46,7 +45,7 @@ public class Artifact : MonoBehaviour
         get { return propertyNames; }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         // Retrieve all fields
         FieldInfo[] fields = GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
@@ -81,7 +80,7 @@ public class Artifact : MonoBehaviour
         else
         {
             // Editor logic            
-        }  
+        }
     }
 
     protected void initializeWebSocketConnection(System.EventHandler<WebSocketSharp.MessageEventArgs> OnMessage)
@@ -115,11 +114,6 @@ public class Artifact : MonoBehaviour
         }));
     }
 
-    public bool testConnection()
-    {
-        return wsChannel.IsWebSocketConnected;
-    }
-
     public string convertObjectIntoJson<T>(T objToConvert)
     {
         // Convert any object to JSON
@@ -132,6 +126,7 @@ public class Artifact : MonoBehaviour
         return json.Replace("\\", "\\\\").Replace("\"", "\\\"");
     }
 
-    private void OnMessage(object sender, MessageEventArgs e) { }
+    protected virtual void OnMessage(object sender, MessageEventArgs e) { }
+
 
 }

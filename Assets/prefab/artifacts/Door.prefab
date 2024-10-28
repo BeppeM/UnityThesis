@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 721071863730953862}
   - component: {fileID: 5082137097952015348}
   - component: {fileID: 120143498159799936}
-  - component: {fileID: 1724303688709992637}
+  - component: {fileID: 2333524943074195920}
   m_Layer: 0
   m_Name: Door
   m_TagString: Artifact
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e3d30debf4a34f64ca86c0ceee1e64d5, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1152459fa2d5cc64fb03834bb187bf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1724303688709992637
+--- !u!114 &2333524943074195920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,11 +129,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 51646647417059769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12c21f47da35c264e9927393759c63f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 99caa5b91d5e87e458fccb3839196a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   port: 8888
   barProperties: []
   fruitShopProperties: []
   dressShopProperties: []
-  isSupermarketDoorOpen: 0
+  doorProperties: 0

@@ -11,6 +11,6 @@
         <uie:PropertyField name="dressShopProperties" binding-path="dressShopProperties" />
         <uie:PropertyField name="fruitShopProperties" binding-path="fruitShopProperties" />
         <uie:PropertyField name="barProperties" binding-path="barProperties" />
-        <uie:PropertyField name="isSupermarketDoorOpen" binding-path="isSupermarketDoorOpen" />
+        <uie:PropertyField name="doorProperties" binding-path="doorProperties" label="isDoorOpen" />
     </ui:VisualElement>
 </ui:UXML>

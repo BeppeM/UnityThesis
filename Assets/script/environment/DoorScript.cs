@@ -4,22 +4,20 @@ using UnityEngine;
 using UnityEngine.Events;
 using WebSocketSharp;
 
-public class DoorScript : AbstractArtifact
+public class DoorScript : Artifact
 {
-
-    // Flag changed by the user
-    public bool isSuperMarketOpen;
     private int flag = -1;
+    private bool isSupermarketOpen;
 
-    void Awake()
+    protected override void Awake()
     {
-        Type = ArtifactTypeEnum.Door;
-        // Initialize new web socket connection
-        initializeWebSocketConnection(OnMessage);
+        base.Awake();
+
+        isSupermarketOpen = doorProperties;
         // Initialize property
-        artifactProperties = isSuperMarketOpen.ToString();
+        ArtifactProperties = doorProperties.ToString();
         
-        if (isSuperMarketOpen)
+        if (isSupermarketOpen)
         {
             // Change door color to blue  
             GetComponent<Renderer>().material.color = Color.blue;
@@ -33,29 +31,31 @@ public class DoorScript : AbstractArtifact
 
     // Update is called once per frame
     void Update()
-    {   
-        if(!wsChannel.IsWebSocketConnected){
-            return;
-        }
-        // supermarket is open and message has not been sent yet to JACaMo
-        if (isSuperMarketOpen && flag != 0)
+    {
+        if (Application.IsPlaying(gameObject))
         {
-            // Change door color to blue  
-            GetComponent<Renderer>().material.color = Color.blue;
-            wsChannel.sendMessage(UnityJacamoIntegrationUtil
-                .createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_shoppers", "", true));            
-            flag = 0;
-        }
-        // supermarket is closed and message has not been sent yet to JACaMo
-        if (!isSuperMarketOpen && flag != 1)
-        {
-            // Stay closed
-            GetComponent<Renderer>().material.color = Color.red;
-            wsChannel.sendMessage(UnityJacamoIntegrationUtil
-                .createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_shoppers", "", false));                    
-            flag = 1;
+            if (!wsChannel.IsWebSocketConnected)
+            {
+                return;
+            }
+            // supermarket is open and message has not been sent yet to JACaMo
+            if (doorProperties && flag != 0)
+            {
+                // Change door color to blue  
+                GetComponent<Renderer>().material.color = Color.blue;
+                wsChannel.sendMessage(UnityJacamoIntegrationUtil
+                    .createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_shoppers", "", true));
+                flag = 0;
+            }
+            // supermarket is closed and message has not been sent yet to JACaMo
+            if (!doorProperties && flag != 1)
+            {
+                // Stay closed
+                GetComponent<Renderer>().material.color = Color.red;
+                wsChannel.sendMessage(UnityJacamoIntegrationUtil
+                    .createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_shoppers", "", false));
+                flag = 1;
+            }
         }
     }
-
-    private void OnMessage(object sender, MessageEventArgs e) { }
 }
