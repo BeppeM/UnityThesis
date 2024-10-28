@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6143598232369480734}
-  - component: {fileID: 5116842042629152253}
+  - component: {fileID: 4112264316216808477}
+  - component: {fileID: 9119799155790653120}
   m_Layer: 0
   m_Name: envManager
   m_TagString: Artifact
@@ -32,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5116842042629152253
+--- !u!114 &4112264316216808477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +42,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4316399120157609832}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b46dff4ae3940949a4215209c2966ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9119799155790653120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316399120157609832}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96b48d859d5d7534abf5efa3212d0d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objInUse: {fileID: 4316399120157609832}
-  port: 3446
+  port: 
+  barProperties: []
+  fruitShopProperties: []
+  dressShopProperties: []
+  isSupermarketDoorOpen: 0
