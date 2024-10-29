@@ -56,7 +56,7 @@ public class Artifact : MASAbstract
         if (Application.IsPlaying(gameObject))
         {
             // Play logic            
-            // Retrieve and evaluate artifact type            
+            // Retrieve the property that belongs to the artifact       
             string artifactPropertyName = artifactType.ToString();
             artifactPropertyName = char.ToLower(artifactPropertyName[0]) + artifactPropertyName.Substring(1) + "Properties";
 
