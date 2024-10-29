@@ -69,9 +69,6 @@ public class WebSocketChannel
     private async void OnError(object sender, ErrorEventArgs e)
     {
         Debug.LogError("WebSocket error: " + e.Message);
-        await Task.Delay(5000);
-        Debug.Log("Trying to reconnect");
-        connect();
     }
 
 }
