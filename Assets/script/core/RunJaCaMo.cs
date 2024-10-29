@@ -5,7 +5,8 @@ public class RunJacamo : MonoBehaviour
     private GameObject[] avatars;
     private  GameObject[] environmentArtifacts;
 
-    async void Start()
+
+    async void Awake()
     {
         avatars = GameObject.FindGameObjectsWithTag("JacamoAgent");
         environmentArtifacts = GameObject.FindGameObjectsWithTag("Artifact");
@@ -18,7 +19,10 @@ public class RunJacamo : MonoBehaviour
         await UnityJacamoIntegrationUtil.RunJaCaMoApp();
 
         print("JaCaMo application started successfully.");
+    }
 
+    async void Start()
+    {
         // Start to connect each avatar
         await UnityJacamoIntegrationUtil.StartWebSocketConnections(avatars, environmentArtifacts);
 
