@@ -12,7 +12,10 @@ public class AvatarScript : AbstractAvatar
     private void Awake()
     {
         agentFile = "shopper.asl";
-        initializeWebSocketConnection(OnMessage);
+        if (Application.IsPlaying(gameObject))
+        {
+            initializeWebSocketConnection(OnMessage);
+        }
         // Find the TextMeshPro component in the children of the avatar
         nameTextMeshPro = GetComponentInChildren<TextMeshPro>();
 
