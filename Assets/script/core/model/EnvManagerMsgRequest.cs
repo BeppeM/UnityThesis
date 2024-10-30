@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnvLeaderMsgRequest
+public class EnvManagerMsgRequest
 {
     public string Action { get; set; }
     public string ActionType { get; set; }
     public string ResourceType { get; set; }
     public string AgentName { get; set; }
 
-    public EnvLeaderMsgRequest() { }
+    public EnvManagerMsgRequest() { }
 
-    public EnvLeaderMsgRequest(string action, string actionType, string resourceType, string agentName)
+    public EnvManagerMsgRequest(string action, string actionType, string resourceType, string agentName)
     {
         Action = action;
         ActionType = actionType;
