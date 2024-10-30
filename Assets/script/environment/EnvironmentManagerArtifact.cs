@@ -14,10 +14,10 @@ public class EnvManager : Artifact
     {
         string data = e.Data;
         print("Received message: " + data);
-        EnvLeaderMsgRequest message = null;
+        EnvManagerMsgRequest message = null;
         try
         {
-            message = JsonConvert.DeserializeObject<EnvLeaderMsgRequest>(data);
+            message = JsonConvert.DeserializeObject<EnvManagerMsgRequest>(data);
         }
         catch (Exception)
         {
