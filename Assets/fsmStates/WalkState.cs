@@ -17,20 +17,20 @@ public class WalkState : State
     }
 
     public override void Update()
-    {        
-        // Check if agent has seen something
-        VisionCone visionCone = visionSensor.GetComponent<VisionCone>();
+    {
+        //// Check if agent has seen something
+        //ConeCollider visionCone = visionSensor.GetComponent<ConeCollider>();
 
-        bool reachedArtifact = visionCone.ReachedArtifact;
-        
-        if (reachedArtifact)
-        {
-            Debug.Log("Agent " + npc.name + " found something.");
-            // Move to Check artifact
-            nextState = new CheckArtifactState(npc, agent);
-            stage = EVENT.EXIT;
-            return;
-        }
+        //bool reachedArtifact = visionCone.ReachedArtifact;
+
+        //if (reachedArtifact)
+        //{
+        //    Debug.Log("Agent " + npc.name + " found something.");
+        //    // Move to Check artifact
+        //    nextState = new CheckArtifactState(npc, agent);
+        //    stage = EVENT.EXIT;
+        //    return;
+        //}
 
         // Let agent walk
         AutonomousWalking autonomousWalking = npc.GetComponent<AutonomousWalking>();

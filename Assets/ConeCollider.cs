@@ -18,18 +18,18 @@ public class ConeCollider : MonoBehaviour
     void Start()
     {
         // Retrieve the parent object -> the avatar which sensor belongs
-        avatar = transform.parent.gameObject;
-        agent = avatar.GetComponent<NavMeshAgent>();        
+        avatar = transform.parent.gameObject.transform.parent.gameObject;
+        agent = avatar.GetComponent<NavMeshAgent>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         GameObject obj = other.gameObject;
-        Debug.Log("Collision detected with: " + obj.name);
         if (obj.layer == LayerMask.NameToLayer("pippo"))
         {
             obj.GetComponent<Renderer>().material.color = Color.blue;
-        }else if (obj.layer == LayerMask.NameToLayer("shops"))
+        }
+        else if (obj.layer == LayerMask.NameToLayer("shops"))
         {
             Debug.Log("Found a shop: " + obj.name);
             reachedArtifact = true;

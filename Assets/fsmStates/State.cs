@@ -28,7 +28,7 @@ public class State
         agent = _agent;
         stage = EVENT.ENTER;
         // Retrieve the avatar's eyes
-        visionSensor = npc.transform.Find("visionCone").gameObject;
+        //visionSensor = npc.transform.Find("visionCone170").gameObject;
     }
 
     public virtual void Enter() {        
