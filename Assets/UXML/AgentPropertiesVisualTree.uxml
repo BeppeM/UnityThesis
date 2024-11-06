@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UXML/AgentPropertiesSelector.uss?fileID=7433441132597879392&amp;guid=ea8d741cda5d7354c89eecab97f8f10d&amp;type=3#AgentPropertiesSelector" />
+    <ui:VisualElement name="pane1" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Agent Properties" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Header" class="header" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; overflow: visible;">
+            <uie:PropertyField binding-path="initialAgentBeliefs" name="initialAgentBeliefsPropertyField" />
+            <uie:PropertyField binding-path="focusedArtifacts" />
+            <uie:PropertyField binding-path="goals" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

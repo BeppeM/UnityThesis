@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-
+[ExecuteAlways]
 public abstract class AbstractAvatar : MASAbstract
 {
 
-    public InitialShopperAgentBeliefs initialShopperAgentBeliefs;
+    public InitialAgentBeliefs initialAgentBeliefs;
     public GameObject[] focusedArtifacts;
     protected string agentFile;
     public List<GoalEnum> goals;
@@ -18,9 +18,9 @@ public abstract class AbstractAvatar : MASAbstract
         set { focusedArtifacts = value; }
     }
 
-    public InitialShopperAgentBeliefs InitialShopperAgentBeliefs
+    public InitialAgentBeliefs InitialAgentBeliefs
     {
-        get { return initialShopperAgentBeliefs; }
+        get { return initialAgentBeliefs; }
     }
 
     public string AgentFile

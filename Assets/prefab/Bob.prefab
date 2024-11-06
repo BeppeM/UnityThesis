@@ -99,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Bob
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -297,10 +297,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objInUse: {fileID: 8341316766975537883}
   port: 8887
-  initialShopperAgentBeliefs:
-    itemsToBuy: []
-    budget: 0
-  focusedArtifacts: []
+  initialAgentBeliefs:
+    itemsToBuy:
+    - item: 0
+      quantity: 4
+    - item: 1
+      quantity: 2
+    - item: 17
+      quantity: 4
+    - item: 10
+      quantity: 1
+    - item: 9
+      quantity: 2
+    budget: 100
+    friends:
+    - alessia
+    - raffaella
+    - giuseppe
+  focusedArtifacts:
+  - {fileID: 51646647417059769, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
+  - {fileID: 651205339833056780, guid: 42658d04bb0bc744c826f9e8de9f46ca, type: 3}
+  - {fileID: 4316399120157609832, guid: 7d570a711f748954b81f7ef6dad82ca2, type: 3}
   goals: 000000000100000000000000
 --- !u!195 &2637877676156523771
 NavMeshAgent:
