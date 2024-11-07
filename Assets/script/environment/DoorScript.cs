@@ -16,7 +16,7 @@ public class DoorScript : Artifact
         isSupermarketOpen = doorProperties;
         // Initialize property
         ArtifactProperties = doorProperties.ToString();
-        
+
         if (isSupermarketOpen)
         {
             // Change door color to blue  
@@ -44,7 +44,7 @@ public class DoorScript : Artifact
                 // Change door color to blue  
                 GetComponent<Renderer>().material.color = Color.blue;
                 wsChannel.sendMessage(UnityJacamoIntegrationUtil
-                    .createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_shoppers", "", true));
+                .createAndConvertJacamoMessageIntoJsonString("supermarketDoorStatus", null, null, null, true));
                 flag = 0;
             }
             // supermarket is closed and message has not been sent yet to JACaMo
@@ -53,7 +53,7 @@ public class DoorScript : Artifact
                 // Stay closed
                 GetComponent<Renderer>().material.color = Color.red;
                 wsChannel.sendMessage(UnityJacamoIntegrationUtil
-                    .createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_shoppers", "", false));
+                .createAndConvertJacamoMessageIntoJsonString("supermarketDoorStatus", null, null, null, false));
                 flag = 1;
             }
         }
