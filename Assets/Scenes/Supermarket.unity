@@ -230,11 +230,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -585,11 +585,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -699,11 +699,6 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
   m_PrefabInstance: {fileID: 75346659}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &107487605 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 651205339833056780, guid: 42658d04bb0bc744c826f9e8de9f46ca, type: 3}
-  m_PrefabInstance: {fileID: 3485442950774512212}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &107487611 stripped
 Transform:
@@ -1198,11 +1193,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -1465,11 +1460,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -1728,11 +1723,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -2105,11 +2100,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -2263,11 +2258,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -2431,11 +2426,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -2823,11 +2818,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -3037,11 +3032,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -3324,11 +3319,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -3522,11 +3517,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -3707,6 +3702,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1593788115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 651205339833056780, guid: 42658d04bb0bc744c826f9e8de9f46ca, type: 3}
+  m_PrefabInstance: {fileID: 3485442950774512212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1608763655
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,11 +4128,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -4348,11 +4348,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -4611,11 +4611,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100
@@ -4698,6 +4698,101 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
   m_PrefabInstance: {fileID: 2112053322}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &2126802256
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Default-Material (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _EMISSION
+  m_InvalidKeywords: []
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Detail:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaTestRef: 0.5
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EmissionScaleUI: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Lightmapping: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0.99999994}
+    - _EmissionColorUI: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColorWithMapUI: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1001 &298686194879375405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4838,11 +4933,11 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[1]
       value: 
-      objectReference: {fileID: 107487605}
+      objectReference: {fileID: 1863242355}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: focusedArtifacts.Array.data[2]
       value: 
-      objectReference: {fileID: 1863242355}
+      objectReference: {fileID: 1593788115}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.budget
       value: 100

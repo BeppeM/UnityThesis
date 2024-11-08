@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 using TMPro;
 
 public class OperatorScript : AbstractAvatar
-{    
+{
     void Awake()
     {
         agentFile = "operator.asl";
@@ -33,29 +33,32 @@ public class OperatorScript : AbstractAvatar
     {
         string data = e.Data;
         print("Received message: " + data);
-        AgentMessage message = null;
+        WsMessage message = null;
         try
         {
-            message = JsonConvert.DeserializeObject<AgentMessage>(data);
+            message = JsonConvert.DeserializeObject<WsMessage>(data);
+            switch (message.MessageType)
+            {
+                case "wsInitialization":
+                    print("Connection established for " + objInUse.name);
+                    break;
+                case "reachDestination":
+                    print("Agent needs to reach destination.");
+                    // Avatar receives the type of artifact to reach
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        objInUse.GetComponent<ReachDestination>().reachDestination(message.MessagePayload);
+                    });
+                    break;
+                default:
+                    print("Unknown message type for " + objInUse.name);
+                    break;
+            }
         }
         catch (Exception)
         {
             print("Message could not be converted.");
             return;
-        }
-        try
-        {
-            string destination = message.Payload;            
-            // Dispatch the move action to the main thread
-            UnityMainThreadDispatcher.Instance()
-            .Enqueue(() =>
-            {
-                objInUse.GetComponent<ReachDestination>().reachDestination(destination);
-            });
-        }
-        catch (Exception ex)
-        {
-            print("Exception occoured OnMessage " + ex);
         }
     }
 
@@ -64,8 +67,8 @@ public class OperatorScript : AbstractAvatar
         // reached_destination(destName)
         if (other.gameObject.tag == "Artifact")
         {
-            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_agent",
-                "reached_destination", other.name.FirstCharacterToLower()));            
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
+                "reached_destination", null, other.name.FirstCharacterToLower()));
         }
     }
 

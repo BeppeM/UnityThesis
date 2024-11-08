@@ -36,47 +36,32 @@ public class AvatarScript : AbstractAvatar
     {
         string data = e.Data;
         print("Received message: " + data);
-        AgentMessage message = null;
-        //TODO: REMOVE ME!!
+        WsMessage message = null;
         try
         {
-            message = JsonConvert.DeserializeObject<AgentMessage>(data);
+            message = JsonConvert.DeserializeObject<WsMessage>(data);
+            switch (message.MessageType)
+            {
+                case "wsInitialization":
+                    print("Connection established for " + objInUse.name);
+                    break;                
+                case "reachDestination":
+                    print("Agent needs to reach destination.");
+                    // Avatar receives the type of artifact to reach
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        objInUse.GetComponent<ReachDestination>().reachDestination(message.MessagePayload);
+                    });
+                    break;
+                default:
+                    print("Unknown message type for " + objInUse.name);
+                    break;
+            }
         }
         catch (Exception)
         {
             print("Message could not be converted.");
             return;
-        }
-        try
-        {
-            string payload = message.Payload;
-            if (payload == "stop_walking")
-            {
-                UnityMainThreadDispatcher.Instance()
-                .Enqueue(() =>
-                {
-                    objInUse.GetComponent<ReachDestination>().stopWalking();
-                });
-                return;
-            }
-            if (payload == "exitDoor")
-            {
-                UnityMainThreadDispatcher.Instance()
-                .Enqueue(() =>
-                {
-                    objInUse.GetComponent<ReachDestination>().reachDestination("exitDoor");
-                });
-                return;
-            }
-            // Avatar receives the type of artifact to reach
-            UnityMainThreadDispatcher.Instance().Enqueue(() =>
-            {                
-                objInUse.GetComponent<ReachDestination>().reachDestination(payload);
-            });
-        }
-        catch (Exception ex)
-        {
-            print("Exception occoured OnMessage " + ex);
         }
     }
 
@@ -86,8 +71,8 @@ public class AvatarScript : AbstractAvatar
         // reached_destination(destName)
         if (!other.gameObject.name.Contains("counter") && other.gameObject.tag == "Artifact")
         {                     
-            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(objInUse.name, "signal_agent", 
-                "reached_destination", other.name.FirstCharacterToLower()));          
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null, 
+                "reached_destination", null, other.name.FirstCharacterToLower()));          
         }
         if (other.gameObject.name.Contains("exitDoor"))
         {

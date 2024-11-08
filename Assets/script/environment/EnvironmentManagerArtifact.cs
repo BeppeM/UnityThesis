@@ -14,10 +14,10 @@ public class EnvManager : Artifact
     {
         string data = e.Data;
         print("Received message: " + data);
-        EnvManagerMsgRequest message = null;
+        WsMessage message = null;
         try
         {
-            message = JsonConvert.DeserializeObject<EnvManagerMsgRequest>(data);
+            message = JsonConvert.DeserializeObject<WsMessage>(data);
         }
         catch (Exception)
         {
@@ -26,17 +26,17 @@ public class EnvManager : Artifact
         }
         try
         {
-            string actionType = message.ActionType;
-            switch (actionType)
+            string messagePayload = message.MessagePayload;
+            switch (messagePayload)
             {
                 case "all_artifact_by_type": // Retrieve all artifacts by the type                    
-                    retrieveArtifactsByType(message.ResourceType, message.AgentName);
+                    retrieveArtifactsByType(message.Param.ToString(), message.AgentName);
                     break;
                 case "all_artifact":
                     retrieveAllArtifacts(message.AgentName);
                     break;
                 case "nearest":
-                    retrieveNearestShopsOfType(message.ResourceType, message.AgentName);
+                    retrieveNearestShopsOfType(message.Param.ToString(), message.AgentName);
                     break;
 
             }
@@ -63,8 +63,8 @@ public class EnvManager : Artifact
             tcs.SetResult(artifactNames);
         });
         string[] artifactNames = await tcs.Task;
-        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName,
-            "signal_agent", "artifact_names", artifactNames));
+        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("artifactStrategy",
+            null, "artifact_names", agentName, artifactNames));
     }
 
     private async void retrieveArtifactsByType(string resourceType, string agentName)
@@ -84,8 +84,8 @@ public class EnvManager : Artifact
             tcs.SetResult(filteredArtifactNames);
         });
         string[] artifactNames = await tcs.Task;
-        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName,
-            "signal_agent", "artifact_names", artifactNames));
+        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("artifactStrategy",
+            null, "artifact_names", agentName, artifactNames));
     }
 
     private async void retrieveNearestShopsOfType(string resourceType, string agentName)
@@ -129,7 +129,7 @@ public class EnvManager : Artifact
             tcs.SetResult(sortedArtifacts.Select(artifact => artifact.name).ToArray());
         });
         string[] artifactNames = await tcs.Task;
-        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString(agentName,
-            "signal_agent", "artifact_names", artifactNames));
+        wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("artifactStrategy",
+            null, "artifact_names", agentName, artifactNames));
     }
 }

@@ -162,9 +162,9 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         await Task.WhenAll(tasks);
     }
 
-    public static string createAndConvertJacamoMessageIntoJsonString(string jacamoEntityName, string actionType, string actionToPerform, object param)
+    public static string createAndConvertJacamoMessageIntoJsonString(string messageType, string messagePayload, string agentEvent, string agentName, object param)
     {
-        JacamoMessage jacamoMessage = new JacamoMessage(jacamoEntityName, actionType, actionToPerform, param);
-        return JsonConvert.SerializeObject(jacamoMessage);
+        WsMessage wsMessage = new WsMessage(messageType, messagePayload, agentEvent, agentName, param);
+        return JsonConvert.SerializeObject(wsMessage);
     }
 }
