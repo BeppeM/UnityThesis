@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 3437
+      value: 3443
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
@@ -257,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -276,6 +276,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
       objectReference: {fileID: 0}
@@ -286,6 +290,10 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].quantity
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].taskToPerform
@@ -450,7 +458,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.35, y: -3.7080922, z: 3.5609522}
-  m_LocalScale: {x: 29.596, y: 0.08425478, z: 30}
+  m_LocalScale: {x: 29.596, y: 0.08425478, z: 50.982}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -536,12 +544,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 3439
+      value: 3444
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 75346660}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -584,7 +600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -595,7 +611,15 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
@@ -1132,7 +1156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 3444
+      value: 3442
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
@@ -1192,15 +1216,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
@@ -1403,7 +1435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 3438
+      value: 3440
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
@@ -1591,6 +1623,208 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
   m_PrefabInstance: {fileID: 442091312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &529693121
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1072637012}
+    m_Modifications:
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.343
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: port
+      value: 3447
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: objInUse
+      value: 
+      objectReference: {fileID: 529693123}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[6]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[0]
+      value: 
+      objectReference: {fileID: 6084002673107730066}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[1]
+      value: 
+      objectReference: {fileID: 1863242355}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[2]
+      value: 
+      objectReference: {fileID: 1593788115}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.budget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].item
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.data[1]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387884734212126968, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536521104886864216, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a427dfbb1a53b4fae3b65520a544dc, type: 2}
+    - target: {fileID: 7472424640409763054, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Name
+      value: davide
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3580506099027787370, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+--- !u!4 &529693122 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 529693121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &529693123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 529693121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &560068986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6659805759562050965, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
@@ -1670,12 +1904,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 7981
+      value: 3437
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 600101883}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -1738,7 +1980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -1749,8 +1991,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].taskToPerform
@@ -1954,7 +2204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.84
+      value: -9.86
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1962,23 +2212,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.1
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1986,7 +2236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1994,8 +2244,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7103077841798278898, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: port
-      value: 3450
+      value: 4044
       objectReference: {fileID: 0}
+    - target: {fileID: 7103077841798278898, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
+      propertyPath: objInUse
+      value: 
+      objectReference: {fileID: 1900074350}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2051,12 +2305,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 7980
+      value: 3436
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 697709811}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -2099,15 +2361,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
@@ -2205,12 +2475,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 8889
+      value: 3431
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 1333099690}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -2253,7 +2531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -2268,11 +2546,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
@@ -2316,6 +2602,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
   m_PrefabInstance: {fileID: 1418349878117469982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &772533240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4994660534078995802, guid: beabbee901328554495d7b0016672729, type: 3}
+  m_PrefabInstance: {fileID: 4439527929204419430}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &837809033 stripped
 Transform:
@@ -2377,12 +2668,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 8886
+      value: 3432
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 308947255}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -2421,7 +2720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -2432,12 +2731,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
@@ -2517,7 +2824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.78
+      value: 25.73
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2757,7 +3064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 3442
+      value: 3438
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
@@ -2813,7 +3120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -2828,12 +3135,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
@@ -2922,6 +3237,9 @@ Transform:
   - {fileID: 45830604}
   - {fileID: 75346668}
   - {fileID: 2112053331}
+  - {fileID: 1212961099}
+  - {fileID: 529693122}
+  - {fileID: 1772107952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1087446148 stripped
@@ -2979,12 +3297,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 3443
+      value: 3439
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 1119135986}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -3027,7 +3353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -3038,7 +3364,15 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
@@ -3144,7 +3478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objInUse: {fileID: 1132450647}
-  port: 3435
+  port: 4042
   barProperties: []
   fruitShopProperties: []
   dressShopProperties: []
@@ -3161,10 +3495,307 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccf031742421034bb7287aacbf25b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &1152193560
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Default-Material (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _EMISSION
+  m_InvalidKeywords: []
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Detail:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaTestRef: 0.5
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EmissionScaleUI: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Lightmapping: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0.99999994}
+    - _EmissionColorUI: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColorWithMapUI: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!4 &1186047238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1091315261727615447, guid: d1a6e2ab1ce4d6f4aa071c369f4d22d6, type: 3}
   m_PrefabInstance: {fileID: 3320668107280950943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1212961098
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1072637012}
+    m_Modifications:
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.343
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: port
+      value: 3446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: objInUse
+      value: 
+      objectReference: {fileID: 1212961100}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[6]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[0]
+      value: 
+      objectReference: {fileID: 6084002673107730066}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[1]
+      value: 
+      objectReference: {fileID: 1863242355}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[2]
+      value: 
+      objectReference: {fileID: 1593788115}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.budget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].item
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.data[1]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387884734212126968, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536521104886864216, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a427dfbb1a53b4fae3b65520a544dc, type: 2}
+    - target: {fileID: 7472424640409763054, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Name
+      value: antonio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3580506099027787370, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+--- !u!4 &1212961099 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 1212961098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1212961100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 1212961098}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1309251746
 GameObject:
@@ -3258,7 +3889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 8882
+      value: 3433
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
@@ -3267,6 +3898,14 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
@@ -3314,15 +3953,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].taskToPerform
@@ -3464,12 +4111,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 7979
+      value: 3435
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 1474644446}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -3512,15 +4167,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[1].taskToPerform
@@ -3785,6 +4448,208 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1772107951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1072637012}
+    m_Modifications:
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.343
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: port
+      value: 3448
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: objInUse
+      value: 
+      objectReference: {fileID: 1772107953}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[6]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: tasksToPerform.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[0]
+      value: 
+      objectReference: {fileID: 6084002673107730066}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[1]
+      value: 
+      objectReference: {fileID: 1863242355}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: focusedArtifacts.Array.data[2]
+      value: 
+      objectReference: {fileID: 1593788115}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.budget
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].item
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.data[1]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387884734212126968, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536521104886864216, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a427dfbb1a53b4fae3b65520a544dc, type: 2}
+    - target: {fileID: 7472424640409763054, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_Name
+      value: samantha
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3580506099027787370, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+--- !u!4 &1772107952 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 1772107951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1772107953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 1772107951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815528146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3975,8 +4840,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852614353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21908441, y: -0.6439141, z: 0.20003177, w: 0.7052404}
-  m_LocalPosition: {x: 28.351793, y: 11.778924, z: 4.1056385}
+  m_LocalRotation: {x: -0.23659283, y: 0.6405107, z: -0.2172461, w: -0.6975487}
+  m_LocalPosition: {x: 33.554558, y: 17.493698, z: 2.9292254}
   m_LocalScale: {x: 0.98586, y: 0.98586, z: 0.98586}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4071,7 +4936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 8881
+      value: 3434
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
@@ -4080,6 +4945,14 @@ PrefabInstance:
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
@@ -4123,7 +4996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -4134,8 +5007,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.data[0].shoppingList.Array.size
@@ -4194,7 +5075,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2651160314146304806, guid: beabbee901328554495d7b0016672729, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.302932
+      value: 11.45
       objectReference: {fileID: 0}
     - target: {fileID: 2651160314146304806, guid: beabbee901328554495d7b0016672729, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4202,7 +5083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651160314146304806, guid: beabbee901328554495d7b0016672729, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.254303
+      value: 27.58
       objectReference: {fileID: 0}
     - target: {fileID: 2651160314146304806, guid: beabbee901328554495d7b0016672729, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4295,12 +5176,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 3440
+      value: 3441
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 1935313171}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -4343,7 +5232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -4358,11 +5247,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[1].quantity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
@@ -4467,12 +5364,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: port
-      value: 3441
+      value: 3445
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 2112053323}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -4511,7 +5416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -4526,6 +5431,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 2
       objectReference: {fileID: 0}
@@ -4535,6 +5444,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].quantity
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
@@ -4587,101 +5500,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
   m_PrefabInstance: {fileID: 2112053322}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &2126802256
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Default-Material (Instance) (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _EMISSION
-  m_InvalidKeywords: []
-  m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Detail:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Occlusion:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaTestRef: 0.5
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _EmissionScaleUI: 1
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Lightmapping: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0.99999994}
-    - _EmissionColorUI: {r: 0, g: 0, b: 0, a: 1}
-    - _EmissionColorWithMapUI: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1001 &298686194879375405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4788,9 +5606,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: port
+      value: 3430
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 761387575}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: goals.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: goals.Array.data[2]
       value: 2
@@ -4829,7 +5659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.taskModels.Array.size
@@ -4852,6 +5682,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].item
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[0].quantity
       value: 5
       objectReference: {fileID: 0}
@@ -4861,6 +5695,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[2].quantity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: initialShopperAgentBeliefs.itemsToBuy.Array.data[3].quantity
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
@@ -4973,7 +5811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1091315261727615447, guid: d1a6e2ab1ce4d6f4aa071c369f4d22d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.647209
+      value: 23.52
       objectReference: {fileID: 0}
     - target: {fileID: 1091315261727615447, guid: d1a6e2ab1ce4d6f4aa071c369f4d22d6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5056,6 +5894,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 651205339833056780, guid: 42658d04bb0bc744c826f9e8de9f46ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651205339833056780, guid: 42658d04bb0bc744c826f9e8de9f46ca, type: 3}
       propertyPath: m_TagString
       value: Artifact
       objectReference: {fileID: 0}
@@ -5124,12 +5966,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: dressShop
       objectReference: {fileID: 0}
+    - target: {fileID: 841067868435225427, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2532988388570734031, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 1859508892}
     - target: {fileID: 2532988388570734031, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: dressShopProperties.Array.data[0].quantity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532988388570734031, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
+      propertyPath: dressShopProperties.Array.data[1].itemName
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3293917305237557998, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
@@ -5210,11 +6060,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651160314146304806, guid: beabbee901328554495d7b0016672729, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.665965
+      value: -3.67
       objectReference: {fileID: 0}
     - target: {fileID: 2651160314146304806, guid: beabbee901328554495d7b0016672729, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.17
+      value: -19.36
       objectReference: {fileID: 0}
     - target: {fileID: 2651160314146304806, guid: beabbee901328554495d7b0016672729, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5244,6 +6094,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3066259946486283333, guid: beabbee901328554495d7b0016672729, type: 3}
+      propertyPath: port
+      value: 4041
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066259946486283333, guid: beabbee901328554495d7b0016672729, type: 3}
+      propertyPath: objInUse
+      value: 
+      objectReference: {fileID: 772533240}
     - target: {fileID: 4994660534078995802, guid: beabbee901328554495d7b0016672729, type: 3}
       propertyPath: m_Name
       value: skyscraper
@@ -5341,13 +6199,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: fruitShop
       objectReference: {fileID: 0}
+    - target: {fileID: 6659805759562050965, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: objInUse
       value: 
       objectReference: {fileID: 560068986}
     - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: fruitShopProperties.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: fruitShopProperties.Array.data[1].price
@@ -5355,6 +6217,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: fruitShopProperties.Array.data[2].price
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitShopProperties.Array.data[3].price
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
@@ -5376,6 +6242,14 @@ PrefabInstance:
     - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
       propertyPath: fruitShopProperties.Array.data[2].quantity
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitShopProperties.Array.data[3].itemName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295222797631008685, guid: fed8c13915e2e964a9aea190a58a341d, type: 3}
+      propertyPath: fruitShopProperties.Array.data[3].quantity
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5399,7 +6273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.2
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5407,23 +6281,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.98
+      value: -19.36
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5431,11 +6305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1429568344169400536, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103077841798278898, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
+      propertyPath: port
+      value: 4043
       objectReference: {fileID: 0}
     - target: {fileID: 7103077841798278898, guid: 719b4de2c935edf4e8684261f5ec0e0d, type: 3}
       propertyPath: objInUse
@@ -5532,6 +6410,10 @@ PrefabInstance:
     - target: {fileID: 51646647417059769, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 51646647417059769, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 721071863730953862, guid: b2d44a9d7a1c95147958cfc2d5f6f1f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
