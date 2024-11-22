@@ -24,7 +24,7 @@ public class AvatarAI : AbstractAvatar
             initializeWebSocketConnection(OnMessage);
         }
         // Find the TextMeshPro component in the children of the avatar
-        nameTextMeshPro = GetComponentInChildren<TextMeshPro>();
+        nameTextMeshPro  = transform.Find("avatarName").GetComponent<TextMeshPro>();
 
         // Check if we found the TextMeshPro component
         if (nameTextMeshPro != null)
