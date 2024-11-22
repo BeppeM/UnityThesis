@@ -21,6 +21,7 @@ public class EnvManager : Artifact
         }
         catch (Exception)
         {
+            print(data);
             print("Message could not be converted.");
             return;
         }

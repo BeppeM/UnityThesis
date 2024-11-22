@@ -35,10 +35,11 @@ public class AddVisionCone : MonoBehaviour
             if (meshCollider != null)
             {
                 meshCollider.convex = true;
-                meshCollider.isTrigger = true; 
+                meshCollider.isTrigger = true;
+                meshCollider.includeLayers = LayerMask.GetMask("artifact", "agent");
             }
 
-            // Add script to manage collision
+            //Add script to manage collision
             instance.AddComponent<ConeCollider>();
         }
         else

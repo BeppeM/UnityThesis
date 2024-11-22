@@ -1,17 +1,24 @@
-using System;
-using UnityEngine;
-using WebSocketSharp;
-using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
-using Unity.VisualScripting;
+using System;
+using WebSocketSharp;
 using TMPro;
+using UnityEngine;
+using UnityEngine.AI;
 
-public class AvatarScript : AbstractAvatar
+public class AvatarAI : AbstractAvatar
 {
+    NavMeshAgent agent;
+    private GameObject avatarBody;
+    private GameObject avatarEyes;
+
     private void Awake()
     {
         agentFile = "shopper.asl";
+        // Retrieve avatar parts
+        avatarBody = transform.Find("Body").gameObject;
+        avatarEyes = transform.Find("anchorVisionCone").gameObject;
+        agent = GetComponent<NavMeshAgent>();
+
         if (Application.IsPlaying(gameObject))
         {
             initializeWebSocketConnection(OnMessage);
@@ -43,14 +50,17 @@ public class AvatarScript : AbstractAvatar
             switch (message.MessageType)
             {
                 case "wsInitialization":
-                    print("Connection established for " + objInUse.name);
-                    break;                
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        print("Connection established for " + objInUse.name);
+                    });
+                    break;
                 case "reachDestination":
                     print("Agent needs to reach destination.");
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
-                        objInUse.GetComponent<ReachDestination>().reachDestination(message.MessagePayload);
+                        reachDestination(message.MessagePayload);                        
                     });
                     break;
                 default:
@@ -58,26 +68,31 @@ public class AvatarScript : AbstractAvatar
                     break;
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            print("Error: " + ex.Message);
             print("Message could not be converted.");
             return;
         }
     }
 
-    // When Player enters into supermarket
-    void OnTriggerEnter(Collider other)
+    private void reachDestination(string dest)
     {
-        // reached_destination(destName)
-        if (!other.gameObject.name.Contains("counter") && (other.gameObject.tag == "Artifact"))
-        {
-            print("Agent " + objInUse.name + " reached destination " + other.name.FirstCharacterToLower());
-            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null, 
-                "reached_destination", null, other.name.FirstCharacterToLower()));          
-        }
-        if (other.gameObject.name.Contains("exitDoor"))
-        {
-            Destroy(this);
-        }
+        agent.isStopped = false;
+        agent.SetDestination(GameObject.Find(dest).transform.position);
     }
+
+    protected void evaluateAndSendMessage()
+    {
+        print("Evaluate and send message");
+
+    }
+
+    public void sendMessage(string message)
+    {
+        wsChannel.sendMessage(message);
+    }
+
+
+
 }

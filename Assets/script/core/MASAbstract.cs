@@ -20,7 +20,6 @@ public abstract class MASAbstract : MonoBehaviour
 
     protected void initializeWebSocketConnection(System.EventHandler<WebSocketSharp.MessageEventArgs> OnMessage)
     {
-        print("Initializing connection for " + objInUse.name);
         // Initialize new web socket connection
         string url = "ws://localhost:" + port;
         WSConnectionInfoModel wSConnectionInfoModel = new WSConnectionInfoModel(url, "AGENT", objInUse.name);
@@ -31,22 +30,22 @@ public abstract class MASAbstract : MonoBehaviour
     public async Task connectWs()
     {
         int maxRetryAttempt = 3;
-        await Task.Run((Func<Task>)(async () =>
+        await Task.Run(async () =>
         {
             int currentAttempt = 1;
             while (!wsChannel.IsWebSocketConnected && currentAttempt < maxRetryAttempt)
             {
-                print("Connecting attemp n°: " + currentAttempt);
+                print("Connecting attemp n°: " + currentAttempt + " for " + wsChannel.ConnectionInfoModel.getName());
                 wsChannel.connect();
                 if (wsChannel.IsWebSocketConnected)
-                {
+                {                    
                     break;
                 }
                 currentAttempt++;
                 // Wait 5 seconds before retrying
                 await Task.Delay(5000);
             }
-        }));
+        });
     }
 
     public bool testConnection()

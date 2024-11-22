@@ -6,15 +6,21 @@ using System.Linq;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
 using TMPro;
+using UnityEngine.AI;
 
 public class OperatorScript : AbstractAvatar
 {
+
+    NavMeshAgent agent;
+
     void Awake()
     {
+
         agentFile = "operator.asl";
         initializeWebSocketConnection(OnMessage);
         // Find the TextMeshPro component in the children of the avatar
         nameTextMeshPro = GetComponentInChildren<TextMeshPro>();
+        agent = GetComponent<NavMeshAgent>();
 
         // Check if we found the TextMeshPro component
         if (nameTextMeshPro != null)
@@ -47,7 +53,7 @@ public class OperatorScript : AbstractAvatar
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
-                        objInUse.GetComponent<ReachDestination>().reachDestination(message.MessagePayload);
+                        reachDestination(message.MessagePayload);
                     });
                     break;
                 default:
@@ -57,9 +63,16 @@ public class OperatorScript : AbstractAvatar
         }
         catch (Exception)
         {
+            print(data);
             print("Message could not be converted.");
             return;
         }
+    }
+
+    private void reachDestination(string dest)
+    {
+        agent.isStopped = false;
+        agent.SetDestination(GameObject.Find(dest).transform.position);
     }
 
     void OnTriggerEnter(Collider other)

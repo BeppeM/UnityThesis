@@ -34,12 +34,15 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         foreach (GameObject envArtifact in envArtifacts)
         {
             Artifact script = envArtifact.GetComponent<Artifact>();
-            print("Analize " + envArtifact.name); 
+            print("Analize " + envArtifact.name);
             print(" of type: " + script.ArtifactType);
             string artifact = "\t\t" + $@"artifact {envArtifact.name.FirstCharacterToLower()}: artifact.{script.ArtifactType.ToString()}Artifact({"\"" + envArtifact.name + "\""}, {script.Port}";
-            if(script.ArtifactProperties != null){
+            if (script.ArtifactProperties != null)
+            {
                 artifact += $@", ""{script.ArtifactProperties}"")";
-            }else{                
+            }
+            else
+            {
                 artifact += ")";
             }
             artifact += "\n";
@@ -49,11 +52,24 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         fileLines[1] += "\t}\n";
 
         // Configure all agents
+        if (avatars != null && avatars.Length != 0)
+        {
+            addAgents(avatars);
+        }
+
+        // FOOT
+        File.AppendAllText(jcmFilePath, fileLines[1] + Environment.NewLine);
+        File.AppendAllText(jcmFilePath, fileLines[2]);
+
+    }
+
+    private static void addAgents(GameObject[] avatars)
+    {
         foreach (GameObject avatar in avatars)
         {
             string artifactName = avatar.name + "Agent";
             AbstractAvatar avatarScript = avatar.GetComponent<AbstractAvatar>();
-            
+
             // Create the new agent definition
             string newAgent = $@"
     agent {avatar.name}: {avatarScript.AgentFile} {{
@@ -61,22 +77,22 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         goals: initializeAgent({artifactName}, {avatarScript.port}, initGoals([{string.Join(", ", avatarScript.Goals.Select(goal => goal.ToString().ToLower()))}]))
         join: w";
             // Define focus on artifacts
-            string artifactsFocused = "\t\t" + $@"focus:";            
-            foreach (GameObject art in avatarScript.FocusedArtifacts)
+            if(avatarScript.FocusedArtifacts != null && avatarScript.FocusedArtifacts.Length != 0)
             {
-                artifactsFocused += $@" w.{art.name.FirstCharacterToLower()}";
-                artifactsFocused += "\n\t\t";
-            }                                    
-            newAgent += "\n" + artifactsFocused + "\n\t}";
+                string artifactsFocused = "\t\t" + $@"focus:";
+                foreach (GameObject art in avatarScript.FocusedArtifacts)
+                {
+                    artifactsFocused += $@" w.{art.name.FirstCharacterToLower()}";
+                    artifactsFocused += "\n\t\t";
+                }
+                newAgent += "\n" + artifactsFocused + "\n";
+            }
+
+            newAgent += "\t\t\n}";
 
             // Append into the file
             File.AppendAllText(jcmFilePath, newAgent + Environment.NewLine);
         }
-
-        // FOOT
-        File.AppendAllText(jcmFilePath, fileLines[1] + Environment.NewLine);
-        File.AppendAllText(jcmFilePath, fileLines[2]);
-
     }
 
     // Open JaCaMo application
@@ -162,7 +178,8 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         await Task.WhenAll(tasks);
     }
 
-    public static string createAndConvertJacamoMessageIntoJsonString(string messageType, string messagePayload, string agentEvent, string agentName, object param)
+    public static string createAndConvertJacamoMessageIntoJsonString(string messageType, 
+        string messagePayload, string agentEvent, string agentName, object param)
     {
         WsMessage wsMessage = new WsMessage(messageType, messagePayload, agentEvent, agentName, param);
         return JsonConvert.SerializeObject(wsMessage);

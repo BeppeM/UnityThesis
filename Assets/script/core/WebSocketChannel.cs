@@ -9,6 +9,7 @@ public class WebSocketChannel
 
     private WebSocket ws;
     private WSConnectionInfoModel connectionInfo;
+    public WSConnectionInfoModel ConnectionInfoModel { get { return connectionInfo; } }
     private bool isWebSocketConnected = false;
 
     public WebSocketChannel(WSConnectionInfoModel connectionInfo, System.EventHandler<WebSocketSharp.MessageEventArgs> onMessage)
@@ -41,16 +42,19 @@ public class WebSocketChannel
         ws.Connect();
     }
 
-    public void sendMessage(string message)
+    public async void sendMessage(string message)
     {
         Debug.Log("Sending message " + message);
+        while (!IsWebSocketConnected)
+        {
+            await Task.Delay(2000);
+        }
         ws.Send(message);
     }
 
     private void OnOpen(object sender, System.EventArgs e)
     {
-        Debug.Log("WebSocket connection opened for: " + connectionInfo.getName() + " of type: "
-        + connectionInfo.getConnectionType());
+        Debug.Log("WebSocket connection opened successfully for: " + connectionInfo.getName());
         IsWebSocketConnected = true;
     }
 
@@ -60,13 +64,12 @@ public class WebSocketChannel
         // Check if connection is closed
         if (e.Code == 1006)
         {
-            await Task.Delay(5000);
-            Debug.Log("Trying to reconnect");
+            await Task.Delay(5000);            
             connect();
         }
     }
 
-    private async void OnError(object sender, ErrorEventArgs e)
+    private void OnError(object sender, ErrorEventArgs e)
     {
         Debug.LogError("WebSocket error: " + e.Message);
     }

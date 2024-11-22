@@ -34,10 +34,6 @@ public class DoorScript : Artifact
     {
         if (Application.IsPlaying(gameObject))
         {
-            if (!wsChannel.IsWebSocketConnected)
-            {
-                return;
-            }
             // supermarket is open and message has not been sent yet to JACaMo
             if (doorProperties && flag != 0)
             {
