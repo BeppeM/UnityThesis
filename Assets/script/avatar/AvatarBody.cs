@@ -7,12 +7,14 @@ using UnityEngine.AI;
 public class AvatarBody : MonoBehaviour
 {
     NavMeshAgent agent;
-    GameObject root;    
+    GameObject root;
+    AvatarAI mainAvatarScript;
 
     // Start is called before the first frame update
     void Awake()
     {
         root = transform.parent.gameObject;
+        mainAvatarScript = root.GetComponent<AvatarAI>();
 
         agent = GetComponent<NavMeshAgent>();
     }
@@ -37,12 +39,9 @@ public class AvatarBody : MonoBehaviour
         if (!other.gameObject.name.Contains("counter") && (other.gameObject.tag == "Artifact"))
         {
             print("Agent " + root.name + " reached destination " + other.name.FirstCharacterToLower());
-            root.GetComponent<AvatarAI>().sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
+            mainAvatarScript.SetBaloonText("Reached destination: " + other.name.FirstCharacterToLower());
+            mainAvatarScript.SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
                 "reached_destination", null, other.name.FirstCharacterToLower()));
-        }
-        if (other.gameObject.name.Contains("exitDoor"))
-        {
-            Destroy(this);
         }
     }
 }

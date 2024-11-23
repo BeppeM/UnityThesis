@@ -10,6 +10,7 @@ public class AvatarAI : AbstractAvatar
     NavMeshAgent agent;
     private GameObject avatarBody;
     private GameObject avatarEyes;
+    private TextMeshProUGUI baloonText;
 
     private void Awake()
     {
@@ -25,17 +26,11 @@ public class AvatarAI : AbstractAvatar
         }
         // Find the TextMeshPro component in the children of the avatar
         nameTextMeshPro  = transform.Find("avatarName").GetComponent<TextMeshPro>();
+        nameTextMeshPro.text = name;
 
-        // Check if we found the TextMeshPro component
-        if (nameTextMeshPro != null)
-        {
-            // Set the text of the TextMeshPro to the avatar's name
-            nameTextMeshPro.text = name;
-        }
-        else
-        {
-            Debug.LogWarning("TextMeshPro component not found in the avatar's children.");
-        }
+        // Initiating the baloon
+        baloonText = gameObject.transform.Find("Canvas/BaloonBg/BaloonTxt").GetComponent<TextMeshProUGUI>();
+        baloonText.text = "start";
     }
 
     // Unity avatar receives message from jacamo agent
@@ -82,17 +77,20 @@ public class AvatarAI : AbstractAvatar
         agent.SetDestination(GameObject.Find(dest).transform.position);
     }
 
-    protected void evaluateAndSendMessage()
-    {
-        print("Evaluate and send message");
-
-    }
-
-    public void sendMessage(string message)
+    public void SendMessageToJaCaMoBrain(string message)
     {
         wsChannel.sendMessage(message);
     }
 
+    public void SetBaloonText(string message)
+    {
+        baloonText.text = message;
+    }
+
+    public void EnableDisableVisionCone(bool isActive)
+    {
+        avatarEyes.SetActive(isActive);
+    }
 
 
 }
