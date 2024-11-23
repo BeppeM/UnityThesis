@@ -55,6 +55,7 @@ public class AvatarAI : AbstractAvatar
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
+                        SetBaloonText("New destination: " + message.MessagePayload);
                         reachDestination(message.MessagePayload);                        
                     });
                     break;

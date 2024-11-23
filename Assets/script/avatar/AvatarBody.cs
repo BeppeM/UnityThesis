@@ -9,6 +9,7 @@ public class AvatarBody : MonoBehaviour
     NavMeshAgent agent;
     GameObject root;
     AvatarAI mainAvatarScript;
+    string artifactReached = "";
 
     // Start is called before the first frame update
     void Awake()
@@ -42,6 +43,16 @@ public class AvatarBody : MonoBehaviour
             mainAvatarScript.SetBaloonText("Reached destination: " + other.name.FirstCharacterToLower());
             mainAvatarScript.SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
                 "reached_destination", null, other.name.FirstCharacterToLower()));
+            artifactReached = other.name.FirstCharacterToLower();
+            mainAvatarScript.EnableDisableVisionCone(false);
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!artifactReached.Equals("") && other.name.FirstCharacterToLower().Equals(artifactReached)){
+            mainAvatarScript.EnableDisableVisionCone(true);
+            artifactReached = "";
+        }        
     }
 }
