@@ -11,6 +11,7 @@ public class AvatarAI : AbstractAvatar
     private GameObject avatarBody;
     private GameObject avatarEyes;
     private TextMeshProUGUI baloonText;
+    private AutonomousWalking autonomousWalking;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class AvatarAI : AbstractAvatar
         avatarBody = transform.Find("Body").gameObject;
         avatarEyes = transform.Find("anchorVisionCone").gameObject;
         agent = GetComponent<NavMeshAgent>();
+        autonomousWalking = GetComponent<AutonomousWalking>();
 
         if (Application.IsPlaying(gameObject))
         {
@@ -57,6 +59,24 @@ public class AvatarAI : AbstractAvatar
                     {
                         SetBaloonText("New destination: " + message.MessagePayload);
                         reachDestination(message.MessagePayload);                        
+                    });
+                    break;
+                case "stopAgent":
+                    print("Stopping the agent.");
+                    // Avatar receives the type of artifact to reach
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        SetBaloonText("I'm stopped");
+                        autonomousWalking.IsStopped = true;
+                        agent.isStopped = true;                        ;
+                        transform.LookAt(GameObject.Find(message.MessagePayload).transform);
+                    });
+                    break;
+                case "conversation":                    
+                    // Avatar receives the type of artifact to reach
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        SetBaloonText(message.MessagePayload);                        
                     });
                     break;
                 default:

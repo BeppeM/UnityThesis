@@ -9,6 +9,12 @@ public class AutonomousWalking : MonoBehaviour
     private NavMeshAgent agent;
     private Vector3 min, max;
     private Vector3 targetPosition = Vector3.zero;  // Store the target position for Gizmos
+    private bool isStopped = false;
+
+    public bool IsStopped
+    {
+        set { isStopped = value; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +23,22 @@ public class AutonomousWalking : MonoBehaviour
         WalkAround walkAround = GameObject.FindObjectOfType<WalkAround>();
         min = walkAround.min.position;
         max = walkAround.max.position;
+        StartCoroutine(WalkRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator WalkRoutine()
     {
-
+        while (!isStopped)
+        {
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    Walk();
+                }
+            }
+            yield return null;  // Check every frame
+        }
     }
 
     public void Walk()

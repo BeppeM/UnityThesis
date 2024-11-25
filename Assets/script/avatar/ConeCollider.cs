@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class ConeCollider : MonoBehaviour
 {
-   
+
     private NavMeshAgent agent;
     bool reachedArtifact = false;
     GameObject root;
@@ -33,17 +33,21 @@ public class ConeCollider : MonoBehaviour
         GameObject obj = other.gameObject;
         if (obj.layer == LayerMask.NameToLayer("artifact"))
         {
-            Debug.Log("Agent " + root.name + " has seen the artifact " + other.name);            
+            Debug.Log("Agent " + root.name + " has seen the artifact " + other.name);
             mainAvatarScript.SetBaloonText("Artifact seen: " + other.name.FirstCharacterToLower());
             root.GetComponent<AvatarAI>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
                 "artifactSeen", null, other.name.FirstCharacterToLower()));
         }
         else if (obj.layer == LayerMask.NameToLayer("agent"))
-        {            
+        {
             Debug.Log("Agent " + root.name + " has met another avatar: " + obj.transform.parent.name);
             mainAvatarScript.SetBaloonText("Agent seen: " + obj.transform.parent.name);
             root.GetComponent<AvatarAI>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
                 "agentSeen", null, obj.transform.parent.name));
+        }
+        else if (obj.layer == LayerMask.NameToLayer("sphere"))
+        {
+            obj.gameObject.GetComponent<Renderer>().material.color = Color.blue;
         }
     }
 
