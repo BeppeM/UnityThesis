@@ -9,6 +9,7 @@ public class InitialShopperAgentBeliefs
 {
     public List<ItemToBuy> itemsToBuy;
     public float budget;
+    public List<string> friends = new List<string>();
 
     public float Budget
     {
@@ -19,6 +20,14 @@ public class InitialShopperAgentBeliefs
         set
         {
             budget = value;
+        }
+    }
+
+    public List<string> Friends
+    {
+        get
+        {
+            return friends;
         }
     }
 
@@ -55,6 +64,13 @@ public class InitialShopperAgentBeliefs
             string temp = "[" + string.Join(", ", itemsToBuy.Select(item => item.GetItemAsLiteral())) + "]";
             beliefs.Append($", shoppingList({temp})");
         }
+
+        if (friends != null && friends.Count != 0)
+        {
+            string temp = "[" + string.Join(", ", friends.Select(item => item.ToString())) + "]";
+            beliefs.Append($", friends({temp})");
+        }
+
         return beliefs.ToString();
     }
 }
