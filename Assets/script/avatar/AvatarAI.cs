@@ -59,6 +59,13 @@ public class AvatarAI : AbstractAvatar
                         reachDestination(message.MessagePayload);                        
                     });
                     break;
+                case "conversation":
+                    print("Agent is having a conversation.");                    
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        SetBaloonText(message.MessagePayload);                        
+                    });
+                    break;
                 default:
                     print("Unknown message type for " + objInUse.name);
                     break;
