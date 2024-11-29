@@ -22,7 +22,11 @@ public class AutonomousWalking : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         WalkAround walkAround = GameObject.FindObjectOfType<WalkAround>();
         min = walkAround.min.position;
-        max = walkAround.max.position;
+        max = walkAround.max.position;        
+    }
+
+    public void StartWalking()
+    {
         StartCoroutine(WalkRoutine());
     }
 

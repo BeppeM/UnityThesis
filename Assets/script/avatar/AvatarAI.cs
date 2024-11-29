@@ -4,6 +4,7 @@ using WebSocketSharp;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class AvatarAI : AbstractAvatar
 {
@@ -46,6 +47,18 @@ public class AvatarAI : AbstractAvatar
             message = JsonConvert.DeserializeObject<WsMessage>(data);
             switch (message.MessageType)
             {
+                case "startWalking":
+                    // Avatar receives the type of artifact to reach
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        resetStoppingDistance();
+                        autonomousWalking.IsStopped = false;
+                        agent.ResetPath();
+                        SetBaloonText("Walking");                                               
+                        autonomousWalking.StartWalking();
+                        StartCoroutine(ActivateVisionCone());
+                    });
+                    break;
                 case "wsInitialization":
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
@@ -62,21 +75,34 @@ public class AvatarAI : AbstractAvatar
                     });
                     break;
                 case "stopAgent":
-                    print("Stopping the agent.");
-                    // Avatar receives the type of artifact to reach
+                    print("Stopping the agent.");                    
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
                         SetBaloonText("I'm stopped");
                         autonomousWalking.IsStopped = true;
                         agent.isStopped = true;                        ;
                         transform.LookAt(GameObject.Find(message.MessagePayload).transform);
+                        EnableDisableVisionCone(false);
                     });
                     break;
-                case "conversation":                    
+                case "reachFriend":
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
-                        SetBaloonText(message.MessagePayload);                        
+                        EnableDisableVisionCone(false);
+                        // Delete previous path and reach friend
+                        agent.ResetPath();
+                        agent.stoppingDistance = 8.0f;
+                        autonomousWalking.IsStopped = true;
+                        reachDestination(message.MessagePayload);                        
+                        StartCoroutine(CheckIfReachedFriend(message.MessagePayload));
+                    });
+                    break;
+                case "conversation":
+                    // Avatar receives the type of artifact to reach
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        SetBaloonText(message.MessagePayload);
                     });
                     break;
                 default:
@@ -98,6 +124,11 @@ public class AvatarAI : AbstractAvatar
         agent.SetDestination(GameObject.Find(dest).transform.position);
     }
 
+    private void resetStoppingDistance()
+    {
+        agent.stoppingDistance = 1.0f;
+    }
+
     public void SendMessageToJaCaMoBrain(string message)
     {
         wsChannel.sendMessage(message);
@@ -112,6 +143,35 @@ public class AvatarAI : AbstractAvatar
     {
         avatarEyes.SetActive(isActive);
     }
+
+
+    IEnumerator CheckIfReachedFriend(string friend)
+    {
+        while (true)
+        {
+            // Check if the agent has reached the destination
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    Debug.Log("Agent has reached his friend.");
+                    SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil
+                        .createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
+                "reached_friend", null, friend));
+                    yield break; // Exit the coroutine
+                }
+            }
+            yield return new WaitForSeconds(0.1f); // Check every 0.1 seconds
+        }
+    }
+
+    IEnumerator ActivateVisionCone()
+    {
+        yield return new WaitForSeconds(3.0f);
+        EnableDisableVisionCone(true);
+    }
+
+
 
 
 }
