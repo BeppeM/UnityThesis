@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -35,8 +36,16 @@ public class ConeCollider : MonoBehaviour
         {
             Debug.Log("Agent " + root.name + " has seen the artifact " + other.name);
             mainAvatarScript.SetBaloonText("Artifact seen: " + other.name.FirstCharacterToLower());
+            // Prepare artifact info to send
+            ArtifactInfo artifactInfo = new ArtifactInfo
+            {
+                ArtifactName = other.name,
+                ArtifactType = retrieveArtifactType(obj),
+                SatisfiedGoal = retrieveArtifactSatisfiedGoal(obj) // satisfied goal 
+            };
+
             root.GetComponent<AvatarAI>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
-                "artifactSeen", null, other.name.FirstCharacterToLower()));
+                "artifactSeen", null, artifactInfo));
         }
         else if (obj.layer == LayerMask.NameToLayer("agent"))
         {
@@ -51,4 +60,25 @@ public class ConeCollider : MonoBehaviour
         }
     }
 
+    private static string retrieveArtifactType(GameObject other)
+    {
+        // Get artifact type 
+        GenericArtifactType artType = other.GetComponent<GenericArtifactType>();
+        if (artType == null)
+        {
+            throw new Exception("Artifact type script is null");
+        }
+        return artType.GetShopType().ToString().ToLower();
+    }
+
+    private static string retrieveArtifactSatisfiedGoal(GameObject other)
+    {
+        // Get artifact type 
+        Artifact artifact = other.GetComponent<Artifact>();
+        if (artifact == null)
+        {
+            throw new Exception("Artifact type script is null");
+        }
+        return artifact.SatisfiedGoal.ToString().ToLower();
+    }
 }
