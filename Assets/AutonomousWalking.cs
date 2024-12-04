@@ -10,10 +10,17 @@ public class AutonomousWalking : MonoBehaviour
     private Vector3 min, max;
     private Vector3 targetPosition = Vector3.zero;  // Store the target position for Gizmos
     private bool isStopped = false;
+    private GameObject[] waypoints;
+    private int currentWP = 0;
 
     public bool IsStopped
     {
         set { isStopped = value; }
+    }
+
+    public GameObject[] Waypoints
+    {
+        set { waypoints = value; }
     }
 
     // Start is called before the first frame update
@@ -39,6 +46,12 @@ public class AutonomousWalking : MonoBehaviour
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
                     Walk();
+                    currentWP++;
+                    if(currentWP >= waypoints.Length)
+                    {
+                        currentWP = 0;
+                        System.Array.Reverse(waypoints);
+                    }
                 }
             }
             yield return null;  // Check every frame
@@ -48,19 +61,9 @@ public class AutonomousWalking : MonoBehaviour
     public void Walk()
     {
         if (!agent.hasPath || agent.velocity.magnitude < 0.1f)
-        {
-            // Random point given max and min point representing the map size
-            Vector3 randomPosition = new Vector3(
-                Random.Range(min.x, max.x),
-                Random.Range(min.y, max.y),
-                Random.Range(min.z, max.z)
-                );
-
-            // Check if the random position is on the NavMesh
-            NavMeshHit hit;
-            NavMesh.SamplePosition(randomPosition, out hit, 2.0f, NavMesh.AllAreas);
-            agent.SetDestination(hit.position);
-            targetPosition = hit.position;
+        {            
+            // Check if the random position is on the NavMesh                        
+            agent.SetDestination(waypoints[currentWP].transform.position);            
         }
     }
 

@@ -40,8 +40,7 @@ public class ConeCollider : MonoBehaviour
             ArtifactInfo artifactInfo = new ArtifactInfo
             {
                 ArtifactName = other.name,
-                ArtifactType = retrieveArtifactType(obj),
-                SatisfiedGoal = retrieveArtifactSatisfiedGoal(obj) // satisfied goal 
+                ArtifactType = retrieveArtifactType(obj),                
             };
 
             root.GetComponent<AvatarAI>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
@@ -69,16 +68,5 @@ public class ConeCollider : MonoBehaviour
             throw new Exception("Artifact type script is null");
         }
         return artType.GetShopType().ToString().ToLower();
-    }
-
-    private static string retrieveArtifactSatisfiedGoal(GameObject other)
-    {
-        // Get artifact type 
-        Artifact artifact = other.GetComponent<Artifact>();
-        if (artifact == null)
-        {
-            throw new Exception("Artifact type script is null");
-        }
-        return artifact.SatisfiedGoal.ToString().ToLower();
     }
 }

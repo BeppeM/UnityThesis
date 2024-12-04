@@ -69,6 +69,9 @@ public class InitialShopperAgentBeliefs
         {
             string temp = "[" + string.Join(", ", friends.Select(item => item.ToString())) + "]";
             beliefs.Append($", friends({temp})");
+        }else if(friends == null || friends.Count == 0)
+        {            
+            beliefs.Append($", friends([])");
         }
 
         return beliefs.ToString();

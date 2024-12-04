@@ -13,6 +13,7 @@ public class AvatarAI : AbstractAvatar
     private GameObject avatarEyes;
     private TextMeshProUGUI baloonText;
     private AutonomousWalking autonomousWalking;
+    public GameObject[] waypoints;
 
     private void Awake()
     {
@@ -21,7 +22,9 @@ public class AvatarAI : AbstractAvatar
         avatarBody = transform.Find("Body").gameObject;
         avatarEyes = transform.Find("anchorVisionCone").gameObject;
         agent = GetComponent<NavMeshAgent>();
+        // Set waypoints to follow
         autonomousWalking = GetComponent<AutonomousWalking>();
+        autonomousWalking.Waypoints = waypoints;
 
         if (Application.IsPlaying(gameObject))
         {
@@ -71,7 +74,10 @@ public class AvatarAI : AbstractAvatar
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
                         SetBaloonText("New destination: " + message.MessagePayload);
-                        reachDestination(message.MessagePayload);                        
+                        autonomousWalking.IsStopped = true;
+                        agent.ResetPath();
+                        EnableDisableVisionCone(false);
+                        reachDestination(message.MessagePayload);                                                                                                                      
                     });
                     break;
                 case "stopAgent":
@@ -89,11 +95,11 @@ public class AvatarAI : AbstractAvatar
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
-                        EnableDisableVisionCone(false);
+                        autonomousWalking.IsStopped = true;
                         // Delete previous path and reach friend
                         agent.ResetPath();
                         agent.stoppingDistance = 8.0f;
-                        autonomousWalking.IsStopped = true;
+                        EnableDisableVisionCone(false);                        
                         reachDestination(message.MessagePayload);                        
                         StartCoroutine(CheckIfReachedFriend(message.MessagePayload));
                     });
