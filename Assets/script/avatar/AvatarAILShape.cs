@@ -160,7 +160,8 @@ public class AvatarAI : AbstractAvatar
             {
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
-                    Debug.Log("Agent has reached his friend.");
+                    Debug.Log("Agent has reached his friend.");                    
+                    transform.LookAt(GameObject.Find(friend).transform);
                     SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil
                         .createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
                 "reached_friend", null, friend));
