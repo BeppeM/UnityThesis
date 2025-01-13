@@ -47,12 +47,7 @@ public abstract class MASAbstract : MonoBehaviour
                 await Task.Delay(5000);
             }
         }));
-    }
-
-    public bool testConnection()
-    {
-        return wsChannel.IsWebSocketConnected;
-    }
+    }   
 
     public string convertObjectIntoJson<T>(T objToConvert)
     {
