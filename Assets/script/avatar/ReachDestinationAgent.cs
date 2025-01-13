@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class ReachDestination : MonoBehaviour
 {
     NavMeshAgent agent;
-    public float walkRadius = 10f; // Radius for random walking
 
     // Start is called before the first frame update
     void Start()
