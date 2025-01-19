@@ -9,34 +9,13 @@ using UnityEngine;
 using WebSocketSharp;
 
 [ExecuteAlways]
-public class Artifact : MASAbstract
+public class Artifact : AbstractArtifact
 {
-    // List of all property names
-    private List<string> propertyNames = new List<string>();
-    
-    private ArtifactTypeEnum artifactType;
-    public ArtifactTypeEnum ArtifactType
-    {
-        get { return artifactType; }
-    }
-
     // All artifact properties
     public List<CoffeeInfo> barProperties;
     public List<FruitInfo> fruitShopProperties;
     public List<ClothesInfo> dressShopProperties;
     public bool doorProperties;
-    // Properties in JSON format to configure .jcm file
-    private string artifactProperties;
-    public string ArtifactProperties
-    {
-        get { return artifactProperties; }
-        set { artifactProperties = value; }
-    }
-
-    public List<string> PropertyNames
-    {
-        get { return propertyNames; }
-    }
 
     protected virtual void Awake()
     {
