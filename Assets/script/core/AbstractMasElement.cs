@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Newtonsoft.Json;
 
-public abstract class MASAbstract : MonoBehaviour
+public abstract class AbstractMasElement : MonoBehaviour
 {
     public GameObject objInUse;
     public string port;

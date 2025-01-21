@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbstractArtifact : MASAbstract
+public class AbstractArtifact : AbstractMasElement
 {
     // Properties in JSON format to configure .jcm file
     protected string artifactProperties;
