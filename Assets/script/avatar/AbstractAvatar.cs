@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 
 
-public abstract class AbstractAvatar : MASAbstract
+public abstract class AbstractAvatar : AbstractMasElement
 {
 
     public InitialShopperAgentBeliefs initialShopperAgentBeliefs;
