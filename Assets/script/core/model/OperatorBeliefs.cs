@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OperatorBeliefs : MonoBehaviour
+[System.Serializable]
+public class OperatorBeliefs : AgentBeliefs
 {
-    // Start is called before the first frame update
-    void Start()
+    public string GetBeliefsAsLiterals()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return "";
     }
 }

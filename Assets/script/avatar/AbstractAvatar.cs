@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public abstract class AbstractAvatar : AbstractMasElement
 {
-
-    public AgentBeliefs initialShopperAgentBeliefs;
+    public AgentBeliefs agentBeliefs;
+    protected string jaCaMoAgentClassPath;
     public GameObject[] focusedArtifacts;
     protected string agentFile;
     public List<GoalEnum> goals;
     protected TextMeshPro nameTextMeshPro;
+    protected NavMeshAgent agent;
 
     public GameObject[] FocusedArtifacts
     {
@@ -18,9 +20,9 @@ public abstract class AbstractAvatar : AbstractMasElement
         set { focusedArtifacts = value; }
     }
 
-    public AgentBeliefs InitialShopperAgentBeliefs
+    public AgentBeliefs AgentBeliefs
     {
-        get { return initialShopperAgentBeliefs; }
+        get { return agentBeliefs; }
     }
 
     public string AgentFile
@@ -33,4 +35,17 @@ public abstract class AbstractAvatar : AbstractMasElement
         get { return goals; }
 
     }
+
+    public string JaCaMoAgentClassPath
+    {
+        get { return jaCaMoAgentClassPath; }
+        set { jaCaMoAgentClassPath = value; }
+    }
+
+    protected void reachDestination(string dest)
+    {
+        agent.isStopped = false;
+        agent.SetDestination(GameObject.Find(dest).transform.position);
+    }
+
 }

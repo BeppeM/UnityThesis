@@ -10,13 +10,11 @@ using UnityEngine.AI;
 
 public class OperatorScript : AbstractAvatar
 {
-
-    NavMeshAgent agent;
-
     void Awake()
     {
 
         agentFile = "operator.asl";
+        JaCaMoAgentClassPath = "artifact.lib.maselements.AgentMasElement";
         initializeWebSocketConnection(OnMessage);
         // Find the TextMeshPro component in the children of the avatar
         nameTextMeshPro = GetComponentInChildren<TextMeshPro>();
@@ -67,12 +65,6 @@ public class OperatorScript : AbstractAvatar
             print("Message could not be converted.");
             return;
         }
-    }
-
-    private void reachDestination(string dest)
-    {
-        agent.isStopped = false;
-        agent.SetDestination(GameObject.Find(dest).transform.position);
     }
 
     void OnTriggerEnter(Collider other)
