@@ -8,15 +8,14 @@ using Unity.VisualScripting;
 using TMPro;
 using UnityEngine.AI;
 
-public class OperatorScript : AbstractAvatar
+public class OperatorAvatarScript : AbstractAvatar
 {
-
-    NavMeshAgent agent;
+    public OperatorBeliefs operatorBeliefs;
 
     void Awake()
     {
-
         agentFile = "operator.asl";
+        JaCaMoAgentClassPath = "artifact.lib.maselements.AgentMasElement";
         initializeWebSocketConnection(OnMessage);
         // Find the TextMeshPro component in the children of the avatar
         nameTextMeshPro = GetComponentInChildren<TextMeshPro>();
@@ -69,12 +68,6 @@ public class OperatorScript : AbstractAvatar
         }
     }
 
-    private void reachDestination(string dest)
-    {
-        agent.isStopped = false;
-        agent.SetDestination(GameObject.Find(dest).transform.position);
-    }
-
     void OnTriggerEnter(Collider other)
     {
         // reached_destination(destName)
@@ -86,4 +79,8 @@ public class OperatorScript : AbstractAvatar
         }
     }
 
+    public override AgentBeliefs AgentBeliefs
+    {
+        get { return operatorBeliefs; }
+    }
 }

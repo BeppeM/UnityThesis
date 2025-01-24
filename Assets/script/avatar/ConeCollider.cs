@@ -11,7 +11,7 @@ public class ConeCollider : MonoBehaviour
     private NavMeshAgent agent;
     bool reachedArtifact = false;
     GameObject root;
-    AvatarAI mainAvatarScript;
+    ShopperAvatarScript mainAvatarScript;
 
     public bool ReachedArtifact
     {
@@ -24,7 +24,7 @@ public class ConeCollider : MonoBehaviour
         // Retrieve the root gameobject that represent the avatar
         root = transform.parent.transform.parent.gameObject;
         // Retrieve the avatar baloon
-        mainAvatarScript = root.GetComponent<AvatarAI>();
+        mainAvatarScript = root.GetComponent<ShopperAvatarScript>();
 
     }
 
@@ -35,14 +35,14 @@ public class ConeCollider : MonoBehaviour
         {
             Debug.Log("Agent " + root.name + " has seen the artifact " + other.name);            
             mainAvatarScript.SetBaloonText("Artifact seen: " + other.name.FirstCharacterToLower());
-            root.GetComponent<AvatarAI>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
+            root.GetComponent<ShopperAvatarScript>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
                 "artifactSeen", null, other.name.FirstCharacterToLower()));
         }
         else if (obj.layer == LayerMask.NameToLayer("agent"))
         {            
             Debug.Log("Agent " + root.name + " has met another avatar: " + obj.transform.parent.name);
             mainAvatarScript.SetBaloonText("Agent seen: " + obj.transform.parent.name);
-            root.GetComponent<AvatarAI>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
+            root.GetComponent<ShopperAvatarScript>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
                 "agentSeen", null, obj.transform.parent.name));
         }
     }

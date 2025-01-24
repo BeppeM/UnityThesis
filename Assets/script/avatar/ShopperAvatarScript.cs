@@ -5,32 +5,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AvatarAI : AbstractAvatar
+public class ShopperAvatarScript : AbstractAvatarWithEyes
 {
-    NavMeshAgent agent;
-    private GameObject avatarBody;
-    private GameObject avatarEyes;
-    private TextMeshProUGUI baloonText;
-
+    public ShopperBeliefs shopperBeliefs;
     private void Awake()
     {
         agentFile = "shopper.asl";
-        // Retrieve avatar parts
-        avatarBody = transform.Find("Body").gameObject;
-        avatarEyes = transform.Find("anchorVisionCone").gameObject;
+        JaCaMoAgentClassPath = "artifact.lib.maselements.AgentMasElement";
         agent = GetComponent<NavMeshAgent>();
 
         if (Application.IsPlaying(gameObject))
         {
             initializeWebSocketConnection(OnMessage);
+            initializeAvatarWithEyes();
         }
-        // Find the TextMeshPro component in the children of the avatar
-        nameTextMeshPro  = transform.Find("avatarName").GetComponent<TextMeshPro>();
-        nameTextMeshPro.text = name;
-
-        // Initiating the baloon
-        baloonText = gameObject.transform.Find("Canvas/BaloonBg/BaloonTxt").GetComponent<TextMeshProUGUI>();
-        baloonText.text = "start";
     }
 
     // Unity avatar receives message from jacamo agent
@@ -72,26 +60,9 @@ public class AvatarAI : AbstractAvatar
         }
     }
 
-    private void reachDestination(string dest)
+    public override AgentBeliefs AgentBeliefs
     {
-        agent.isStopped = false;
-        agent.SetDestination(GameObject.Find(dest).transform.position);
+        get { return shopperBeliefs; }
     }
-
-    public void SendMessageToJaCaMoBrain(string message)
-    {
-        wsChannel.sendMessage(message);
-    }
-
-    public void SetBaloonText(string message)
-    {
-        baloonText.text = message;
-    }
-
-    public void EnableDisableVisionCone(bool isActive)
-    {
-        avatarEyes.SetActive(isActive);
-    }
-
 
 }

@@ -1,15 +1,31 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using System.Text;
 using System.Linq;
+using System.Text;
+using UnityEngine;
 
 [System.Serializable]
-public class InitialShopperAgentBeliefs
+public class ShopperBeliefs : AgentBeliefs
 {
+
     public List<ItemToBuy> itemsToBuy;
     public float budget;
     public List<string> friends = new List<string>();
+
+    // Constructor to initialize the properties
+    public ShopperBeliefs(List<ItemToBuy> itemsToBuy, float budget)
+    {
+        ItemsToBuy = itemsToBuy;
+        Budget = budget;
+    }
+
+    // Default constructor
+    public ShopperBeliefs()
+    {
+        ItemsToBuy = new List<ItemToBuy>();
+        Budget = 0.0f;
+    }
+
 
     public float Budget
     {
@@ -22,6 +38,11 @@ public class InitialShopperAgentBeliefs
             budget = value;
         }
     }
+    public List<ItemToBuy> ItemsToBuy
+    {
+        get { return itemsToBuy; }
+        set { itemsToBuy = value; }
+    }
 
     public List<string> Friends
     {
@@ -29,27 +50,6 @@ public class InitialShopperAgentBeliefs
         {
             return friends;
         }
-    }
-
-
-    public List<ItemToBuy> ItemsToBuy
-    {
-        get { return itemsToBuy; }
-        set { itemsToBuy = value; }
-    }
-
-    // Constructor to initialize the properties
-    public InitialShopperAgentBeliefs(List<ItemToBuy> itemsToBuy, float budget)
-    {
-        ItemsToBuy = itemsToBuy;
-        Budget = budget;
-    }
-
-    // Default constructor
-    public InitialShopperAgentBeliefs()
-    {
-        ItemsToBuy = new List<ItemToBuy>();
-        Budget = 0.0f;
     }
 
     // Method to generate beliefs as string to fill .jcm file
@@ -60,7 +60,7 @@ public class InitialShopperAgentBeliefs
         beliefs.Append($"budget({Budget})");
 
         if (itemsToBuy != null && itemsToBuy.Count != 0)
-        {            
+        {
             string temp = "[" + string.Join(", ", itemsToBuy.Select(item => item.GetItemAsLiteral())) + "]";
             beliefs.Append($", shoppingList({temp})");
         }
