@@ -11,7 +11,6 @@ using Unity.VisualScripting;
 
 class UnityJacamoIntegrationUtil : MonoBehaviour
 {
-
     private static string jcmFilePath = "C:/Users/g.mirra/Desktop/supermarket/supermarket.jcm";
     private static string[] fileLines = {
         "mas supermarket {",
