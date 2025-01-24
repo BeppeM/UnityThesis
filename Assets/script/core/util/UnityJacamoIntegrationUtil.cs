@@ -76,10 +76,10 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             : "";
             string beliefs = avatarScript.AgentBeliefs.GetBeliefsAsLiterals() != "" ? "beliefs:" + avatarScript.AgentBeliefs.GetBeliefsAsLiterals() : "";
             string newAgent = $@"
-            agent {avatar.name}: {avatarScript.AgentFile} {{
-            {beliefs}
-            goals: initializeAgent({artifactName}, ""{avatarScript.JaCaMoAgentClassPath}"" , {avatarScript.port}, {goals})
-            join: w";
+    agent {avatar.name}: {avatarScript.AgentFile} {{
+        {beliefs}
+        goals: initializeAgent({artifactName}, ""{avatarScript.JaCaMoAgentClassPath}"" , {avatarScript.port}, {goals})
+        join: w";
 
             // Define focus on artifacts
             if (avatarScript.FocusedArtifacts != null && avatarScript.FocusedArtifacts.Length != 0)
