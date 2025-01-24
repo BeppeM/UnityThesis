@@ -14,6 +14,7 @@ public class ShopperAvatarScript : AbstractAvatar
     private void Awake()
     {
         agentFile = "shopper.asl";
+        JaCaMoAgentClassPath = "artifact.lib.maselements.AgentMasElement";
         if (Application.IsPlaying(gameObject))
         {
             initializeWebSocketConnection(OnMessage);

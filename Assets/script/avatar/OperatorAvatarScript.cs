@@ -14,6 +14,7 @@ public class OperatorAvatarScript : AbstractAvatar
     void Awake()
     {
         agentFile = "operator.asl";
+        JaCaMoAgentClassPath = "artifact.lib.maselements.AgentMasElement";
         initializeWebSocketConnection(OnMessage);
         // Find the TextMeshPro component in the children of the avatar
         nameTextMeshPro = GetComponentInChildren<TextMeshPro>();

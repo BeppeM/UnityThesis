@@ -62,7 +62,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
             string newAgent = $@"
     agent {avatar.name}: {avatarScript.AgentFile} {{
         {beliefs}
-        goals: initializeAgent({artifactName}, {avatarScript.port}, {goals})
+        goals: initializeAgent({artifactName}, ""{avatarScript.JaCaMoAgentClassPath}"" , {avatarScript.port}, {goals})
         join: w";
             // Define focus on artifacts
             string artifactsFocused = "\t\t" + $@"focus:";            

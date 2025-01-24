@@ -11,6 +11,7 @@ public abstract class AbstractAvatar : AbstractMasElement
     protected string agentFile;
     public List<GoalEnum> goals;
     protected TextMeshPro nameTextMeshPro;
+    protected string jaCaMoAgentClassPath;
 
     public GameObject[] FocusedArtifacts
     {
@@ -32,5 +33,11 @@ public abstract class AbstractAvatar : AbstractMasElement
     {
         get { return goals; }
 
+    }
+
+    public string JaCaMoAgentClassPath
+    {
+        get { return jaCaMoAgentClassPath; }
+        set { jaCaMoAgentClassPath = value; }
     }
 }
