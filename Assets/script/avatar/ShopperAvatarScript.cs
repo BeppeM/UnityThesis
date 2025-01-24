@@ -7,8 +7,10 @@ using Newtonsoft.Json;
 using Unity.VisualScripting;
 using TMPro;
 
-public class AvatarScript : AbstractAvatar
+public class ShopperAvatarScript : AbstractAvatar
 {
+    public ShopperBeliefs shopperBeliefs;
+
     private void Awake()
     {
         agentFile = "shopper.asl";
@@ -78,5 +80,10 @@ public class AvatarScript : AbstractAvatar
         {
             Destroy(this);
         }
+    }
+
+    public override AgentBeliefs AgentBeliefs
+    {
+        get { return shopperBeliefs; }
     }
 }

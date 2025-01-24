@@ -7,8 +7,10 @@ using Newtonsoft.Json;
 using Unity.VisualScripting;
 using TMPro;
 
-public class OperatorScript : AbstractAvatar
+public class OperatorAvatarScript : AbstractAvatar
 {
+    public OperatorBeliefs operatorBeliefs;
+
     void Awake()
     {
         agentFile = "operator.asl";
@@ -70,6 +72,11 @@ public class OperatorScript : AbstractAvatar
             wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
                 "reached_destination", null, other.name.FirstCharacterToLower()));
         }
+    }
+
+    public override AgentBeliefs AgentBeliefs
+    {
+        get { return operatorBeliefs; }
     }
 
 }
