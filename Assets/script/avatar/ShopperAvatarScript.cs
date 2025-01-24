@@ -6,12 +6,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class AvatarAI : AbstractAvatar
+public class ShopperAvatarScript : AbstractAvatarWithEyes
 {
     NavMeshAgent agent;
-    private GameObject avatarBody;
-    private GameObject avatarEyes;
-    private TextMeshProUGUI baloonText;
     private AutonomousWalking autonomousWalking;
     public GameObject[] waypoints;
 

@@ -7,7 +7,6 @@ public class AutonomousWalking : MonoBehaviour
 {
 
     private NavMeshAgent agent;
-    private Vector3 min, max;
     private Vector3 targetPosition = Vector3.zero;  // Store the target position for Gizmos
     private bool isStopped = false;
     private GameObject[] waypoints;
@@ -27,9 +26,6 @@ public class AutonomousWalking : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        WalkAround walkAround = GameObject.FindObjectOfType<WalkAround>();
-        min = walkAround.min.position;
-        max = walkAround.max.position;        
     }
 
     public void StartWalking()

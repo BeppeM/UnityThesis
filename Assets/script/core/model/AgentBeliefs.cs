@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq;
 
 [System.Serializable]
-public class InitialShopperAgentBeliefs
+public class AgentBeliefs
 {
     public List<ItemToBuy> itemsToBuy;
     public float budget;
@@ -39,14 +39,14 @@ public class InitialShopperAgentBeliefs
     }
 
     // Constructor to initialize the properties
-    public InitialShopperAgentBeliefs(List<ItemToBuy> itemsToBuy, float budget)
+    public AgentBeliefs(List<ItemToBuy> itemsToBuy, float budget)
     {
         ItemsToBuy = itemsToBuy;
         Budget = budget;
     }
 
     // Default constructor
-    public InitialShopperAgentBeliefs()
+    public AgentBeliefs()
     {
         ItemsToBuy = new List<ItemToBuy>();
         Budget = 0.0f;

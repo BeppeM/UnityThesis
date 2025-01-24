@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class AbstractAvatar : AbstractMasElement
 {
 
-    public InitialShopperAgentBeliefs initialShopperAgentBeliefs;
+    public AgentBeliefs initialShopperAgentBeliefs;
     public GameObject[] focusedArtifacts;
     protected string agentFile;
     public List<GoalEnum> goals;
@@ -18,7 +18,7 @@ public abstract class AbstractAvatar : AbstractMasElement
         set { focusedArtifacts = value; }
     }
 
-    public InitialShopperAgentBeliefs InitialShopperAgentBeliefs
+    public AgentBeliefs InitialShopperAgentBeliefs
     {
         get { return initialShopperAgentBeliefs; }
     }
