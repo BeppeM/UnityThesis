@@ -53,12 +53,16 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         {
             string artifactName = avatar.name + "Agent";
             AbstractAvatar avatarScript = avatar.GetComponent<AbstractAvatar>();
-            
+
             // Create the new agent definition
+            string goals = avatarScript.Goals != null
+            ? $"initGoals([{string.Join(", ", avatarScript.Goals.Select(goal => goal.ToString().ToLower()))}])"
+            : "";
+            string beliefs = avatarScript.AgentBeliefs.GetBeliefsAsLiterals() != "" ? "beliefs:" + avatarScript.AgentBeliefs.GetBeliefsAsLiterals() : "";
             string newAgent = $@"
     agent {avatar.name}: {avatarScript.AgentFile} {{
-        beliefs: {avatarScript.InitialShopperAgentBeliefs.GetBeliefsAsLiterals()}
-        goals: initializeAgent({artifactName}, {avatarScript.port}, initGoals([{string.Join(", ", avatarScript.Goals.Select(goal => goal.ToString().ToLower()))}]))
+        {beliefs}
+        goals: initializeAgent({artifactName}, {avatarScript.port}, {goals})
         join: w";
             // Define focus on artifacts
             string artifactsFocused = "\t\t" + $@"focus:";            
