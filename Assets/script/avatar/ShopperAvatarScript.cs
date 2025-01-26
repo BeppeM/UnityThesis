@@ -53,7 +53,7 @@ public class ShopperAvatarScript : AbstractAvatar
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
-                        objInUse.GetComponent<ReachDestination>().reachDestination(message.MessagePayload);
+                        reachDestination(message.MessagePayload);
                     });
                     break;
                 default:

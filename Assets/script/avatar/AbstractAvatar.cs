@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public abstract class AbstractAvatar : AbstractMasElement
@@ -12,6 +13,13 @@ public abstract class AbstractAvatar : AbstractMasElement
     public List<GoalEnum> goals;
     protected TextMeshPro nameTextMeshPro;
     protected string jaCaMoAgentClassPath;
+    NavMeshAgent agent;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
 
     public GameObject[] FocusedArtifacts
     {
@@ -39,5 +47,16 @@ public abstract class AbstractAvatar : AbstractMasElement
     {
         get { return jaCaMoAgentClassPath; }
         set { jaCaMoAgentClassPath = value; }
+    }
+
+    public void stopWalking()
+    {
+        agent.isStopped = true;
+    }
+
+    protected void reachDestination(string dest)
+    {
+        agent.isStopped = false;
+        agent.SetDestination(GameObject.Find(dest).transform.position);
     }
 }
