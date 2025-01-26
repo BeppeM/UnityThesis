@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class GenericArtifactType : MonoBehaviour
 {    
-    public abstract ArtifactTypeEnum GetShopType();
+    public abstract ArtifactTypeEnum GetArtifactType();
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkyScraperType : GenericArtifactType
 {
-    public override ArtifactTypeEnum GetShopType()
+    public override ArtifactTypeEnum GetArtifactType()
     {
         return ArtifactTypeEnum.SkyScraper;
     }

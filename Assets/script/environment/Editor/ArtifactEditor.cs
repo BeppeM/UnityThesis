@@ -24,7 +24,7 @@ public class ArtifactEditor : Editor
     private void OnEnable()
     {
         artifactScript = (Artifact)target;
-        artifactType = artifactScript.gameObject.GetComponent<GenericArtifactType>().GetShopType();        
+        artifactType = artifactScript.gameObject.GetComponent<GenericArtifactType>().GetArtifactType();        
     }
 
     public override VisualElement CreateInspectorGUI()

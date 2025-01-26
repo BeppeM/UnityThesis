@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FruitShopType : GenericArtifactType
 {
-    public override ArtifactTypeEnum GetShopType()
+    public override ArtifactTypeEnum GetArtifactType()
     {
         return ArtifactTypeEnum.FruitShop;
     }

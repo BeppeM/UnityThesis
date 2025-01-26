@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryType : GenericArtifactType
 {
-    public override ArtifactTypeEnum GetShopType()
+    public override ArtifactTypeEnum GetArtifactType()
     {
         return ArtifactTypeEnum.Inventory;
     }

@@ -13,7 +13,7 @@ public class AbstractArtifact : AbstractMasElement
     protected virtual void Awake()
     {
         objInUse = gameObject;
-        artifactType = gameObject.GetComponent<GenericArtifactType>().GetShopType();
+        artifactType = gameObject.GetComponent<GenericArtifactType>().GetArtifactType();
         initializeWebSocketConnection(OnMessage);
     }
 
