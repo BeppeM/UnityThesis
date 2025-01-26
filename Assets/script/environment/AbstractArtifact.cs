@@ -9,6 +9,14 @@ public class AbstractArtifact : AbstractMasElement
     protected ArtifactTypeEnum artifactType;
     // List of all property names
     protected List<string> propertyNames = new List<string>();
+
+    protected virtual void Awake()
+    {
+        objInUse = gameObject;
+        artifactType = gameObject.GetComponent<GenericArtifactType>().GetShopType();
+        initializeWebSocketConnection(OnMessage);
+    }
+
     public string ArtifactProperties
     {
         get { return artifactProperties; }

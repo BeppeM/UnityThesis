@@ -33,7 +33,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         // Configure artifacts
         foreach (GameObject envArtifact in envArtifacts)
         {
-            Artifact script = envArtifact.GetComponent<Artifact>();
+            AbstractArtifact script = envArtifact.GetComponent<AbstractArtifact>();
             print("Analize " + envArtifact.name); 
             print(" of type: " + script.ArtifactType);
             string artifact = "\t\t" + $@"artifact {envArtifact.name.FirstCharacterToLower()}: artifact.{script.ArtifactType.ToString()}Artifact({"\"" + envArtifact.name + "\""}, {script.Port}";
@@ -154,7 +154,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
         // Start web socket connections
         foreach (GameObject envArtifact in environmentArtifacts)
         {
-            Artifact artifactScript = envArtifact.GetComponent<Artifact>();
+            AbstractArtifact artifactScript = envArtifact.GetComponent<AbstractArtifact>();
             if (artifactScript == null)
             {
                 throw new Exception("The artifact" + envArtifact.name + " has not script.");

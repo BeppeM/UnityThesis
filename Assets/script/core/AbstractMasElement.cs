@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using Newtonsoft.Json;
+using WebSocketSharp;
 
 public abstract class AbstractMasElement : MonoBehaviour
 {
@@ -60,4 +61,6 @@ public abstract class AbstractMasElement : MonoBehaviour
         // Escape double quotes and backslashes
         return json.Replace("\\", "\\\\").Replace("\"", "\\\"");
     }
+
+    protected virtual void OnMessage(object sender, MessageEventArgs e) { }
 }

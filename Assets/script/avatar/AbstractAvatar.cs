@@ -85,7 +85,7 @@ public abstract class AbstractAvatar : AbstractMasElement
     }
 
     // Unity avatar receives message from jacamo agent
-    protected virtual void OnMessage(object sender, MessageEventArgs e)
+    protected override void OnMessage(object sender, MessageEventArgs e)
     {
         string data = e.Data;
         print("Received message: " + data);

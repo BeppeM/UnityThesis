@@ -17,8 +17,9 @@ public class Artifact : AbstractArtifact
     public List<ClothesInfo> dressShopProperties;
     public bool doorProperties;
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         propertyNames.Clear();
         // Retrieve all fields
         FieldInfo[] fields = GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
@@ -28,9 +29,7 @@ public class Artifact : AbstractArtifact
             {
                 propertyNames.Add(field.Name);
             }
-        }
-        objInUse = gameObject;
-        artifactType = gameObject.GetComponent<GenericArtifactType>().GetShopType();
+        }        
 
         if (Application.IsPlaying(gameObject))
         {
@@ -48,7 +47,6 @@ public class Artifact : AbstractArtifact
                 Debug.Log("Artifact property: " + artifactProperties.ToString());
 
             }
-            initializeWebSocketConnection(OnMessage);
         }
         else
         {
@@ -59,8 +57,5 @@ public class Artifact : AbstractArtifact
             }
         }
     }
-
-    protected virtual void OnMessage(object sender, MessageEventArgs e) { }
-
 
 }

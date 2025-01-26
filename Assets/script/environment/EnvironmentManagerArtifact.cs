@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEditor.Experimental;
 
-public class EnvManager : Artifact
+public class EnvManager : AbstractArtifact
 {
 
     protected override void OnMessage(object sender, MessageEventArgs e)
@@ -36,7 +36,7 @@ public class EnvManager : Artifact
                     retrieveAllArtifacts(message.AgentName);
                     break;
                 case "nearest":
-                    retrieveNearestShopsOfType(message.Param.ToString(), message.AgentName);
+                    retrieveNearestArtifactOfType(message.Param.ToString(), message.AgentName);
                     break;
 
             }
@@ -78,7 +78,7 @@ public class EnvManager : Artifact
             GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
             // Retrieve all artifacts name that have the type specified
             string[] filteredArtifactNames = artifacts
-                .Where(artifact => artifact.GetComponent<Artifact>().ArtifactType.ToString() == resourceType)
+                .Where(artifact => artifact.GetComponent<AbstractArtifact>().ArtifactType.ToString() == resourceType)
                 .Select(artifact => artifact.name) // Select the name of each GameObject
                 .ToArray();
             tcs.SetResult(filteredArtifactNames);
@@ -88,7 +88,7 @@ public class EnvManager : Artifact
             null, "artifact_names", agentName, artifactNames));
     }
 
-    private async void retrieveNearestShopsOfType(string resourceType, string agentName)
+    private async void retrieveNearestArtifactOfType(string resourceType, string agentName)
     {
         TaskCompletionSource<string[]> tcs = new TaskCompletionSource<string[]>();
         UnityMainThreadDispatcher.Instance()
@@ -103,7 +103,7 @@ public class EnvManager : Artifact
             // Find all objects with the 'Shop' tag
             GameObject[] artifacts = GameObject.FindGameObjectsWithTag("Artifact");
             GameObject[] filteredArtifacts = artifacts.Where(artifact => artifact
-            .GetComponent<Artifact>().ArtifactType.ToString() == resourceType).ToArray();
+            .GetComponent<AbstractArtifact>().ArtifactType.ToString() == resourceType).ToArray();
 
             if (filteredArtifacts.Length == 0)
             {
