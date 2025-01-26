@@ -11,61 +11,11 @@ public class ShopperAvatarScript : AbstractAvatar
 {
     public ShopperBeliefs shopperBeliefs;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         agentFile = "shopper.asl";
         JaCaMoAgentClassPath = "artifact.lib.maselements.AgentMasElement";
-        if (Application.IsPlaying(gameObject))
-        {
-            initializeWebSocketConnection(OnMessage);
-        }
-        // Find the TextMeshPro component in the children of the avatar
-        nameTextMeshPro = GetComponentInChildren<TextMeshPro>();
-
-        // Check if we found the TextMeshPro component
-        if (nameTextMeshPro != null)
-        {
-            // Set the text of the TextMeshPro to the avatar's name
-            nameTextMeshPro.text = name;
-        }
-        else
-        {
-            Debug.LogWarning("TextMeshPro component not found in the avatar's children.");
-        }
-    }
-
-    // Unity avatar receives message from jacamo agent
-    private void OnMessage(object sender, MessageEventArgs e)
-    {
-        string data = e.Data;
-        print("Received message: " + data);
-        WsMessage message = null;
-        try
-        {
-            message = JsonConvert.DeserializeObject<WsMessage>(data);
-            switch (message.MessageType)
-            {
-                case "wsInitialization":
-                    print("Connection established for " + objInUse.name);
-                    break;                
-                case "reachDestination":
-                    print("Agent needs to reach destination.");
-                    // Avatar receives the type of artifact to reach
-                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
-                    {
-                        reachDestination(message.MessagePayload);
-                    });
-                    break;
-                default:
-                    print("Unknown message type for " + objInUse.name);
-                    break;
-            }
-        }
-        catch (Exception)
-        {
-            print("Message could not be converted.");
-            return;
-        }
     }
 
     // When Player enters into supermarket
