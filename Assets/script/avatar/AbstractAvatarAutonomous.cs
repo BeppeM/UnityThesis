@@ -1,23 +1,20 @@
 using Newtonsoft.Json;
 using System;
-using WebSocketSharp;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
+using WebSocketSharp;
 
-public class AvatarAI : AbstractAvatar
+public class AbstractAvatarAutonomous : AbstractAvatarWithEyes
 {
-    NavMeshAgent agent;
-    private GameObject avatarBody;
-    private GameObject avatarEyes;
-    private TextMeshProUGUI baloonText;
-    private AutonomousWalking autonomousWalking;
+    protected AutonomousWalking autonomousWalking;
     public GameObject[] waypoints;
 
-    private void Awake()
+
+    protected virtual void Awake()
     {
-        agentFile = "shopper.asl";
         // Retrieve avatar parts
         avatarBody = transform.Find("Body").gameObject;
         avatarEyes = transform.Find("anchorVisionCone").gameObject;
@@ -31,7 +28,7 @@ public class AvatarAI : AbstractAvatar
             initializeWebSocketConnection(OnMessage);
         }
         // Find the TextMeshPro component in the children of the avatar
-        nameTextMeshPro  = transform.Find("avatarName").GetComponent<TextMeshPro>();
+        nameTextMeshPro = transform.Find("avatarName").GetComponent<TextMeshPro>();
         nameTextMeshPro.text = name;
 
         // Initiating the baloon
@@ -39,8 +36,40 @@ public class AvatarAI : AbstractAvatar
         baloonText.text = "start";
     }
 
+    protected void resetStoppingDistance()
+    {
+        agent.stoppingDistance = 1.0f;
+    }
+
+    protected IEnumerator CheckIfReachedFriend(string friend)
+    {
+        while (true)
+        {
+            // Check if the agent has reached the destination
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    Debug.Log("Agent has reached his friend.");
+                    transform.LookAt(GameObject.Find(friend).transform);
+                    SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil
+                        .createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
+                "reached_friend", null, friend));
+                    yield break; // Exit the coroutine
+                }
+            }
+            yield return new WaitForSeconds(0.1f); // Check every 0.1 seconds
+        }
+    }
+
+    protected IEnumerator ActivateVisionCone()
+    {
+        yield return new WaitForSeconds(3.0f);
+        EnableDisableVisionCone(true);
+    }
+
     // Unity avatar receives message from jacamo agent
-    private void OnMessage(object sender, MessageEventArgs e)
+    protected void OnMessage(object sender, MessageEventArgs e)
     {
         string data = e.Data;
         print("Received message: " + data);
@@ -57,7 +86,7 @@ public class AvatarAI : AbstractAvatar
                         resetStoppingDistance();
                         autonomousWalking.IsStopped = false;
                         agent.ResetPath();
-                        SetBaloonText("Walking");                                               
+                        SetBaloonText("Walking");
                         autonomousWalking.StartWalking();
                         StartCoroutine(ActivateVisionCone());
                     });
@@ -77,16 +106,16 @@ public class AvatarAI : AbstractAvatar
                         autonomousWalking.IsStopped = true;
                         agent.ResetPath();
                         EnableDisableVisionCone(false);
-                        reachDestination(message.MessagePayload);                                                                                                                      
+                        reachDestination(message.MessagePayload);
                     });
                     break;
                 case "stopAgent":
-                    print("Stopping the agent.");                    
+                    print("Stopping the agent.");
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
                         SetBaloonText("I'm stopped");
                         autonomousWalking.IsStopped = true;
-                        agent.isStopped = true;                        ;
+                        agent.isStopped = true; ;
                         transform.LookAt(GameObject.Find(message.MessagePayload).transform);
                         EnableDisableVisionCone(false);
                     });
@@ -99,8 +128,8 @@ public class AvatarAI : AbstractAvatar
                         // Delete previous path and reach friend
                         agent.ResetPath();
                         agent.stoppingDistance = 8.0f;
-                        EnableDisableVisionCone(false);                        
-                        reachDestination(message.MessagePayload);                        
+                        EnableDisableVisionCone(false);
+                        reachDestination(message.MessagePayload);
                         StartCoroutine(CheckIfReachedFriend(message.MessagePayload));
                     });
                     break;
@@ -123,62 +152,5 @@ public class AvatarAI : AbstractAvatar
             return;
         }
     }
-
-    private void reachDestination(string dest)
-    {
-        agent.isStopped = false;
-        agent.SetDestination(GameObject.Find(dest).transform.position);
-    }
-
-    private void resetStoppingDistance()
-    {
-        agent.stoppingDistance = 1.0f;
-    }
-
-    public void SendMessageToJaCaMoBrain(string message)
-    {
-        wsChannel.sendMessage(message);
-    }
-
-    public void SetBaloonText(string message)
-    {
-        baloonText.text = message;
-    }
-
-    public void EnableDisableVisionCone(bool isActive)
-    {
-        avatarEyes.SetActive(isActive);
-    }
-
-
-    IEnumerator CheckIfReachedFriend(string friend)
-    {
-        while (true)
-        {
-            // Check if the agent has reached the destination
-            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
-            {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                {
-                    Debug.Log("Agent has reached his friend.");                    
-                    transform.LookAt(GameObject.Find(friend).transform);
-                    SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil
-                        .createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
-                "reached_friend", null, friend));
-                    yield break; // Exit the coroutine
-                }
-            }
-            yield return new WaitForSeconds(0.1f); // Check every 0.1 seconds
-        }
-    }
-
-    IEnumerator ActivateVisionCone()
-    {
-        yield return new WaitForSeconds(3.0f);
-        EnableDisableVisionCone(true);
-    }
-
-
-
 
 }
