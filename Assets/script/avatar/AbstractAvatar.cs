@@ -20,7 +20,7 @@ public abstract class AbstractAvatar : AbstractMasElement
         set { focusedArtifacts = value; }
     }
 
-    public AgentBeliefs AgentBeliefs
+    public virtual AgentBeliefs AgentBeliefs
     {
         get { return agentBeliefs; }
     }
@@ -47,5 +47,6 @@ public abstract class AbstractAvatar : AbstractMasElement
         agent.isStopped = false;
         agent.SetDestination(GameObject.Find(dest).transform.position);
     }
+
 
 }

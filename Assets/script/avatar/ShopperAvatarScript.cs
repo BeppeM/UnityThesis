@@ -7,7 +7,8 @@ using UnityEngine.AI;
 using System.Collections;
 
 public class ShopperAvatarScript : AbstractAutonomousAvatarScript
-{    
+{
+    public ShopperBeliefs shopperBeliefs;
 
     private void Awake()
     {
@@ -33,5 +34,11 @@ public class ShopperAvatarScript : AbstractAutonomousAvatarScript
         baloonText = gameObject.transform.Find("Canvas/BaloonBg/BaloonTxt").GetComponent<TextMeshProUGUI>();
         baloonText.text = "start";
     }
+
+    public override AgentBeliefs AgentBeliefs
+    {
+        get { return shopperBeliefs; }
+    }
+
 
 }
