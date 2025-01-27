@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class ShopperAvatarScript : AbstractAvatarAutonomous
+public class ShopperAvatarScript : AbstractAvatarSocial
 {
     public ShopperBeliefs shopperBeliefs;
     protected override void Awake()

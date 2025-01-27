@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using WebSocketSharp;
 
-public class AbstractAvatarAutonomous : AbstractAvatarWithEyes
+public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
 {
     protected AutonomousWalking autonomousWalking;
     public GameObject[] waypoints;
