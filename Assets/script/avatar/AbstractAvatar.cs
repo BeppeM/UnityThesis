@@ -1,7 +1,10 @@
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using WebSocketSharp;
 
 
 public abstract class AbstractAvatar : AbstractMasElement
@@ -14,6 +17,25 @@ public abstract class AbstractAvatar : AbstractMasElement
     protected TextMeshPro nameTextMeshPro;
     protected string jaCaMoAgentClassPath;
     protected NavMeshAgent agent;
+
+    protected virtual void Awake()
+    {
+        initializeWebSocketConnection(OnMessage);
+        // Find the TextMeshPro component in the children of the avatar
+        nameTextMeshPro = GetComponentInChildren<TextMeshPro>();
+        agent = GetComponent<NavMeshAgent>();
+
+        // Check if we found the TextMeshPro component
+        if (nameTextMeshPro != null)
+        {
+            // Set the text of the TextMeshPro to the avatar's name
+            nameTextMeshPro.text = name;
+        }
+        else
+        {
+            Debug.LogWarning("TextMeshPro component not found in the avatar's children.");
+        }
+    }
 
     public GameObject[] FocusedArtifacts
     {
@@ -47,5 +69,40 @@ public abstract class AbstractAvatar : AbstractMasElement
     {
         agent.isStopped = false;
         agent.SetDestination(GameObject.Find(dest).transform.position);
+    }
+
+    // Unity avatar receives message from jacamo agent
+    protected virtual void OnMessage(object sender, MessageEventArgs e)
+    {
+        string data = e.Data;
+        print("Received message: " + data);
+        WsMessage message = null;
+        try
+        {
+            message = JsonConvert.DeserializeObject<WsMessage>(data);
+            switch (message.MessageType)
+            {
+                case "wsInitialization":
+                    print("Connection established for " + objInUse.name);
+                    break;
+                case "reachDestination":
+                    print("Agent needs to reach destination.");
+                    // Avatar receives the type of artifact to reach
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        reachDestination(message.MessagePayload);
+                    });
+                    break;
+                default:
+                    print("Unknown message type for " + objInUse.name);
+                    break;
+            }
+        }
+        catch (Exception)
+        {
+            print(data);
+            print("Message could not be converted.");
+            return;
+        }
     }
 }

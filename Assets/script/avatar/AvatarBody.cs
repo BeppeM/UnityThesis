@@ -7,14 +7,14 @@ using UnityEngine.AI;
 public class AvatarBody : MonoBehaviour
 {
     GameObject root;
-    AbstractAvatarWithEyes mainAvatarScript;
+    AbstractAvatarWithEyesAndVoice mainAvatarScript;
     string artifactReached = "";
 
     // Start is called before the first frame update
     void Awake()
     {
         root = transform.parent.gameObject;
-        mainAvatarScript = root.GetComponent<AbstractAvatarWithEyes>();
+        mainAvatarScript = root.GetComponent<AbstractAvatarWithEyesAndVoice>();
     }
 
     private void OnTriggerEnter(Collider other)
