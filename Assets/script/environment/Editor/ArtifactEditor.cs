@@ -12,7 +12,7 @@ public class ArtifactEditor : Editor
 
     public VisualTreeAsset visualTree;
     // Script that has dynamic inspector
-    private Artifact artifactScript;
+    private AbstractArtifact artifactScript;
     // Artifact type
     private ArtifactTypeEnum artifactType;
     private VisualElement root;
@@ -23,7 +23,7 @@ public class ArtifactEditor : Editor
 
     private void OnEnable()
     {
-        artifactScript = (Artifact)target;
+        artifactScript = (AbstractArtifact)target;
         artifactType = artifactScript.gameObject.GetComponent<GenericArtifactType>().GetArtifactType();        
     }
 
