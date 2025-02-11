@@ -11,8 +11,7 @@ using Unity.VisualScripting;
 
 class UnityJacamoIntegrationUtil : MonoBehaviour
 {
-
-    private static string jcmFilePath = "C:/Users/g.mirra/Desktop/supermarket/supermarket.jcm";
+    
     private static string[] fileLines = {
         "mas supermarket {",
         "\tworkspace w {\n",
@@ -20,7 +19,7 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     };
 
     //Utility used to configure .jcm file by adding agents 
-    public static void ConfigureJcmFile(GameObject[] avatars, GameObject[] envArtifacts)
+    public static void ConfigureJcmFile(GameObject[] avatars, GameObject[] envArtifacts, string jcmFilePath)
     {
         if (File.Exists(jcmFilePath))
         {

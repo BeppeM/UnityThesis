@@ -6,7 +6,7 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 
-[CustomEditor(typeof(Artifact), true)]
+[CustomEditor(typeof(AbstractArtifact), true)]
 public class ArtifactEditor : Editor
 {
 
