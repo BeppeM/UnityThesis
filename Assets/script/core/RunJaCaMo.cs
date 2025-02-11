@@ -4,6 +4,7 @@ public class RunJacamo : MonoBehaviour
 {
     private GameObject[] avatars;
     private  GameObject[] environmentArtifacts;
+    public string jacamoFolderPath;
 
     async void Start()
     {
@@ -15,7 +16,7 @@ public class RunJacamo : MonoBehaviour
         print(".jcm file configuration done successfully.");
 
         // Run jacamo application in async
-        await UnityJacamoIntegrationUtil.RunJaCaMoApp();
+        await UnityJacamoIntegrationUtil.RunJaCaMoApp(jacamoFolderPath);
 
         print("JaCaMo application started successfully.");
 

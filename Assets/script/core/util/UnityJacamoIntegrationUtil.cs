@@ -84,10 +84,9 @@ class UnityJacamoIntegrationUtil : MonoBehaviour
     }
 
     // Open JaCaMo application
-    public static async Task RunJaCaMoApp()
+    public static async Task RunJaCaMoApp(string jacamoFolderPath)
     {
-        Process jacamoProcess;
-        string jacamoFolderPath = @"C:/Users/g.mirra/Desktop/supermarket";
+        Process jacamoProcess;         
         string gradleCommand = "gradlew -q --console=plain";
 
         await Task.Run(() =>
