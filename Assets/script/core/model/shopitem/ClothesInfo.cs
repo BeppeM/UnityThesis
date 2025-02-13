@@ -4,11 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ClothesInfo
+public class ClothesInfo : BasicItemInfo
 {
     // annotation used to send the enum name and not the integer index
     [JsonConverter(typeof(StringEnumConverter))]
-    public ClothesEnum itemName;
-    public double price;
-    public int quantity;
+    public ClothesEnum itemName;    
 }

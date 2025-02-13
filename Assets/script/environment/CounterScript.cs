@@ -1,7 +1,7 @@
 using UnityEngine;
 using WebSocketSharp;
 
-public class CounterScript : Artifact
+public class CounterScript : AbstractArtifact
 {
     private int counter = 0;
 

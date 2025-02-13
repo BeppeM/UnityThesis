@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class FruitInfo
+public class FruitInfo : BasicItemInfo
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public FruitEnum itemName;
-    public double price;
-    public int quantity;
 }
