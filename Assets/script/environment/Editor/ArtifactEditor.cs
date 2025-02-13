@@ -18,7 +18,6 @@ public class ArtifactEditor : Editor
     private VisualElement root;
 
     // All artifact properties
-    private PropertyField property;
     private List<string> propertyNames;
 
     private void OnEnable()
@@ -43,8 +42,8 @@ public class ArtifactEditor : Editor
 
     private void ShowAndHide(string propertyName)
     {
-        propertyNames = artifactScript.PropertyNames;        
-        property = root.Q<PropertyField>(propertyName);
+        propertyNames = artifactScript.PropertyNames;
+        PropertyField property = root.Q<PropertyField>(propertyName);
         if (property != null)
         {
             Debug.Log("Showing " + propertyName);

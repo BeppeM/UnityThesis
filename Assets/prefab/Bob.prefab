@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 9069976475977514507}
   - component: {fileID: 4218935796926586641}
   - component: {fileID: 2637877676156523771}
-  - component: {fileID: 7472424640409763054}
   - component: {fileID: 6224602863154459816}
   m_Layer: 3
   m_Name: Bob
@@ -297,11 +296,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objInUse: {fileID: 8341316766975537883}
   port: 8887
-  initialShopperAgentBeliefs:
-    itemsToBuy: []
-    budget: 0
   focusedArtifacts: []
   goals: 000000000100000000000000
+  shopperBeliefs:
+    itemsToBuy: []
+    budget: 0
 --- !u!195 &2637877676156523771
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -324,19 +323,6 @@ NavMeshAgent:
   m_BaseOffset: 0.99999994
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7472424640409763054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341316766975537883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad831ae22ed79d49b6f218869abdf44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkRadius: 10
 --- !u!54 &6224602863154459816
 Rigidbody:
   m_ObjectHideFlags: 0
