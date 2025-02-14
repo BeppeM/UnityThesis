@@ -2659,7 +2659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].item
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].item
@@ -2695,7 +2695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].quantity
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].quantity
@@ -2891,7 +2891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].item
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].item
@@ -2927,7 +2927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].quantity
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].quantity
@@ -3043,7 +3043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.78
+      value: 15.33
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3820,7 +3820,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1091315261727615447, guid: d1a6e2ab1ce4d6f4aa071c369f4d22d6, type: 3}
   m_PrefabInstance: {fileID: 3320668107280950943}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1219294202
+--- !u!1 &1309251746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1309251747}
+  m_Layer: 0
+  m_Name: Operators
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1309251747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309251746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.139501, y: 2.7884016, z: 2.4527915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1186047238}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1333099690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 734403216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1333099698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+  m_PrefabInstance: {fileID: 734403216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!21 &1375973315
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -3915,48 +3957,6 @@ Material:
     - _EmissionColorUI: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorWithMapUI: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
---- !u!1 &1309251746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1309251747}
-  m_Layer: 0
-  m_Name: Operators
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1309251747
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309251746}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.139501, y: 2.7884016, z: 2.4527915}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1186047238}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1333099690 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8341316766975537883, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
-  m_PrefabInstance: {fileID: 734403216}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1333099698 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2463764624783500920, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
-  m_PrefabInstance: {fileID: 734403216}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1402611620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4071,7 +4071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].item
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].item
@@ -4107,7 +4107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].quantity
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].quantity
@@ -5008,7 +5008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].item
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].item
@@ -5044,7 +5044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].quantity
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].quantity
@@ -5822,6 +5822,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
+      propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].item
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].item
       value: 1
       objectReference: {fileID: 0}
@@ -5835,7 +5839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[0].quantity
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218935796926586641, guid: ea22837358a68fc4aa239f11ffd0e1d0, type: 3}
       propertyPath: shopperBeliefs.itemsToBuy.Array.data[1].quantity
@@ -6037,6 +6041,10 @@ PrefabInstance:
       propertyPath: focusedArtifacts.Array.data[4]
       value: 
       objectReference: {fileID: 935194990}
+    - target: {fileID: 8373248779271650342, guid: d1a6e2ab1ce4d6f4aa071c369f4d22d6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3d30debf4a34f64ca86c0ceee1e64d5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6141,6 +6149,14 @@ PrefabInstance:
     - target: {fileID: 2532988388570734031, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: dressShopProperties.Array.data[0].quantity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532988388570734031, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
+      propertyPath: dressShopProperties.Array.data[1].itemName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532988388570734031, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
+      propertyPath: dressShopProperties.Array.data[1].quantity
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3293917305237557998, guid: 186f094c788bbd84fa283979c3d67b77, type: 3}
       propertyPath: m_LocalPosition.x
