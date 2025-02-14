@@ -15,11 +15,11 @@ TagManager:
   - UI
   - DetectableByShopper
   - Operator
-  - agent
-  - artifact
+  - pippo
+  - shops
   - floor
-  - 
-  - 
+  - artifact
+  - agent
   - 
   - 
   - 

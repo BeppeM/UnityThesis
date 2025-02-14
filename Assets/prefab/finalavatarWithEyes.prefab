@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6782409416081869282}
   - component: {fileID: 1716518085720301965}
   - component: {fileID: 2085553386495400356}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: finalavatarWithEyes
   m_TagString: JacamoAgent
   m_Icon: {fileID: 0}
@@ -87,12 +87,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objInUse: {fileID: 2803511079346570231}
   port: 3344
-  initialShopperAgentBeliefs:
-    itemsToBuy: []
-    budget: 100
   focusedArtifacts:
   - {fileID: 0}
   goals: 000000000100000000000000
+  shopperBeliefs:
+    itemsToBuy: []
+    budget: 0
+    friends: []
 --- !u!1 &2961693103679139481
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +105,7 @@ GameObject:
   - component: {fileID: 6748385173456011789}
   - component: {fileID: 8528090075641943241}
   - component: {fileID: 1606225200470332961}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BaloonTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8926830197452475731}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: anchorVisionCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +270,7 @@ GameObject:
   - component: {fileID: 5127315046493479893}
   - component: {fileID: 9038324354414138371}
   - component: {fileID: 417976596175975640}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: avatarName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +444,7 @@ GameObject:
   - component: {fileID: 3917585294321058404}
   - component: {fileID: 2737444146022675919}
   - component: {fileID: 4199566923938439379}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +590,7 @@ GameObject:
   - component: {fileID: 4199804007753632049}
   - component: {fileID: 1390229372064196580}
   - component: {fileID: 8763977524371954268}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +693,7 @@ GameObject:
   - component: {fileID: 8942258947148015856}
   - component: {fileID: 4129274513926873559}
   - component: {fileID: 5974321669707352649}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BaloonBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

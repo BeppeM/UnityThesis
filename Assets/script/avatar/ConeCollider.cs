@@ -31,7 +31,7 @@ public class ConeCollider : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         GameObject obj = other.gameObject;
-        if (obj.layer == LayerMask.NameToLayer("artifact"))
+0        if (obj.layer == LayerMask.NameToLayer("artifact"))
         {
             Debug.Log("Agent " + root.name + " has seen the artifact " + other.name);            
             mainAvatarScript.SetBaloonText("Artifact seen: " + other.name.FirstCharacterToLower());
