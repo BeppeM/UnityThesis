@@ -7,24 +7,17 @@ using UnityEngine.AI;
 
 public class ConeCollider : MonoBehaviour
 {
-   
-    private NavMeshAgent agent;
-    bool reachedArtifact = false;
+       
     GameObject root;
-    ShopperAvatarScript mainAvatarScript;
+    AbstractAvatarWithEyesAndVoice mainAvatarScript;
 
-    public bool ReachedArtifact
-    {
-        get { return reachedArtifact; }
-        set { reachedArtifact = value; }
-    }
 
     private void Awake()
     {
         // Retrieve the root gameobject that represent the avatar
         root = transform.parent.transform.parent.gameObject;
         // Retrieve the avatar baloon
-        mainAvatarScript = root.GetComponent<ShopperAvatarScript>();
+        mainAvatarScript = root.GetComponent<AbstractAvatarWithEyesAndVoice>();
 
     }
 
@@ -35,14 +28,14 @@ public class ConeCollider : MonoBehaviour
         {
             Debug.Log("Agent " + root.name + " has seen the artifact " + other.name);            
             mainAvatarScript.SetBaloonText("Artifact seen: " + other.name.FirstCharacterToLower());
-            root.GetComponent<ShopperAvatarScript>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
+            mainAvatarScript.SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
                 "artifactSeen", null, other.name.FirstCharacterToLower()));
         }
         else if (obj.layer == LayerMask.NameToLayer("agent"))
         {            
             Debug.Log("Agent " + root.name + " has met another avatar: " + obj.transform.parent.name);
             mainAvatarScript.SetBaloonText("Agent seen: " + obj.transform.parent.name);
-            root.GetComponent<ShopperAvatarScript>().SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
+            mainAvatarScript.SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("eyes", null,
                 "agentSeen", null, obj.transform.parent.name));
         }
     }

@@ -6,8 +6,8 @@ using UnityEngine;
 public class SwitchCameraScript : MonoBehaviour
 {
     public GameObject MainCamera;
-    public GameObject SupermarketView;
-    public GameObject BarView;    
+    public GameObject Camera1;
+    public GameObject Camera2;    
 
 
     void Update()
@@ -19,34 +19,34 @@ public class SwitchCameraScript : MonoBehaviour
 
         if (Input.GetKeyDown("1"))
         {
-            CameraOne();
+            ActiveCameraOne();
         }
 
         if (Input.GetKeyDown("2"))
         {
-            CameraTwo();
+            ActiveCameraTwo();
         }
     }
 
     private void ActiveMainCamera()
     {
         MainCamera.SetActive(true);
-        SupermarketView.SetActive(false);
-        BarView.SetActive(false);
+        Camera1.SetActive(false);
+        Camera2.SetActive(false);
     }
 
-    void CameraOne()
+    void ActiveCameraOne()
     {
         MainCamera.SetActive(false);
-        SupermarketView.SetActive(true);
-        BarView.SetActive(false);        
+        Camera1.SetActive(true);
+        Camera2.SetActive(false);        
     }
 
-    void CameraTwo()
+    void ActiveCameraTwo()
     {
         MainCamera.SetActive(false);
-        BarView.SetActive(true);
-        SupermarketView.SetActive(false);
+        Camera2.SetActive(true);
+        Camera1.SetActive(false);
     }
 
 }

@@ -2,22 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class AvatarBody : MonoBehaviour
+public class ShopperBody : AbstractAvatarBody
 {
-    GameObject root;
-    AbstractAvatarWithEyesAndVoice mainAvatarScript;
-    string artifactReached = "";
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        root = transform.parent.gameObject;
-        mainAvatarScript = root.GetComponent<AbstractAvatarWithEyesAndVoice>();
-    }
-
-    private void OnTriggerEnter(Collider other)
+    protected string artifactReached = "";
+    protected override void OnTriggerEnter(Collider other)
     {
         Debug.Log("Agent " + root.name + " reached " + other.name);
         print("Agent " + root.name + " reached destination " + other.name.FirstCharacterToLower());
@@ -33,7 +22,7 @@ public class AvatarBody : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected override void OnTriggerExit(Collider other)
     {
         if (!artifactReached.Equals("") && other.name.FirstCharacterToLower().Equals(artifactReached))
         {
@@ -41,4 +30,5 @@ public class AvatarBody : MonoBehaviour
             artifactReached = "";
         }
     }
+
 }
