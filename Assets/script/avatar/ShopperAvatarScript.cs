@@ -19,18 +19,9 @@ public class ShopperAvatarScript : AbstractAvatar
     }
 
     // When Player enters into supermarket
-    void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
-        // reached_destination(destName)
-        if (!other.gameObject.name.Contains("counter") && other.gameObject.tag == "Artifact")
-        {                     
-            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null, 
-                "reached_destination", null, other.name.FirstCharacterToLower()));          
-        }
-        if (other.gameObject.name.Contains("exitDoor"))
-        {
-            Destroy(this);
-        }
+        base.OnTriggerEnter(other);
     }
 
     public override AgentBeliefs AgentBeliefs

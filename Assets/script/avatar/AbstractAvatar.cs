@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using WebSocketSharp;
@@ -17,9 +18,11 @@ public abstract class AbstractAvatar : AbstractMasElement
     protected TextMeshPro nameTextMeshPro;
     protected string jaCaMoAgentClassPath;
     NavMeshAgent agent;
+    protected string artifacToReach;
 
     protected virtual void Awake()
     {
+        artifacToReach = "";
         if (Application.IsPlaying(gameObject))
         {
             initializeWebSocketConnection(OnMessage);
@@ -100,10 +103,12 @@ public abstract class AbstractAvatar : AbstractMasElement
                     break;
                 case "reachDestination":
                     print("Agent needs to reach destination.");
+                    artifacToReach = message.MessagePayload;
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
                         reachDestination(message.MessagePayload);
+
                     });
                     break;
                 default:
@@ -115,6 +120,18 @@ public abstract class AbstractAvatar : AbstractMasElement
         {
             print("Message could not be converted.");
             return;
+        }
+    }
+
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        // reached_destination(destName)
+        if (other.gameObject.tag == "Artifact" && artifacToReach == other.name)
+        {
+            print("Agent " +  objInUse.name + " reached the destination " + other.name);
+            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
+                "reached_destination", null, other.name.FirstCharacterToLower()));
+            artifacToReach = "";
         }
     }
 }
