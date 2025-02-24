@@ -5,30 +5,5 @@ using UnityEngine;
 
 public class ShopperBody : AbstractAvatarBody
 {
-    protected string artifactReached = "";
-    protected override void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Agent " + root.name + " reached " + other.name);
-        print("Agent " + root.name + " reached destination " + other.name.FirstCharacterToLower());
-        // reached_destination(destName)
-        if (!other.gameObject.name.Contains("counter") && (other.gameObject.tag == "Artifact"))
-        {
-            print("Agent " + root.name + " reached destination " + other.name.FirstCharacterToLower());
-            mainAvatarScript.SetBaloonText("Reached destination: " + other.name.FirstCharacterToLower());
-            mainAvatarScript.SendMessageToJaCaMoBrain(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
-                "reached_destination", null, other.name.FirstCharacterToLower()));
-            artifactReached = other.name.FirstCharacterToLower();
-            mainAvatarScript.EnableDisableVisionCone(false);
-        }
-    }
-
-    protected override void OnTriggerExit(Collider other)
-    {
-        if (!artifactReached.Equals("") && other.name.FirstCharacterToLower().Equals(artifactReached))
-        {
-            mainAvatarScript.EnableDisableVisionCone(true);
-            artifactReached = "";
-        }
-    }
 
 }

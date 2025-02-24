@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 using TMPro;
 using UnityEngine.AI;
 
-public class OperatorAvatarScript : AbstractAvatar
+public class OperatorAvatarScript : AbstractBasicAvatar
 {
     public OperatorBeliefs operatorBeliefs;
 
@@ -17,17 +17,6 @@ public class OperatorAvatarScript : AbstractAvatar
         base.Awake();
         agentFile = "operator.asl";
         JaCaMoAgentClassPath = "artifact.lib.maselements.AgentMasElement";
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        // reached_destination(destName)
-        if (other.gameObject.tag == "Artifact")
-        {
-            print("Agent " + objInUse.name + " reached destination " + other.name.FirstCharacterToLower());
-            wsChannel.sendMessage(UnityJacamoIntegrationUtil.createAndConvertJacamoMessageIntoJsonString("destinationReached", null,
-                "reached_destination", null, other.name.FirstCharacterToLower()));
-        }
     }
 
     public override AgentBeliefs AgentBeliefs

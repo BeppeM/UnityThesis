@@ -17,6 +17,7 @@ public abstract class AbstractAvatar : AbstractMasElement
     protected TextMeshPro nameTextMeshPro;
     protected string jaCaMoAgentClassPath;
     protected NavMeshAgent agent;
+    protected string artifacToReach;
 
     protected virtual void Awake()
     {
@@ -87,6 +88,7 @@ public abstract class AbstractAvatar : AbstractMasElement
                     break;
                 case "reachDestination":
                     print("Agent needs to reach destination.");
+                    artifacToReach = message.MessagePayload;
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {

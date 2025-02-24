@@ -21,6 +21,12 @@ public abstract class AbstractAvatarWithEyesAndVoice : AbstractAvatar
         }        
     }
 
+    public string ArtifactToReach
+    {
+        get { return artifacToReach; }
+        set { artifacToReach = value; }
+    }
+
     protected void initializeAvatarWithEyes()
     {
         // Retrieve avatar parts
@@ -74,6 +80,7 @@ public abstract class AbstractAvatarWithEyesAndVoice : AbstractAvatar
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
                         SetBaloonText("New destination: " + message.MessagePayload);
+                        artifacToReach = message.MessagePayload;
                         reachDestination(message.MessagePayload);
                     });
                     break;
