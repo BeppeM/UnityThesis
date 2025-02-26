@@ -60,6 +60,13 @@ public abstract class AbstractAvatar : AbstractMasElement
 
     }
 
+    public string ArtifactToReach
+    {
+        get { return artifacToReach; }
+        set { artifacToReach = value; }
+    }
+
+
     public string JaCaMoAgentClassPath
     {
         get { return jaCaMoAgentClassPath; }
@@ -71,6 +78,11 @@ public abstract class AbstractAvatar : AbstractMasElement
         agent.isStopped = false;
         agent.SetDestination(GameObject.Find(dest).transform.position);
     }
+    public void SendMessageToJaCaMoBrain(string message)
+    {
+        wsChannel.sendMessage(message);
+    }
+
 
     // Unity avatar receives message from jacamo agent
     protected virtual void OnMessage(object sender, MessageEventArgs e)

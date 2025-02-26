@@ -20,13 +20,6 @@ public abstract class AbstractAvatarWithEyesAndVoice : AbstractAvatar
             initializeAvatarWithEyes();
         }        
     }
-
-    public string ArtifactToReach
-    {
-        get { return artifacToReach; }
-        set { artifacToReach = value; }
-    }
-
     protected void initializeAvatarWithEyes()
     {
         // Retrieve avatar parts
@@ -50,11 +43,6 @@ public abstract class AbstractAvatarWithEyesAndVoice : AbstractAvatar
     public void EnableDisableVisionCone(bool isActive)
     {
         avatarEyes.SetActive(isActive);
-    }
-
-    public void SendMessageToJaCaMoBrain(string message)
-    {
-        wsChannel.sendMessage(message);
     }
 
     // Unity avatar receives message from jacamo agent

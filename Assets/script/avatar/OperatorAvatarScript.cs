@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 using TMPro;
 using UnityEngine.AI;
 
-public class OperatorAvatarScript : AbstractBasicAvatar
+public class OperatorAvatarScript : AbstractAvatar
 {
     public OperatorBeliefs operatorBeliefs;
 
