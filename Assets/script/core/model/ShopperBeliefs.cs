@@ -9,7 +9,6 @@ public class ShopperBeliefs : AgentBeliefs
 {
     public List<ItemToBuy> itemsToBuy;
     public float budget;
-    public List<string> friends = new List<string>();
 
     // Constructor to initialize the properties
     public ShopperBeliefs(List<ItemToBuy> itemsToBuy, float budget)
@@ -42,16 +41,8 @@ public class ShopperBeliefs : AgentBeliefs
         set { itemsToBuy = value; }
     }
 
-    public List<string> Friends
-    {
-        get
-        {
-            return friends;
-        }
-    }
-
     // Method to generate beliefs as string to fill .jcm file
-    public string GetBeliefsAsLiterals()
+    public override string GetBeliefsAsLiterals()
     {
         StringBuilder beliefs = new StringBuilder();
         // Add the budget belief

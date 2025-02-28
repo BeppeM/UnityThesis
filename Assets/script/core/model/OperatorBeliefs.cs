@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class OperatorBeliefs : AgentBeliefs
 {
-    public string GetBeliefsAsLiterals()
+    public override string GetBeliefsAsLiterals()
     {
         return "";
     }
