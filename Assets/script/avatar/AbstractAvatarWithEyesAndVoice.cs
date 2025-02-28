@@ -12,6 +12,14 @@ public abstract class AbstractAvatarWithEyesAndVoice : AbstractAvatar
     protected GameObject avatarEyes;
     protected TextMeshProUGUI baloonText;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        if (Application.IsPlaying(gameObject))
+        {
+            initializeAvatarWithEyes();
+        }
+    }
     protected void initializeAvatarWithEyes()
     {
         // Retrieve avatar parts
@@ -37,8 +45,43 @@ public abstract class AbstractAvatarWithEyesAndVoice : AbstractAvatar
         avatarEyes.SetActive(isActive);
     }
 
-    public void SendMessageToJaCaMoBrain(string message)
+    // Unity avatar receives message from jacamo agent
+    protected override void OnMessage(object sender, MessageEventArgs e)
     {
-        wsChannel.sendMessage(message);
+        string data = e.Data;
+        print("Received message: " + data);
+        WsMessage message = null;
+        try
+        {
+            message = JsonConvert.DeserializeObject<WsMessage>(data);
+            switch (message.MessageType)
+            {
+                case "wsInitialization":
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        print("Connection established for " + objInUse.name);
+                    });
+                    break;
+                case "reachDestination":
+                    print("Agent needs to reach destination.");
+                    // Avatar receives the type of artifact to reach
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                    {
+                        SetBaloonText("New destination: " + message.MessagePayload);
+                        artifacToReach = message.MessagePayload;
+                        reachDestination(message.MessagePayload);
+                    });
+                    break;
+                default:
+                    print("Unknown message type for " + objInUse.name);
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            print("Error: " + ex.Message);
+            print("Message could not be converted.");
+            return;
+        }
     }
 }

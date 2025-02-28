@@ -7,8 +7,6 @@ public class AutonomousWalking : MonoBehaviour
 {
 
     private NavMeshAgent agent;
-    private Vector3 min, max;
-    private Vector3 targetPosition = Vector3.zero;  // Store the target position for Gizmos
     private bool isStopped = false;
     private GameObject[] waypoints;
     private int currentWP = 0;
@@ -26,10 +24,7 @@ public class AutonomousWalking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        WalkAround walkAround = GameObject.FindObjectOfType<WalkAround>();
-        min = walkAround.min.position;
-        max = walkAround.max.position;        
+        agent = GetComponent<NavMeshAgent>();       
     }
 
     public void StartWalking()
@@ -64,22 +59,6 @@ public class AutonomousWalking : MonoBehaviour
         {            
             // Check if the random position is on the NavMesh                        
             agent.SetDestination(waypoints[currentWP].transform.position);            
-        }
-    }
-
-    // Draw the direction the agent is going using Gizmos
-    private void OnDrawGizmos()
-    {
-        if (agent != null && targetPosition != Vector3.zero)
-        {
-            // Set the color of the Gizmos
-            Gizmos.color = Color.green;
-
-            // Draw a line from the agent's current position to its destination
-            Gizmos.DrawLine(agent.transform.position, targetPosition);
-
-            // Draw a small sphere at the destination point
-            Gizmos.DrawSphere(targetPosition, 0.2f);
         }
     }
 }

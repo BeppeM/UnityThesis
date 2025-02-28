@@ -13,27 +13,12 @@ public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
     public GameObject[] waypoints;
 
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        // Retrieve avatar parts
-        avatarBody = transform.Find("Body").gameObject;
-        avatarEyes = transform.Find("anchorVisionCone").gameObject;
-        agent = GetComponent<NavMeshAgent>();
+        base.Awake();        
         // Set waypoints to follow
         autonomousWalking = GetComponent<AutonomousWalking>();
         autonomousWalking.Waypoints = waypoints;
-
-        if (Application.IsPlaying(gameObject))
-        {
-            initializeWebSocketConnection(OnMessage);
-        }
-        // Find the TextMeshPro component in the children of the avatar
-        nameTextMeshPro = transform.Find("avatarName").GetComponent<TextMeshPro>();
-        nameTextMeshPro.text = name;
-
-        // Initiating the baloon
-        baloonText = gameObject.transform.Find("Canvas/BaloonBg/BaloonTxt").GetComponent<TextMeshProUGUI>();
-        baloonText.text = "start";
     }
 
     protected void resetStoppingDistance()
@@ -69,7 +54,7 @@ public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
     }
 
     // Unity avatar receives message from jacamo agent
-    protected void OnMessage(object sender, MessageEventArgs e)
+    protected override void OnMessage(object sender, MessageEventArgs e)
     {
         string data = e.Data;
         print("Received message: " + data);
