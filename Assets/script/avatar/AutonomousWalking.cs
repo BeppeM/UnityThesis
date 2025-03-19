@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AutonomousWalking : MonoBehaviour
+public class AutonomousWalking : MovementModel
 {
-
     private NavMeshAgent agent;
-    private bool isStopped = false;
     private GameObject[] waypoints;
-    private int currentWP = 0;
-
-    public bool IsStopped
-    {
-        set { isStopped = value; }
-    }
+    private int currentWP = 0;   
 
     public GameObject[] Waypoints
     {
@@ -27,7 +20,7 @@ public class AutonomousWalking : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();       
     }
 
-    public void StartWalking()
+    public override void StartWalking()
     {
         StartCoroutine(WalkRoutine());
     }

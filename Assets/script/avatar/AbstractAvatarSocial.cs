@@ -9,16 +9,13 @@ using WebSocketSharp;
 
 public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
 {
-    protected AutonomousWalking autonomousWalking;
-    public GameObject[] waypoints;
-
+    protected MovementModel movementModel;
 
     protected override void Awake()
     {
         base.Awake();        
         // Set waypoints to follow
-        autonomousWalking = GetComponent<AutonomousWalking>();
-        autonomousWalking.Waypoints = waypoints;
+        movementModel = GetComponent<MovementModel>();
     }
 
     protected void resetStoppingDistance()
@@ -49,7 +46,7 @@ public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
 
     protected IEnumerator ActivateVisionCone()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(4.0f);
         EnableDisableVisionCone(true);
     }
 
@@ -69,10 +66,10 @@ public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
                         resetStoppingDistance();
-                        autonomousWalking.IsStopped = false;
+                        movementModel.IsStopped = false;
                         agent.ResetPath();
                         SetBaloonText("Walking");
-                        autonomousWalking.StartWalking();
+                        movementModel.StartWalking();
                         StartCoroutine(ActivateVisionCone());
                     });
                     break;
@@ -88,7 +85,7 @@ public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
                         SetBaloonText("New destination: " + message.MessagePayload);
-                        autonomousWalking.IsStopped = true;
+                        movementModel.IsStopped = true;
                         agent.ResetPath();
                         EnableDisableVisionCone(false);
                         reachDestination(message.MessagePayload);
@@ -99,7 +96,7 @@ public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
                         SetBaloonText("I'm stopped");
-                        autonomousWalking.IsStopped = true;
+                        movementModel.IsStopped = true;
                         agent.isStopped = true; ;
                         transform.LookAt(GameObject.Find(message.MessagePayload).transform);
                         EnableDisableVisionCone(false);
@@ -109,7 +106,7 @@ public class AbstractAvatarSocial : AbstractAvatarWithEyesAndVoice
                     // Avatar receives the type of artifact to reach
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
-                        autonomousWalking.IsStopped = true;
+                        movementModel.IsStopped = true;
                         // Delete previous path and reach friend
                         agent.ResetPath();
                         agent.stoppingDistance = 8.0f;
