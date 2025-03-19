@@ -2709,7 +2709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2085553386495400356, guid: 99599b0370991254ba7496a8a1fa8816, type: 3}
       propertyPath: waypoints.Array.size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2085553386495400356, guid: 99599b0370991254ba7496a8a1fa8816, type: 3}
       propertyPath: shopperBeliefs.budget
@@ -2746,7 +2746,7 @@ PrefabInstance:
     - target: {fileID: 2085553386495400356, guid: 99599b0370991254ba7496a8a1fa8816, type: 3}
       propertyPath: waypoints.Array.data[7]
       value: 
-      objectReference: {fileID: 958532603}
+      objectReference: {fileID: 4659306}
     - target: {fileID: 2085553386495400356, guid: 99599b0370991254ba7496a8a1fa8816, type: 3}
       propertyPath: waypoints.Array.data[8]
       value: 
